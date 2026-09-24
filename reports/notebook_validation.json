@@ -1,0 +1,32 @@
+[
+  {
+    "notebook": "01_pierwsza_para.ipynb",
+    "seconds": 3.64,
+    "status": "passed",
+    "code_cells": 7
+  },
+  {
+    "notebook": "02_seria_i_uderzenia.ipynb",
+    "seconds": 3.16,
+    "status": "passed",
+    "code_cells": 6
+  },
+  {
+    "notebook": "03_cechy_i_modele.ipynb",
+    "seconds": 3.96,
+    "status": "passed",
+    "code_cells": 10
+  },
+  {
+    "notebook": "04_gotowy_model_audio.ipynb",
+    "seconds": 6.88,
+    "status": "passed",
+    "code_cells": 5
+  },
+  {
+    "notebook": "05_odpornosc_i_protokol.ipynb",
+    "seconds": 4.52,
+    "status": "passed",
+    "code_cells": 4
+  }
+]

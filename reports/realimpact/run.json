@@ -1,0 +1,37 @@
+{
+  "manifest": "/Users/karolsii/dev/ceramic-ping-lab/data/external/realimpact/manifest.csv",
+  "config": {
+    "sr": 48000,
+    "n_fft": 2048,
+    "hop": 240,
+    "pre_s": 0.025,
+    "tail_s": 1.0,
+    "min_gap_s": 0.25,
+    "sensitivity": 6.0,
+    "max_seconds": 180.0
+  },
+  "fmax": 20000,
+  "manifest_sha256": "5ed0449ffde415d54a49a5518585ce0588ae663674d6a961d996cc3779d9024f",
+  "files": [
+    {
+      "path": "deconvolved0.wav",
+      "sha256": "1b8ff2b34e9c0cbe6078a20aa3caa3ae53b74a590b3292d1ba4a4aa18a9bacfc"
+    },
+    {
+      "path": "deconvolved1.wav",
+      "sha256": "345a098950614fe5f027dea64a3ab7448394fd1ccf6ffbd1cf7e2baa67cc5670"
+    },
+    {
+      "path": "deconvolved2.wav",
+      "sha256": "fc32c36a3f1295f92cde47eaced584dc6b6918587908e9212c23e17c5bf9bde6"
+    },
+    {
+      "path": "deconvolved3.wav",
+      "sha256": "128a9dc1013b733f53cbe6e7f92412d6aa17cac29b728711da5c19035bf4b2c8"
+    },
+    {
+      "path": "deconvolved4.wav",
+      "sha256": "b0ec71669024971ed845f615841150ff1cbcf2704b19f46dbe13a48c8bfbb55a"
+    }
+  ]
+}

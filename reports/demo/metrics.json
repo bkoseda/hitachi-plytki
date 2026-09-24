@@ -1,0 +1,38 @@
+{
+  "n_plates": 30,
+  "n_ok": 20,
+  "n_nok": 10,
+  "balanced_accuracy": 0.975,
+  "recall_nok": 1.0,
+  "false_alarm_rate": 0.05,
+  "roc_auc": 1.0,
+  "confusion_matrix": [
+    [
+      19,
+      1
+    ],
+    [
+      0,
+      10
+    ]
+  ],
+  "recall_nok_wilson_95": [
+    0.7224672001371107,
+    0.9999999999999999
+  ],
+  "false_alarm_wilson_95": [
+    0.008881448800795402,
+    0.23613119344674205
+  ],
+  "wilson_note": "Opisowy przedział Wilsona dla liczby płytek; przybliżenie, nie gwarancja dla nowej sesji.",
+  "threshold": 0.5,
+  "family": "resonance",
+  "aggregation": "median",
+  "split": "plate",
+  "warning": "Wynik eksploracyjny. Próg 0.5 nie jest skalibrowanym prawdopodobieństwem wady. Przed wdrożeniem potrzebny nowy zbiór, sesja i uzgodnione koszty błędów.",
+  "balanced_accuracy_bootstrap_95": [
+    0.925,
+    1.0
+  ],
+  "interval_note": "Bootstrap płytek na ustalonych prognozach OOF; nie obejmuje niepewności treningu ani zmiany fabryki."
+}

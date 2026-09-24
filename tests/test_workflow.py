@@ -106,3 +106,29 @@ def test_channel_contract_in_batch(tmp_path):
     assert (events.selected_channel == 0).all() and qc.selected_channel.iloc[0] == 0
     y, _ = event_audio(events.iloc[0].to_dict())
     assert np.max(np.abs(y)) < 0.15
+
+
+def test_cli_full_and_refuses_overwrite(tmp_path):
+    import subprocess
+    import sys
+
+    manifest = generate_demo(tmp_path / "data", n_plates=9)
+    command = [
+        sys.executable,
+        "-m",
+        "pinglab.cli",
+        "analyze",
+        str(manifest),
+        "--output",
+        str(tmp_path / "out"),
+        "--evaluate",
+        "--source-kind",
+        "synthetic",
+    ]
+    first = subprocess.run(command, capture_output=True, text=True)
+    assert first.returncode == 0, first.stderr
+    assert (tmp_path / "out/report.html").exists()
+    metrics = json.loads((tmp_path / "out/metrics.json").read_text())
+    assert metrics["family"] == "resonance" and metrics["n_plates"] == 9
+    second = subprocess.run(command, capture_output=True, text=True)
+    assert second.returncode != 0 and "nowy --output" in second.stderr

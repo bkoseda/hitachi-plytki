@@ -1,0 +1,14 @@
+{
+  "notebook": "02_seria_i_uderzenia.ipynb",
+  "run_all": "passed",
+  "widget_load": "passed",
+  "widget_save": "passed",
+  "plotly_render": "passed",
+  "annotations": {
+    "SYN_001_ok.wav": [
+      0.395,
+      1.895,
+      3.395
+    ]
+  }
+}

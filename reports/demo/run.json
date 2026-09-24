@@ -1,0 +1,141 @@
+{
+  "manifest": "/Users/karolsii/dev/ceramic-ping-lab/data/demo/manifest.csv",
+  "config": {
+    "sr": 48000,
+    "n_fft": 2048,
+    "hop": 240,
+    "pre_s": 0.025,
+    "tail_s": 1.0,
+    "min_gap_s": 0.25,
+    "sensitivity": 6.0,
+    "max_seconds": 180.0
+  },
+  "fmax": 20000,
+  "manifest_sha256": "5be92b60730d1dc490e0acdb8afec585f0cfab1209770ee04904ed87bf0f2d70",
+  "files": [
+    {
+      "path": "SYN_001_ok.wav",
+      "sha256": "534ea0236b7b3bae7e6f086dc6238ceff7392f9c9cfac970213db72611f2ba0f"
+    },
+    {
+      "path": "SYN_002_ok.wav",
+      "sha256": "d53f7c06be274baec7a7630badc29f18950107ddf044a9bacaaeeb54e1a30753"
+    },
+    {
+      "path": "SYN_003_ok.wav",
+      "sha256": "fa5ee28e506fdea6443556c12846dd7e654b10569270bb0d1e3f2e219c7d9867"
+    },
+    {
+      "path": "SYN_004_ok.wav",
+      "sha256": "f3d89c655c58f297a4b62c120b09bd23fdfd434e85d9058e6fcf8a71fcd32291"
+    },
+    {
+      "path": "SYN_005_ok.wav",
+      "sha256": "21c282b6cad9260583f0da9f34755b4277bc01a993725aff9d461334c04d0854"
+    },
+    {
+      "path": "SYN_006_ok.wav",
+      "sha256": "2ff6ed7fbb765ff6ff9bdadbcb01a357d1d66ff51f054aad6e4a430bffd07d2f"
+    },
+    {
+      "path": "SYN_007_ok.wav",
+      "sha256": "9b57c4e3955a575208961d6f9d52b7ae15dcb05399b46e7bc6604f60e70b16c1"
+    },
+    {
+      "path": "SYN_008_ok.wav",
+      "sha256": "be767261f0d17608b420bf0927091131949036b83de1a16dfaddff30b99abaa6"
+    },
+    {
+      "path": "SYN_009_ok.wav",
+      "sha256": "7dfb8a956c949c46acfdf44c06037ff2aa36b41ddd0c6741a0b21874be9c34e9"
+    },
+    {
+      "path": "SYN_010_ok.wav",
+      "sha256": "7cd256205a40a1fcba05b2b0175f3d2d044ed103807c9b55c07a88d9ce651fec"
+    },
+    {
+      "path": "SYN_011_ok.wav",
+      "sha256": "eb15be51873260ed89e65989764b3100eb5da5095ac9ca13ad82972ebcf2461d"
+    },
+    {
+      "path": "SYN_012_ok.wav",
+      "sha256": "4d032df837fb2f0476771bb0249bd564df80d08797a57f87b6af6a27f6daeacd"
+    },
+    {
+      "path": "SYN_013_ok.wav",
+      "sha256": "3540c52a0161c95f4150df9d1327d29a0cc89067a0644159eec87d815d2df2d4"
+    },
+    {
+      "path": "SYN_014_ok.wav",
+      "sha256": "f39c58e08b5291d6f24050cec554de81345fc15831f6b5ea732c1014ad77b67f"
+    },
+    {
+      "path": "SYN_015_ok.wav",
+      "sha256": "0c936ea48dfe11a59bb7ddc1d6d1bbc3228c019efb650e3627333d32ce15c2d1"
+    },
+    {
+      "path": "SYN_016_ok.wav",
+      "sha256": "2a03bd69166001e4c27a72aa74be194cc04a65506a6264234b831c201ee8d73b"
+    },
+    {
+      "path": "SYN_017_ok.wav",
+      "sha256": "819873a6bfa939482087a6cdac0e8071aff123cf63bad0549657c2fc626b1078"
+    },
+    {
+      "path": "SYN_018_ok.wav",
+      "sha256": "6826d5d03065e09884e061972b2faa193f1754840cf02f2981d668a0abd0e9b0"
+    },
+    {
+      "path": "SYN_019_ok.wav",
+      "sha256": "93c3c9d996095ae327486a67b64a6d32945d2a92eb82005669685a7e5f3ad3e5"
+    },
+    {
+      "path": "SYN_020_ok.wav",
+      "sha256": "c68d521e90a7b52840271f5a159a9139fd6367f630e9619c4fca716d4c9be893"
+    },
+    {
+      "path": "SYN_021_nok.wav",
+      "sha256": "33819925c2812b636ecced2c5979ee29b18412c71fc81e2c814deb8f33ab078f"
+    },
+    {
+      "path": "SYN_022_nok.wav",
+      "sha256": "11531e0a575f30f09b39aee14ac72d5f693b1abd8356f50faf6675dad73e3e44"
+    },
+    {
+      "path": "SYN_023_nok.wav",
+      "sha256": "d453310dd15bd5058a4b235955ae3d854d03723c35c26f9a0df9122876ea4f67"
+    },
+    {
+      "path": "SYN_024_nok.wav",
+      "sha256": "97183c7052e686ba9b2dbe32dec5742c2f5ac6c7185ba4badcfb46632bdc67be"
+    },
+    {
+      "path": "SYN_025_nok.wav",
+      "sha256": "9cba4f966d2d1d777622f571c862d1da1cdb469ae659e0695a106cb23c9b34a8"
+    },
+    {
+      "path": "SYN_026_nok.wav",
+      "sha256": "dd7b6832f348774224a4d9116f0c34244535da0efc56fef45e9d444739d02a3c"
+    },
+    {
+      "path": "SYN_027_nok.wav",
+      "sha256": "55c534d1b5024e2ba6dc37b6c4d851aec8f74014b4b63cf680d6279a7bc444d0"
+    },
+    {
+      "path": "SYN_028_nok.wav",
+      "sha256": "388ef035dacbbe7be1cb1997a40d5abc8c0447268f6903af4c0ea762fd3d5ff3"
+    },
+    {
+      "path": "SYN_029_nok.wav",
+      "sha256": "118604bf65154570fb3e72b3c273c528140048c65d11d6896a6b0045dce98cd4"
+    },
+    {
+      "path": "SYN_030_nok.wav",
+      "sha256": "6f0dbf0233fc8e4941673e9222d97a3dbae1483e705213267c79fa30d2b1a72b"
+    },
+    {
+      "path": "background.wav",
+      "sha256": "c6a61aa90caf05eb8b270fce32334f26f4051d001af27edcb81e52a446737730"
+    }
+  ]
+}

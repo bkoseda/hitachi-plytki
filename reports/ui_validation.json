@@ -1,0 +1,58 @@
+{
+  "results": [
+    {
+      "test": "desktop step 0",
+      "status": "passed"
+    },
+    {
+      "test": "desktop step 1",
+      "status": "passed"
+    },
+    {
+      "test": "desktop step 2",
+      "status": "passed"
+    },
+    {
+      "test": "desktop step 3",
+      "status": "passed"
+    },
+    {
+      "test": "desktop step 4",
+      "status": "passed"
+    },
+    {
+      "test": "desktop step 5",
+      "status": "passed"
+    },
+    {
+      "test": "desktop step 6",
+      "status": "passed"
+    },
+    {
+      "test": "all interactions and browser audio decode",
+      "status": "passed",
+      "decoded": [
+        {
+          "file": "demo-a.wav",
+          "duration": 1.025,
+          "channels": 1
+        },
+        {
+          "file": "demo-b.wav",
+          "duration": 1.025,
+          "channels": 1
+        },
+        {
+          "file": "noise-3.wav",
+          "duration": 1.025,
+          "channels": 1
+        }
+      ]
+    },
+    {
+      "test": "all steps at 390 px, no horizontal overflow",
+      "status": "passed"
+    }
+  ],
+  "javascript_errors": []
+}

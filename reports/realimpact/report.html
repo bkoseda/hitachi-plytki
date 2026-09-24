@@ -1,0 +1,72 @@
+<!doctype html><html lang="pl"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Raport analizy</title><style>body{margin:0;background:#f6f6f1;color:#203039;font:16px/1.55 system-ui,sans-serif}
+main{max-width:1120px;margin:auto;padding:36px 24px}h1{font-size:32px;line-height:1.2}h2{font-size:22px}
+.note{background:#fff0d8;border-left:4px solid #b56d20;padding:14px 18px}table{border-collapse:collapse;width:100%;font-size:13px}
+th,td{text-align:left;padding:9px;border-bottom:1px solid #d7dfdc}th{background:#eaf0ed}.scroll{overflow:auto}
+.stats{display:flex;gap:30px;flex-wrap:wrap}.stats b{font-size:26px;display:block}a{color:#117c83}code{background:#e6eeeb;padding:2px 5px}
+</style><main>
+<p>PING LAB / 2026-09-24 18:33 UTC</p><h1>Raport analizy</h1>
+<p class="note">Publiczne dane z innej domeny. Brak podstaw do wniosków o wadach płytek klienta.</p>
+<div class="stats"><div><b>5</b>plików</div><div><b>1</b>płytek z uderzeniami</div><div><b>5</b>uderzeń</div></div>
+<p><strong>Pliki bez ręcznie zatwierdzonych czasów: 5.</strong> Sprawdź każdy przed interpretacją modelu.</p>
+<details><summary>Jakość nagrań — rozwiń tabelę</summary><div class="scroll"><table border="1" class="dataframe qc">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Plik</th>
+      <th>Klasa</th>
+      <th>Uderzenia</th>
+      <th>Sprawdzone</th>
+      <th>Szczyt [dBFS]</th>
+      <th>Pełna skala [%]</th>
+      <th>Uwagi</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>deconvolved0.wav</td>
+      <td>unknown</td>
+      <td>1</td>
+      <td>nie</td>
+      <td>-3.564</td>
+      <td>0.000</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>deconvolved1.wav</td>
+      <td>unknown</td>
+      <td>1</td>
+      <td>nie</td>
+      <td>-0.255</td>
+      <td>0.000</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>deconvolved2.wav</td>
+      <td>unknown</td>
+      <td>1</td>
+      <td>nie</td>
+      <td>0.000</td>
+      <td>0.001</td>
+      <td>Próbki blisko pełnej skali: sprawdź przesterowanie</td>
+    </tr>
+    <tr>
+      <td>deconvolved3.wav</td>
+      <td>unknown</td>
+      <td>1</td>
+      <td>nie</td>
+      <td>-3.325</td>
+      <td>0.000</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>deconvolved4.wav</td>
+      <td>unknown</td>
+      <td>1</td>
+      <td>nie</td>
+      <td>-1.572</td>
+      <td>0.000</td>
+      <td></td>
+    </tr>
+  </tbody>
+</table></div></details>
+<h2>Następny krok</h2><p>Porównaj odsłuch, widmo i wybrzmiewanie. Do oceny modelu potrzeba wielu różnych płytek obu klas; dwie próbki nie wystarczą.</p>
+<h2>Co przekazać po pierwszych plikach</h2><p>Jakość nagrania · widoczne uderzenia · słyszalna różnica · zmiana protokołu · czego brakuje. Nie podawaj skuteczności z porównania jednej pary.</p></main></html>

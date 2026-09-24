@@ -1,0 +1,71 @@
+{
+  "source": "synthetic only; no claim of ceramic defect performance",
+  "protocol": "train original plates; perturb only held-out plate audio inside each same fold",
+  "stress": [
+    {
+      "variant": "gain_0.25",
+      "balanced_accuracy": 1.0,
+      "n_plates": 30
+    },
+    {
+      "variant": "white_noise_20db",
+      "balanced_accuracy": 0.5,
+      "n_plates": 30
+    },
+    {
+      "variant": "white_noise_10db",
+      "balanced_accuracy": 0.5,
+      "n_plates": 30
+    },
+    {
+      "variant": "white_noise_0db",
+      "balanced_accuracy": 0.5,
+      "n_plates": 30
+    }
+  ],
+  "permutation": {
+    "actual": 1.0,
+    "null_scores": [
+      0.25,
+      0.375,
+      0.4,
+      0.75,
+      0.425,
+      0.5,
+      0.675,
+      0.725,
+      0.4,
+      0.225,
+      0.42500000000000004,
+      0.42500000000000004,
+      0.625,
+      0.75,
+      0.6499999999999999,
+      0.65,
+      0.4,
+      0.35,
+      0.25,
+      0.30000000000000004,
+      0.275,
+      0.42500000000000004,
+      0.45,
+      0.525,
+      0.55,
+      0.55,
+      0.575,
+      0.5,
+      0.325,
+      0.6000000000000001,
+      0.22499999999999998,
+      0.525,
+      0.4,
+      0.5,
+      0.7,
+      0.55,
+      0.325,
+      0.35,
+      0.4
+    ],
+    "p_exploratory": 0.025
+  }
+}
