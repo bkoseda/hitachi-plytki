@@ -7,13 +7,13 @@ import numpy as np
 import pandas as pd
 from sklearn.metrics import balanced_accuracy_score
 
-from pinglab.dataset import event_audio
+from pinglab.dataset import analyze_manifest, event_audio
 from pinglab.features import extract_features
 from pinglab.learning import evaluate, make_classifier, permutation_check, plate_table
 from pinglab.robustness import mix_noise
 
 root = Path(__file__).resolve().parents[1]
-events = pd.read_csv(root / "reports/runs/demo/features.csv")
+events, _ = analyze_manifest(root / "data/demo/manifest.csv", root / "reports/runs/stress-check")
 base, cols = plate_table(events)
 _, _, folds = evaluate(events, bootstrap=0)
 rng = np.random.default_rng(812)

@@ -83,7 +83,7 @@ for name, filename in [("A", "SYN_001_ok.wav"), ("B", "SYN_021_nok.wav")]:
         long = dict(
             t=np.arange(len(blocks)) * 240 / sr, lo=blocks.min(axis=1), hi=blocks.max(axis=1), onsets=times
         )
-f = pd.read_csv(root / "reports/runs/demo/features.csv")
+f = pd.read_csv(root / "reports/demo/features.csv")
 pca = {}
 for family in ["resonance", "physics", "mfcc", "mel"]:
     _, table = embedding_map(f, family)
