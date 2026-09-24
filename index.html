@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ping Lab — warsztat analizy dźwięku</title>
+<link rel="stylesheet" href="assets/guide.css">
+<script src="assets/plotly.min.js"></script>
+<script src="assets/demo-data.js"></script>
+</head>
+<body>
+<aside class="sidebar">
+  <a class="brand" href="#start"><span class="brand-mark">◒</span> PING LAB</a>
+  <p class="edition">Ceramika / analiza uderzeń<br>Warsztat na pierwszy dzień</p>
+  <nav aria-label="Kroki warsztatu" id="nav">
+    <button data-step="0" class="active" aria-current="step"><span>00</span> Zacznij tutaj</button>
+    <button data-step="1"><span>01</span> Posłuchaj i porównaj</button>
+    <button data-step="2"><span>02</span> Znajdź uderzenia</button>
+    <button data-step="3"><span>03</span> Zobacz reprezentację</button>
+    <button data-step="4"><span>04</span> Sprawdź model</button>
+    <button data-step="5"><span>05</span> Dodaj hałas</button>
+    <button data-step="6"><span>06</span> Przygotuj wtorek</button>
+  </nav>
+  <div class="side-bottom"><span class="dot"></span> Lokalnie na Twoim Macu<br><small>Notebooki + krótki przewodnik</small><br><a href="docs/RESEARCH.md">Źródła i wybór metod ↗</a></div>
+</aside>
+<div class="main-shell">
+<header><span>BOGUSŁAW + KAROL <span class="muted">/ warsztat pomiarowy</span></span><span id="page-count">01 / 07</span></header>
+<main>
+<section class="page" data-page="0">
+  <div class="eyebrow">00 / START</div><h1>Pierwsze pliki.<br>Pierwsze decyzje.</h1>
+  <p class="lead">Odsłuchaj uderzenie, zobacz jego kształt i sprawdź,<br class="desktop"> czy różnica powtarza się na kolejnych płytkach.</p>
+  <div class="start-grid"><div class="start-primary"><h2>Na początek: 15 minut</h2>
+    <ol class="timeline"><li><b>Sprawdź nagranie</b><span>Czy słychać płytkę, a nie mikrofon lub rozmowę?</span></li><li><b>Porównaj parę OK / NOK</b><span>To samo podparcie i miejsce uderzenia.</span></li><li><b>Przekaż jedną zmianę</b><span>Co poprawić, zanim powstanie reszta nagrań?</span></li></ol>
+    <button class="primary" data-next>Przejdź do odsłuchu <span>→</span></button></div>
+  <div class="start-secondary"><div class="label">ILE JUŻ MASZ?</div><div class="segmented"><button class="active" data-stage="pair" aria-pressed="true">Dwa pliki</button><button data-stage="series" aria-pressed="false">Około 30 płytek</button></div>
+    <div id="stage-text" aria-live="polite"><h3>Porównuj. Jeszcze nie oceniaj modelu.</h3><p>Możesz sprawdzić jakość, barwę i rezonanse. Nie możesz wyznaczyć skuteczności detekcji z jednej pary.</p></div>
+    <div class="mini-rule"></div><p class="small">W tym przewodniku używamy oznaczonej <b>symulacji</b>. To ćwiczenie obsługi, nie wynik dla klienta.</p>
+  </div></div>
+  <details class="setup"><summary>Uruchom notebooki na tym Macu</summary><p>Otwórz folder projektu w Finderze i kliknij dwukrotnie <code>Start.command</code>. Możesz też wkleić do Terminala:</p><div class="command"><code>cd /Users/karolsii/dev/ceramic-ping-lab &amp;&amp; .venv/bin/jupyter lab</code><button data-copy="cd /Users/karolsii/dev/ceramic-ping-lab && .venv/bin/jupyter lab">Kopiuj</button></div><p>W Jupyterze otwórz <code>notebooks/01_pierwsza_para.ipynb</code>. Kernel: <b>Ping Lab (Python)</b>. Zmień ścieżki i wybierz <b>Run → Run All Cells</b>.</p></details>
+</section>
+<section class="page" data-page="1" hidden>
+  <div class="eyebrow">01 / PIERWSZA PARA <span class="badge">SYMULACJA</span></div><h1>Najpierw ucho.<br>Potem wykres.</h1><p class="lead">Porównaj barwę i długość wybrzmiewania. Szczyty odsłuchu są wyrównane.</p>
+  <div class="audio-grid"><div class="audio-card"><div><span class="sample-id teal">A</span><div><b>Dłuższy dźwięk</b><small>Symulacja OK · jeden rezonator</small></div></div><audio controls preload="metadata" src="assets/demo-a.wav" aria-label="Próbka A"></audio></div><div class="audio-card"><div><span class="sample-id orange">B</span><div><b>Krótszy dźwięk</b><small>Symulacja NOK · inne parametry</small></div></div><audio controls preload="metadata" src="assets/demo-b.wav" aria-label="Próbka B"></audio></div></div>
+  <div class="plot-top"><div class="segmented" id="pair-tabs"><button data-view="spectrum" class="active" aria-pressed="true">Widmo</button><button data-view="decay" aria-pressed="false">Wybrzmiewanie</button><button data-view="wave" aria-pressed="false">Sygnał</button><button data-view="spectrogram" aria-pressed="false">Spektrogram</button></div><label id="spec-picker" hidden>Próbka <select id="spec-sample"><option value="0">A</option><option value="1">B</option></select></label></div>
+  <div class="chart" id="pair-chart" role="img" aria-label="Porównanie widma próbek A i B"></div><p id="pair-caption" class="caption" aria-live="polite"></p>
+  <div class="takeaway"><b>Sprawdź przy kliencie</b><span>Czy różnica zostaje po zmianie płytki? Podparcie, geometria i miejsce uderzenia też zmieniają brzmienie.</span></div>
+  <div class="notebook-ref">OTWÓRZ <code>01_pierwsza_para.ipynb</code><span>Wgraj pliki → zmień FILE_A / FILE_B → uruchom komórki.</span></div>
+</section>
+<section class="page" data-page="2" hidden>
+  <div class="eyebrow">02 / SEGMENTACJA <span class="badge">SYMULACJA</span></div><h1>Jedno nagranie.<br>Kilka uderzeń.</h1><p class="lead">Automat proponuje granice. Odsłuch potwierdza, co naprawdę jest uderzeniem.</p>
+  <div class="plot-top"><label class="check"><input type="checkbox" id="bad-hit"> Pokaż przykładowy fałszywy podział ogona</label><span class="count" id="hit-count">3 kandydatów</span></div>
+  <div class="chart" id="hits-chart" role="img" aria-label="Nagranie z zaznaczonymi uderzeniami"></div>
+  <div class="two-col"><div><h3>Co poprawiasz w notebooku?</h3><p>Usuń dodatkowy czas, dopisz pominięte uderzenie i kliknij <b>Zatwierdź i zapisz</b>. Dla każdej płytki stosuj to samo okno.</p><div class="command"><code id="hit-times">[0.400, 1.900, 3.400]</code><button id="copy-hits">Kopiuj czasy</button></div></div><div class="quiet-panel"><h3>Nie urywaj wybrzmiewania</h3><p>Odstęp między uderzeniami powinien pozwalać na zanik poprzedniego. Skrócony ogon może wyglądać jak większe tłumienie.</p></div></div>
+  <div class="notebook-ref">OTWÓRZ <code>02_seria_i_uderzenia.ipynb</code><span>Manifest → przegląd plików → zatwierdzenie czasów → eksport cech.</span></div>
+</section>
+<section class="page" data-page="3" hidden>
+  <div class="eyebrow">03 / REPREZENTACJA <span class="badge">30 PŁYTEK SYNTETYCZNYCH</span></div><h1>Dźwięk zapisany<br>jako kilka liczb.</h1><p class="lead">Cechy opisują rezonanse, barwę i zanik energii. Każdy punkt poniżej to jedna płytka.</p>
+  <div class="plot-top"><label>Opis dźwięku <select id="feature-family"><option value="resonance">Rezonans i zanik — 3 cechy</option><option value="physics">Pełne cechy fizyczne — 15</option><option value="mfcc">MFCC — barwa</option><option value="mel">Mel — kształt widma</option></select></label><label>Kolor <select id="pca-color"><option value="label">OK / NOK</option><option value="session_id">Sesja nagrania</option></select></label></div>
+  <div class="chart" id="pca-chart" role="img" aria-label="Eksploracyjna mapa podobieństwa płytek"></div>
+  <p class="caption" id="pca-caption" aria-live="polite">Najedź lub kliknij punkt, aby zobaczyć płytkę. PCA pokazuje tylko dwie osie z wielu cech.</p>
+  <div class="takeaway"><b>Dwie chmury ≠ dowód</b><span>Jeśli kolory sesji tworzą osobne grupy, możliwe, że widzisz warunki nagrania. Test modelu musi użyć innych płytek.</span></div>
+  <div class="notebook-ref">OTWÓRZ <code>03_cechy_i_modele.ipynb</code><span>Porównaj cechy fizyczne, MFCC i pasma mel na tych samych danych.</span></div>
+</section>
+<section class="page" data-page="4" hidden>
+  <div class="eyebrow">04 / OCENA</div><h1>Czy działa na płytce,<br>której nie widział?</h1><p class="lead">Dziesięć uderzeń jednej płytki to nadal jedna niezależna próbka.</p>
+  <div class="split-box"><div><div class="label">TRENING</div><div class="tiles" id="train-tiles"></div><small>Skalowanie i model uczą się tylko tutaj.</small></div><div class="split-arrow">→</div><div><div class="label">TEST</div><div class="tiles" id="test-tiles"></div><small>Całe inne płytki. Żadne ich uderzenie nie trafia do treningu.</small></div></div>
+  <div class="model-choices"><button class="model active" data-method="baseline" aria-pressed="true"><span>01</span><b>Prosty klasyfikator</b><small>Cechy + regresja logistyczna</small></button><button class="model" data-method="normal" aria-pressed="false"><span>02</span><b>Tylko dobre wzorce</b><small>Odległość od znanych OK</small></button><button class="model" data-method="ast" aria-pressed="false"><span>03</span><b>Gotowy model AST</b><small>768 liczb, bez treningu sieci</small></button></div>
+  <div class="method-copy" id="method-copy" aria-live="polite"></div>
+  <details><summary>Jak czytać wynik?</summary><div class="three-col"><div><h3>Recall NOK</h3><p>Ile wadliwych płytek udało się wykryć?</p></div><div><h3>Fałszywe alarmy</h3><p>Ile dobrych płytek niepotrzebnie odrzucono?</p></div><div><h3>Balanced accuracy</h3><p>Średnia trafności na OK i NOK. Nie faworyzuje liczniejszej klasy.</p></div></div><p>Score 0.7 nie oznacza 70% pewności. Po wyborze metody potrzebujesz nowych danych do niezależnego sprawdzenia.</p></details>
+  <div class="notebook-ref">OTWÓRZ <code>03_cechy_i_modele.ipynb</code><span>AST: <code>04_gotowy_model_audio.ipynb</code>. Wagi są już pobrane na tym Macu.</span></div>
+</section>
+<section class="page" data-page="5" hidden>
+  <div class="eyebrow">05 / ODPORNOŚĆ <span class="badge">SZUM SYNTETYCZNY</span></div><h1>Ta sama płytka.<br>Inne otoczenie.</h1><p class="lead">Dodaj tło i zobacz, kiedy wybrzmiewanie przestaje być czytelne.</p>
+  <div class="noise-controls"><label for="noise-level">Ilość tła <b id="noise-label">Bez dodatku szumu</b><input id="noise-level" type="range" min="0" max="3" step="1" value="0"><span class="range-labels"><span>Czysto</span><span>Dużo szumu</span></span></label><audio id="noise-audio" controls preload="metadata" src="assets/noise-0.wav" aria-label="Odsłuch próbki z szumem"></audio></div>
+  <div class="chart" id="noise-chart" role="img" aria-label="Zmiana wybrzmiewania po dodaniu szumu"></div><p class="caption" id="noise-caption" aria-live="polite"></p>
+  <div class="takeaway"><b>Najpierw pomiar, potem filtr</b><span>Nagraj osobne tło fabryki. Agresywne odszumianie może usunąć również sygnał wady. Testuj na nowej sesji.</span></div>
+  <div class="notebook-ref">OTWÓRZ <code>05_odpornosc_i_protokol.ipynb</code><span>Podmień biały szum na rzeczywiste nagranie tła.</span></div>
+</section>
+<section class="page" data-page="6" hidden>
+  <div class="eyebrow">06 / GOTOWOŚĆ NA POMIARY</div><h1>We wtorek:<br>krótka pętla informacji.</h1><p class="lead">Pierwsza para → szybki odsłuch → korekta protokołu → reszta serii.</p>
+  <div class="two-col"><div><h2>Przed pierwszym plikiem</h2><div class="checklist" id="checklist"><label><input type="checkbox"> Notebook 01 uruchomiony na demo</label><label><input type="checkbox"> Ustalone ID fizycznych płytek</label><label><input type="checkbox"> Stałe podparcie, mikrofon i gain</label><label><input type="checkbox"> OK i NOK nagrywane naprzemiennie</label><label><input type="checkbox"> Osobne nagranie tła hali</label><label><input type="checkbox"> Operator wskazuje miejsce słyszalnej wady</label></div><p id="check-status" class="caption" aria-live="polite">0 / 6 gotowe</p></div><div class="quiet-panel"><div class="label">WIADOMOŚĆ PO PIERWSZEJ PARZE</div><textarea id="feedback" rows="8" aria-label="Szablon informacji zwrotnej">Jakość: [przesterowanie / tło / odstępy]
+Różnica A/B: [słyszalna? widoczna w widmie?]
+Powtarzalność: [czy kolejne uderzenia brzmią podobnie?]
+Prośba o zmianę: [jedna konkretna rzecz]
+Następne próbki: [inne płytki / miejsce / tło]</textarea><button id="copy-feedback">Kopiuj szablon</button><p class="small">Dwie próbki dają wskazówki do pomiaru. Nie dają wyniku skuteczności.</p></div></div>
+  <div class="resources"><a href="README.md">Instrukcja projektu ↗</a><a href="docs/RESEARCH.md">Badania i dane publiczne ↗</a><a href="docs/METHODS.md">Parametry i ograniczenia ↗</a><a href="reports/demo/report.html">Raport z symulacji ↗</a></div>
+  <details><summary>Co jest już w folderze projektu?</summary><p>Pięć notebooków, pakiet Python, manifest CSV, korekta segmentacji, eksport raportu, testy, syntetyczna seria 30 płytek i pięć rzeczywistych nagrań RealImpact bez etykiet wad. Model AST działa lokalnie z pobranych wag.</p><p>Publiczne RealImpact: <code>data/external/realimpact/</code>. To jeden przedmiot oglądany z różnych pozycji mikrofonu, nie pięć różnych dobrych / złych płytek.</p></details>
+</section>
+</main>
+<footer><button id="prev" aria-label="Poprzedni krok">← Wstecz</button><div id="progress" aria-label="Postęp"></div><button id="next">Dalej →</button></footer>
+</div>
+<div role="status" id="toast" aria-live="polite"></div>
+<script src="assets/guide.js"></script>
+</body></html>

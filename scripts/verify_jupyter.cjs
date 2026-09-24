@@ -1,0 +1,33 @@
+const {chromium}=require('/Users/karolsii/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright');
+const fs=require('fs');const path=require('path');
+(async()=>{
+const root=path.resolve(__dirname,'..');
+const log=fs.readFileSync('/tmp/ceramic-ping-jupyter.log','utf8');
+const token=log.match(/http:\/\/127\.0\.0\.1:8891\/lab\?token=([^\s]+)/)?.[1];
+if(!token)throw Error('Jupyter not ready');
+const browser=await chromium.launch({executablePath:'/Applications/Microsoft Edge.app/Contents/MacOS/Microsoft Edge',headless:true});
+const page=await browser.newPage({viewport:{width:1500,height:1000}});
+await page.goto('http://127.0.0.1:8891/lab/tree/notebooks/02_seria_i_uderzenia.ipynb?token='+token);
+await page.locator('.jp-Notebook').waitFor({timeout:60000});
+await page.locator('.jp-RenderedHTMLCommon h1').filter({hasText:'02 · Seria i uderzenia'}).waitFor({timeout:60000});
+console.log('Notebook content loaded');
+await page.screenshot({path:path.join(root,'reports/ui/jupyter-before.png')});
+await page.getByRole('menuitem',{name:'Run',exact:true}).click();
+console.log('MENU',await page.locator('.lm-Menu').innerText());
+await page.getByRole('menuitem',{name:'Run All Cells',exact:true}).click();
+await page.getByRole('button',{name:'Wczytaj / wykryj',exact:true}).waitFor({timeout:90000});
+await page.getByRole('button',{name:'Wczytaj / wykryj',exact:true}).click();
+await page.getByRole('button',{name:'Zatwierdź i zapisz',exact:true}).waitFor();
+await page.waitForFunction(()=>[...document.querySelectorAll('button')].some(b=>b.textContent.includes('Zatwierdź i zapisz')&&!b.disabled),{timeout:30000});
+const timeField=page.locator('textarea').filter({visible:true});
+console.log('Visible textareas:',await timeField.count());
+await page.screenshot({path:path.join(root,'reports/ui/jupyter-widget.png'),fullPage:false});
+// Persist a reviewed synthetic file through the actual live notebook callback.
+await page.getByRole('button',{name:'Zatwierdź i zapisz',exact:true}).click();
+await page.waitForFunction(()=>document.body.innerText.includes('Zapisano:'));
+const annotated=JSON.parse(fs.readFileSync(path.join(root,'data/demo/reviewed_annotations.json'),'utf8'));
+if(!Object.keys(annotated).length)throw Error('widget did not save annotation');
+fs.writeFileSync(path.join(root,'reports/jupyter_validation.json'),JSON.stringify({notebook:'02_seria_i_uderzenia.ipynb',run_all:'passed',widget_load:'passed',widget_save:'passed',annotations:annotated},null,2));
+console.log('LIVE JUPYTER WIDGETS PASS');
+await browser.close();
+})().catch(e=>{console.error(e);process.exit(1)});

@@ -13,3 +13,5 @@ data/cache/
 reports/runs/
 models/
 *.log
+data/demo/*.wav
+reports/ui/

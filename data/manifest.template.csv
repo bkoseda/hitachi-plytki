@@ -1,0 +1,4 @@
+path,plate_id,label,session_id,position,environment,notes,photo,channel
+raw/P001_ok.wav,P001,ok,S01,A,production,"podparcie i miejsce zgodnie z protokołem",,
+raw/P002_nok.wav,P002,nok,S01,A,production,"opis wady; etykieta operatora",,
+raw/background.wav,BG01,background,S01,,production,"tło bez uderzeń",,

@@ -31,3 +31,6 @@ markers = ["integration: real model or codec integration"]
 [tool.ruff]
 line-length = 110
 
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F", "I"]
