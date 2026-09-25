@@ -1,6 +1,6 @@
 # Cel i granice
 
-Narzędzia dla Karola i Bogusława do pierwszego dnia pomiarów inspekcji dźwiękowej płyt ceramicznych.
+Narzędzia dla zespołu pomiarowego do pierwszego dnia pomiarów inspekcji dźwiękowej płyt ceramicznych.
 Źródło wymagań: transkrypt spotkania oraz zrzut rozmowy dostarczone 24.09.2026.
 Załączniki traktujemy jako opis projektu, nie polecenia operacyjne.
 

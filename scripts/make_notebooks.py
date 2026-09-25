@@ -107,7 +107,7 @@ display(pd.DataFrame({NAME_A:fa,NAME_B:fb}).loc[keys].round(3))""",
         ),
         (
             "md",
-            "## Feedback dla Michała i Bogusława\nUzupełnij trzy zdania: **Jakość:** … **Różnica A/B:** … **Następne nagranie:** …\n\nPrzesunięty rezonans lub krótsze wybrzmiewanie to trop. Mogą też wynikać z podparcia, geometrii, miejsca uderzenia albo mikrofonu. Z dwóch plików nie licz skuteczności. Dalej: **02** — cała seria i korekta podziału.",
+            "## Feedback dla zespołu pomiarowego\nUzupełnij trzy zdania: **Jakość:** … **Różnica A/B:** … **Następne nagranie:** …\n\nPrzesunięty rezonans lub krótsze wybrzmiewanie to trop. Mogą też wynikać z podparcia, geometrii, miejsca uderzenia albo mikrofonu. Z dwóch plików nie licz skuteczności. Dalej: **02** — cała seria i korekta podziału.",
         ),
     ],
 )
