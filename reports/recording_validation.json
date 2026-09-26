@@ -1,0 +1,8 @@
+{
+  "notebook": "07_nagrywanie_i_wybrzmienia.ipynb",
+  "demo_run_all": "passed",
+  "microphone_recording": "not activated; user will record",
+  "device_query": "MacBook Pro microphone, 48000 Hz mono",
+  "tests": "synthetic boundaries + mocked capture + WAV export",
+  "vscode_run_all": "passed in demo mode; waveform, colored boundaries and table visually checked"
+}

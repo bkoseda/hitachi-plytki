@@ -27,6 +27,7 @@
 | 04 | Opcjonalny AST; `pip install -e '.[embeddings]'`, potem `python scripts/warm_model.py` |
 | 05 | Wrażliwość na szum; tło bierze z manifestu, bez niego używa białego szumu |
 | 06 | Porównanie A/B, błędy płyt i liczba uderzeń |
+| 07 | Nagraj mikrofonem, podziel na pingi i sprawdź nakładanie wybrzmień; niezależny od project.json |
 
 ## Wysyłka
 

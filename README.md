@@ -22,6 +22,8 @@ Otwórz cały folder projektu w VS Code, wybierz lokalny kernel `.venv` / **Ping
 
 `index.html` pozostaje interaktywnym przewodnikiem po metodach. `Start.command` otwiera go i JupyterLab jako alternatywę dla VS Code.
 
+**Nagrywanie mikrofonem:** `notebooks/07_nagrywanie_i_wybrzmienia.ipynb`. Ustaw `RECORD=True` i Run All; 20 s nagrania po odliczaniu. Domyślnie `False` pokazuje demo bez otwierania mikrofonu.
+
 ## Instalacja na innym komputerze
 
 Python 3.11–3.13, zalecany 3.12. Podstawowy zestaw bez dużych modeli:

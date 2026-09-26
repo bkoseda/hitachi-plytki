@@ -55,6 +55,8 @@ settings.write_text(json.dumps(spec))
 os.environ["PINGLAB_SETTINGS"] = str(settings)
 results = []
 for path in sorted((root / "notebooks").glob("*.ipynb")):
+    if path.name.startswith("07_"):
+        continue  # recorder has an explicit separate audio source; never activate it in batch tests
     nb = nbformat.read(path, as_version=4)
     NotebookClient(
         nb, timeout=1200, kernel_name="pinglab", resources={"metadata": {"path": str(root)}}

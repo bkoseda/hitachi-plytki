@@ -64,3 +64,7 @@ przygotowany i sprawdzony wariant używa CPU.
 - VS Code: faktyczne kliknięcie Run All na notebookach i kontrola wyników przez Computer Use. Widgety początkowo powodowały prośbę o dodatkowe pobieranie; wyłączono je domyślnie. Korekta sekund działa przez `CORRECTIONS`. Rozszerzenia Python/Jupyter/Renderers były już zainstalowane. Szczegóły końcowej kontroli: `reports/vscode_validation.json`.
 
 Wyniki numeryczne na symulacji nie wybierają metody dla klienta. Test szumu nadal pokazuje, że bazowy model może zawieść po zmianie warunków. Automatyczna segmentacja wymaga przeglądu prawdziwych nagrań.
+
+## Nagrywanie i wybrzmienia — 26.09.2026
+
+Notebook 07 wykonany w VS Code w trybie demo; wykres i status przerwanego ogona sprawdzone wizualnie. Mikrofon MacBooka widoczny jako mono 48 kHz. Testy nagrywania używają podstawionego backendu (natywne sr, unikalne nazwy i wykrywanie overflow); nie aktywowano rzeczywistego mikrofonu. Test sygnału wykrywa 4 pingi, w tym przerwę 0.35 s, koniec ogona i ucięcie końcem pliku. Nagrywanie użytkownik uruchamia jawnie przez RECORD=True.

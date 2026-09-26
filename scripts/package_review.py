@@ -69,6 +69,7 @@ for name in [
     "scripts/setup.sh",
     "scripts/warm_model.py",
     "scripts/make_notebooks.py",
+    "scripts/make_recording_notebook.py",
     "scripts/package_review.py",
     "scripts/verify_notebooks.py",
     "scripts/download_realimpact.py",
