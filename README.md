@@ -61,3 +61,5 @@ Po Run All wyniki są w katalogu wskazanym w `project.json`; kolejne wykonanie a
 ```
 
 Ostatni test wymaga pobranego RealImpact; uruchamia wszystkie notebooki na osobnym WAV i MP3 bez etykiet, bez zmiany `project.json`. Testy podziałów sprawdzają rozdzielenie fizycznych płyt i dopasowanie wzorców tylko na OK. Zapis kontroli VS Code jest w `reports/vscode_validation.json`.
+
+Eksperyment z jedną rakietą i etykietami central/offcenter: [instrukcja sesji badminton](docs/BADMINTON.md).
