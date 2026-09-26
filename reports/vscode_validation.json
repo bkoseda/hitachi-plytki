@@ -1,0 +1,59 @@
+{
+  "date": "2026-09-26",
+  "application": "Visual Studio Code",
+  "version": "1.139.0",
+  "kernel": ".venv Python 3.12.14",
+  "method": "Native VS Code UI via Computer Use: open notebook, click Run All, select .venv, inspect completed results, save.",
+  "notebooks": [
+    {
+      "notebook": "00_eksploracja_do_przegladu.ipynb",
+      "run_all_in_vscode": "passed",
+      "saved_code_cells": 9
+    },
+    {
+      "notebook": "01_pierwsza_para.ipynb",
+      "run_all_in_vscode": "passed",
+      "saved_code_cells": 7
+    },
+    {
+      "notebook": "02_seria_i_uderzenia.ipynb",
+      "run_all_in_vscode": "passed",
+      "saved_code_cells": 6
+    },
+    {
+      "notebook": "03_cechy_i_modele.ipynb",
+      "run_all_in_vscode": "passed",
+      "saved_code_cells": 10
+    },
+    {
+      "notebook": "04_gotowy_model_audio.ipynb",
+      "run_all_in_vscode": "passed",
+      "saved_code_cells": 5
+    },
+    {
+      "notebook": "05_odpornosc_i_protokol.ipynb",
+      "run_all_in_vscode": "passed",
+      "saved_code_cells": 4
+    },
+    {
+      "notebook": "06_porownanie_metod.ipynb",
+      "run_all_in_vscode": "passed",
+      "saved_code_cells": 6
+    }
+  ],
+  "visual_checks": [
+    "PNG spectrogram gallery and feature atlas",
+    "Plotly A/B spectra and PCA",
+    "data tables and AST comparison",
+    "noise robustness table",
+    "tap-count curve"
+  ],
+  "resolved_issue": "Optional ipywidgets triggered external download prompts. Disabled by default; CORRECTIONS dict is default review workflow.",
+  "html_review": {
+    "images_loaded": 9,
+    "audio_players_ready": 31,
+    "audio_duration_seconds": 5,
+    "audio_errors": 0,
+    "external_scripts": 0
+  }
+}

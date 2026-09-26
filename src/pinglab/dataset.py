@@ -44,7 +44,7 @@ def read_manifest(path):
     df["sha256"] = df.resolved_path.map(sha256)
     if df.sha256.duplicated().any():
         raise ValueError("Identyczna zawartość audio w kilku wierszach. Usuń kopie przed analizą.")
-    for col in ["position", "environment", "notes", "photo", "channel"]:
+    for col in ["position", "environment", "notes", "photo", "channel", "plate_type", "temperature"]:
         if col not in df:
             df[col] = ""
     for value in df.channel:
@@ -90,7 +90,7 @@ def analyze_manifest(manifest, output, config=None, fmax=20000, annotations=None
         quality.append(q)
         for i, segment in enumerate(segments):
             feats = extract_features(segment["y"], audio.sr, segment["onset_offset_s"], fmax=fmax)
-            row = {k: rec[k] for k in REQUIRED + ["position", "environment", "notes", "photo", "sha256"]}
+            row = {k: rec[k] for k in REQUIRED + ["position", "environment", "notes", "photo", "plate_type", "temperature", "sha256"]}
             row.update(
                 hit_id=f"{rec['plate_id']}:{rec['sha256'][:10]}:{i + 1}",
                 start_s=segment["start_s"],

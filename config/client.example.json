@@ -1,0 +1,8 @@
+{
+  "source_kind": "client",
+  "manifest": "data/raw/client/manifest.csv",
+  "annotations": "data/raw/client/annotations.json",
+  "output": "reports/runs/client-session-01",
+  "fmax": 20000,
+  "audio": {"tail_s": 1.0, "min_gap_s": 0.25, "sensitivity": 6.0, "max_seconds": 900.0}
+}

@@ -1,0 +1,8 @@
+{
+  "source_kind": "synthetic",
+  "manifest": "data/demo/manifest.csv",
+  "annotations": "data/demo/annotations.json",
+  "output": "reports/runs/demo-session",
+  "fmax": 20000,
+  "audio": {"tail_s": 1.0, "min_gap_s": 0.25, "sensitivity": 6.0}
+}

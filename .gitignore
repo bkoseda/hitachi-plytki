@@ -16,3 +16,4 @@ models/
 data/demo/*.wav
 reports/ui/
 data/demo/reviewed_annotations.json
+deliverables/

@@ -4,22 +4,25 @@ import nbformat as nbf
 
 ROOT = Path(__file__).resolve().parents[1]
 BOOT = """from pathlib import Path
-import os, json
+import os, json, sys
 import numpy as np
 import pandas as pd
 from IPython.display import display, Markdown
 ROOT = Path.cwd()
 if not (ROOT / "pyproject.toml").exists():
     ROOT = ROOT.parent
-assert (ROOT / "pyproject.toml").exists(), "Uruchom notebook z katalogu repo lub notebooks/."
+assert (ROOT / "pyproject.toml").exists(), "Otwórz cały folder projektu w VS Code."
 os.chdir(ROOT)
+sys.path.insert(0, str(ROOT / "src"))
 from pinglab.audio import Config, load_audio, detect_hits, cut_hits, listen
-from pinglab.demo import generate_demo
-if not (ROOT / "data/demo/SYN_001_ok.wav").exists():
-    generate_demo(ROOT / "data/demo")
-CONFIG = Config()
-FMAX = 20000  # wspólne pasmo wszystkich plików; dla źródeł 16 kHz ustaw np. 7500
-print("Repo:", ROOT)
+from pinglab.session import load_session
+SESSION = load_session(ROOT)
+CONFIG, FMAX = SESSION.config, SESSION.fmax
+MANIFEST, ANNOTATIONS = SESSION.manifest, SESSION.annotations
+print("Dane:", SESSION.source_kind, "· manifest:", MANIFEST.relative_to(ROOT) if MANIFEST.is_relative_to(ROOT) else MANIFEST.name)
+print("Wspólne pasmo do", FMAX, "Hz · konfiguracja: project.json")
+if SESSION.source_kind == "synthetic":
+    display(Markdown("**SYMULACJA — wynik sprawdza narzędzia, nie wykrywanie pęknięć u klienta.**"))
 """
 
 
@@ -31,7 +34,12 @@ def write(name, cells):
         kernelspec=dict(display_name="Ping Lab (Python)", language="python", name="pinglab"),
         language_info=dict(name="python", version="3.12"),
     )
-    nbf.write(nb, ROOT / "notebooks" / name)
+    destination = ROOT / "notebooks" / name
+    if destination.exists():
+        old = nbf.read(destination, as_version=4)
+        if [(c.cell_type, c.source) for c in old.cells] == [(c.cell_type, c.source) for c in nb.cells]:
+            return
+    nbf.write(nb, destination)
 
 
 write(
@@ -39,22 +47,24 @@ write(
     [
         (
             "md",
-            "# 01 · Pierwsze dwa pliki\n**Cel:** odsłuchać, sprawdzić jakość i zobaczyć różnice. Około 10 minut.\n\nDomyślnie otwierasz **symulację**, nie pomiary klienta. Zmień tylko komórkę KONFIGURACJA. Pracujemy lokalnie. `Shift+Enter` uruchamia komórkę; **Run → Run All Cells** uruchamia całość.",
+            "# 01 · Pierwsze dwa pliki\n**Cel:** odsłuchać, sprawdzić jakość i zobaczyć różnice. Około 10 minut.\n\nDomyślnie otwierasz **symulację**, nie pomiary klienta. Wspólne dane ustaw w `project.json`. Pracujemy lokalnie. `Shift+Enter` uruchamia komórkę; **Run → Run All Cells** uruchamia całość.",
         ),
         ("code", BOOT),
         (
             "md",
-            "## Wrzuć pliki\nOpcjonalny przycisk zapisze je do `data/raw/inbox/`. Możesz też skopiować je Finderem. Wklej ścieżki poniżej.",
+            "## Wrzuć pliki\nOpcjonalny przycisk zapisze je do `data/raw/inbox/`. Możesz też skopiować je Finderem. Dodaj pliki do manifestu wskazanego w `project.json`.",
         ),
-        ("code", 'from pinglab.widgets import upload_box\nuploader = upload_box(ROOT / "data/raw/inbox")'),
+        ("code", 'SHOW_UPLOAD_WIDGET = False  # opcjonalne; VS Code może poprosić o pobranie zasobów widgetów\nif SHOW_UPLOAD_WIDGET:\n    from pinglab.widgets import upload_box\n    uploader = upload_box(ROOT / "data/raw/inbox")'),
         (
             "code",
             """# KONFIGURACJA — jedyne obowiązkowe zmiany po otrzymaniu plików
-FILE_A = ROOT / "data/demo/SYN_001_ok.wav"
-FILE_B = ROOT / "data/demo/SYN_021_nok.wav"
-NAME_A, NAME_B = "A · demo OK", "B · demo NOK"
-CHANNEL_A, CHANNEL_B = None, None  # None = kanał z najwyższym RMS; 0/1 wymusza kanał
-MANUAL_A, MANUAL_B = None, None  # np. [0.4, 1.9, 3.4]; [] = brak uderzeń
+REC_A, REC_B = SESSION.pair()
+FILE_A, FILE_B = Path(REC_A.resolved_path), Path(REC_B.resolved_path)
+NAME_A, NAME_B = f"A · {REC_A.plate_id} ({REC_A.label})", f"B · {REC_B.plate_id} ({REC_B.label})"
+CHANNEL_A = int(REC_A.channel) if REC_A.channel else None
+CHANNEL_B = int(REC_B.channel) if REC_B.channel else None  # None = kanał z najwyższym RMS; 0/1 wymusza kanał
+saved_times = json.loads(ANNOTATIONS.read_text()) if ANNOTATIONS.exists() else {}
+MANUAL_A, MANUAL_B = saved_times.get(REC_A.path), saved_times.get(REC_B.path)  # np. [0.4, 1.9, 3.4]; [] = brak uderzeń
 HIT_A, HIT_B = 0, 0             # numer uderzenia od zera
 """,
         ),
@@ -123,14 +133,14 @@ write(
         (
             "code",
             """# KONFIGURACJA
-MANIFEST = ROOT / "data/demo/manifest.csv"
-ANNOTATIONS = ROOT / "data/demo/reviewed_annotations.json"
-OUT = ROOT / "reports/runs/notebook_batch"
+MANIFEST = SESSION.manifest
+ANNOTATIONS = SESSION.annotations
+OUT = SESSION.output / "batch"
 """,
         ),
         (
             "md",
-            "## Manifest\nWiersz = plik. Obowiązkowe: `path`, `plate_id`, `label`, `session_id`. Etykiety: `ok`, `nok`, `unknown`, `background`. Ścieżka względna jest liczona **od pliku CSV**. Szablon: `data/manifest.template.csv`.\n\n`channel` = opcjonalny numer kanału (0/1, puste = auto). `position` = miejsce uderzenia; `environment` = warunki; `notes` = opis wady/podparcia; `photo` = ścieżka zdjęcia. Przy wielu miejscach w jednym pliku wpisz kolejność i zachowuj ten sam protokół.",
+            "## Manifest\nWiersz = plik. Obowiązkowe: `path`, `plate_id`, `label`, `session_id`. Etykiety: `ok`, `nok`, `unknown`, `background`. Ścieżka względna jest liczona **od pliku CSV**. Szablon: `data/manifest.template.csv`.\n\n`channel` = opcjonalny numer kanału (0/1, puste = auto). `position` = miejsce uderzenia; `environment` = warunki; `notes` = opis wady/podparcia; `photo` = ścieżka zdjęcia; `plate_type` = typ płyty; `temperature` = temperatura. Przy wielu miejscach w jednym pliku wpisz kolejność i zachowuj ten sam protokół.",
         ),
         (
             "code",
@@ -141,11 +151,28 @@ print("Fizyczne płytki:",manifest[manifest.label!='background'].groupby('label'
         ),
         (
             "md",
-            "## Zatwierdź uderzenia\nWybierz plik → **Wczytaj / wykryj** → odsłuchaj → popraw sekundy → **Podgląd czasów** → **Zatwierdź i zapisz**. Większy próg wykrywa mniej kandydatów. Zatwierdzone czasy mają pierwszeństwo przed automatem; aby przeliczyć je automatycznie, usuń wpis z JSON. Puste pole i zapis oznaczają świadome odrzucenie wszystkich uderzeń.",
+            "## Zatwierdź uderzenia\nWpisz poprawione sekundy do `CORRECTIONS` i uruchom ponownie. Puste `{}` niczego nie zmienia. Opcjonalnie ustaw `SHOW_REVIEW_WIDGET=True`, aby użyć przycisków edytora (VS Code może poprosić o pobranie zasobów). Większy próg wykrywa mniej kandydatów. Zatwierdzone czasy mają pierwszeństwo przed automatem; aby przeliczyć je automatycznie, usuń wpis z JSON. Puste pole i zapis oznaczają świadome odrzucenie wszystkich uderzeń.",
         ),
         (
             "code",
-            "from pinglab.widgets import review_manifest\nreview = review_manifest(MANIFEST,ANNOTATIONS,CONFIG)",
+            """# Ręczna korekta bez widgetów: klucz = dokładne path z manifestu, wartości = sekundy.
+CORRECTIONS = {}  # np. {"sample_a.wav": [0.42, 1.93, 3.48]}; [] odrzuca plik
+if CORRECTIONS:
+    from pinglab.audio import cut_hits
+    known = set(manifest.path)
+    assert set(CORRECTIONS) <= known, "Klucz korekty musi zgadzać się z path w manifeście."
+    for path, seconds in CORRECTIONS.items():
+        rec = manifest[manifest.path == path].iloc[0]
+        recording = load_audio(rec.resolved_path,CONFIG,channel=int(rec.channel) if rec.channel else None)
+        cut_hits(recording.y,recording.sr,np.asarray(seconds,float),CONFIG)  # walidacja czasów
+    existing = json.loads(ANNOTATIONS.read_text()) if ANNOTATIONS.exists() else {}
+    ANNOTATIONS.parent.mkdir(parents=True,exist_ok=True)
+    ANNOTATIONS.write_text(json.dumps({**existing,**CORRECTIONS},indent=2))
+    print("Zapisano korekty:",list(CORRECTIONS))
+SHOW_REVIEW_WIDGET = False  # opcjonalne; podstawowy Run All nie wymaga widgetów
+if SHOW_REVIEW_WIDGET:
+    from pinglab.widgets import review_manifest
+    review = review_manifest(MANIFEST,ANNOTATIONS,CONFIG)""",
         ),
         (
             "md",
@@ -163,7 +190,7 @@ display(events[['plate_id','label','hit_id','start_s','end_s','truncated']].head
         (
             "code",
             """from pinglab.report import write_report
-source_kind = 'synthetic' if events.environment.eq('synthetic').any() else 'client'
+source_kind = SESSION.source_kind
 report = write_report(events,quality,OUT/'report.html',source_kind=source_kind)
 display(Markdown(f"Raport HTML: `{report}`"))""",
         ),
@@ -185,9 +212,9 @@ write(
         (
             "code",
             """# KONFIGURACJA — użyj tego samego manifestu i parametrów co w 02
-MANIFEST = ROOT / "data/demo/manifest.csv"
-ANNOTATIONS = ROOT / "data/demo/annotations.json"  # dla klienta: zatwierdzony plik z 02
-OUT = ROOT / "reports/runs/notebook_models"
+MANIFEST = SESSION.manifest
+ANNOTATIONS = SESSION.annotations  # dla klienta: zatwierdzony plik z 02
+OUT = SESSION.output / "models"
 FAMILY = 'resonance'  # resonance (3 cechy) / physics (15) / mfcc / mel
 from pinglab.dataset import analyze_manifest
 events, quality = analyze_manifest(MANIFEST,OUT,CONFIG,FMAX,
@@ -268,7 +295,7 @@ if RUN_PERMUTATION:
         (
             "code",
             """from pinglab.report import write_report
-source_kind='synthetic' if events.environment.eq('synthetic').any() else 'client'
+source_kind=SESSION.source_kind
 print(write_report(events,quality,OUT/'report.html',assessment,source_kind=source_kind))""",
         ),
         (
@@ -300,15 +327,15 @@ write(
     [
         (
             "md",
-            "# 04 · Gotowy model audio, bez treningu sieci\n**Cel:** sprawdzić alternatywny opis dźwięku. AST zamienia uderzenie na 768 liczb. Używamy wag AudioSet w trybie zamrożonym. To model ogólnych zdarzeń audio, nie wyspecjalizowany detektor pęknięć.\n\nNa tym Macu model jest już pobrany. Obliczenia pozostają lokalne. CPU jest domyślny; 48 GB RAM wystarcza z dużym zapasem dla pojedynczych wywołań.",
+            "# 04 · Gotowy model audio, bez treningu sieci\n**Cel:** sprawdzić alternatywny opis dźwięku. AST zamienia uderzenie na 768 liczb. Używamy wag AudioSet w trybie zamrożonym. To model ogólnych zdarzeń audio, nie wyspecjalizowany detektor pęknięć.\n\nModel wymaga jednorazowego pobrania przez `scripts/warm_model.py`. Ten notebook jest opcjonalny (priorytet 3). Obliczenia pozostają lokalne. CPU jest domyślny; 48 GB RAM wystarcza z dużym zapasem dla pojedynczych wywołań.",
         ),
         ("code", BOOT),
         (
             "code",
             """# KONFIGURACJA
-MANIFEST = ROOT / "data/demo/manifest.csv"
-ANNOTATIONS = ROOT / "data/demo/annotations.json"
-OUT = ROOT / "reports/runs/notebook_ast"
+MANIFEST = SESSION.manifest
+ANNOTATIONS = SESSION.annotations
+OUT = SESSION.output / "ast"
 OFFLINE = True  # przy nowej instalacji: najpierw python scripts/warm_model.py
 from pinglab.dataset import analyze_manifest
 events,quality = analyze_manifest(MANIFEST,OUT,CONFIG,FMAX,ANNOTATIONS if ANNOTATIONS.exists() else None)""",
@@ -369,8 +396,8 @@ write(
         (
             "code",
             """# KONFIGURACJA
-FILE = ROOT / "data/demo/SYN_001_ok.wav"
-BACKGROUND = None  # np. ROOT / "data/raw/factory_background.wav"
+FILE = Path(SESSION.pair()[0].resolved_path)
+BACKGROUND = SESSION.background  # np. ROOT / "data/raw/factory_background.wav"
 audio=load_audio(FILE,CONFIG)
 clips=cut_hits(audio.y,audio.sr,detect_hits(audio.y,audio.sr,CONFIG),CONFIG)
 assert clips,"Popraw segmentację w notebooku 01/02."
@@ -400,20 +427,20 @@ for name in ['original','gain -12 dB','noise 10 dB']:
         ),
         (
             "md",
-            "## Czy model przeżywa zmianę tła?\nTen test zostawia całe płytki poza treningiem. Porównuje trening na czystym audio i z dodanym tłem; powielone warianty nie zwiększają liczby płytek. To demonstracja na symulacji. Dla klienta ustaw własny manifest, zatwierdzone czasy i prawdziwe tło. Biały szum nie odtwarza całej hali.",
+            "## Czy model przeżywa zmianę tła?\nTen test zostawia całe płytki poza treningiem. Porównuje trening na czystym audio i z dodanym tłem; powielone warianty nie zwiększają liczby płytek. Dane i tło pochodzą ze wspólnego `project.json`. Zatwierdź wcześniej czasy w 02. Biały szum nie odtwarza całej hali.",
         ),
         (
             "code",
             """from pinglab.dataset import analyze_manifest
 from pinglab.robustness import noise_robustness
-STRESS_MANIFEST = ROOT / "data/demo/manifest.csv"
-STRESS_ANNOTATIONS = ROOT / "data/demo/annotations.json"
-stress_events, _ = analyze_manifest(STRESS_MANIFEST,ROOT/'reports/runs/stress',CONFIG,FMAX,
+STRESS_MANIFEST = SESSION.manifest
+STRESS_ANNOTATIONS = SESSION.annotations
+stress_events, _ = analyze_manifest(STRESS_MANIFEST,SESSION.output/'stress',CONFIG,FMAX,
     STRESS_ANNOTATIONS if STRESS_ANNOTATIONS.exists() else None)
 try:
-    stress = noise_robustness(stress_events, family='resonance', noise=noise, config=CONFIG, fmax=FMAX)
+    stress = noise_robustness(stress_events, family='resonance', noise=noise, config=CONFIG, fmax=FMAX, snrs=(20,10,5,0))
     display(stress.round(3))
-    stress.to_csv(ROOT/'reports/runs/stress/robustness.csv',index=False)
+    stress.to_csv(SESSION.output/'stress/robustness.csv',index=False)
 except ValueError as error:
     print(error)""",
         ),
@@ -427,4 +454,149 @@ except ValueError as error:
         ),
     ],
 )
-print("Created 5 notebooks")
+
+
+write('00_eksploracja_do_przegladu.ipynb', [
+('md', '''# Ping Lab · pierwszy przegląd nagrań
+**Cel spotkania:** ustalić, czy w nagraniach widać i słychać powtarzalny sygnał wady oraz co poprawić w pomiarach.
+
+**Start:** otwórz folder projektu w VS Code → wybierz kernel `.venv` / **Ping Lab (Python)** → **Run All**.
+Wszystkie notebooki czytają `project.json`. Po otrzymaniu danych zmień tam manifest, typ danych i katalog wyników.
+Każdy `plate_id` oznacza fizyczną płytę; kilka uderzeń nie zwiększa liczby niezależnych przykładów.
+
+Ten plik nadaje się do przeglądu z zapisanymi wynikami. Do ponownego uruchomienia potrzebny jest dołączony projekt.'''),
+('code', BOOT),
+('md', '## 1. Co dostaliśmy?\nNiepewne oceny oznacz `unknown`. Typ płyty, temperatura i sesja pomagają odróżnić wadę od warunków nagrania.'),
+('code', '''from pinglab.exploration import audio_gallery, spectrogram_gallery, feature_atlas, metadata_audit
+from pinglab.dataset import analyze_manifest
+OUT = SESSION.output / 'exploration'
+records = SESSION.records
+objects = records[records.label != 'background']
+display(objects.groupby('label').agg(pliki=('path','size'), plyty=('plate_id','nunique')))
+display(objects[['path','plate_id','label','session_id','plate_type','temperature']])
+print('Źródło:', SESSION.source_kind, '· plików tła:', int(records.label.eq('background').sum()))'''),
+('md', '## 2. Jakość i podział na uderzenia\nSprawdź przesterowanie, za ciche nagrania i liczbę kandydatów. „Auto” wymaga odsłuchu — mowa lub stuknięcie stołu także mogą przekroczyć próg. Korektę sekund zapiszesz w notebooku 02.'),
+('code', '''events, quality = analyze_manifest(MANIFEST, OUT, CONFIG, FMAX,
+    ANNOTATIONS if ANNOTATIONS.exists() else None)
+display(quality[['path','native_sr','peak_dbfs','clipping_fraction','n_hits','reviewed','warnings']])
+print('Uderzenia:', len(events), '· pliki bez uderzeń:', int(((quality.label!='background') & quality.n_hits.eq(0)).sum()))
+if not events.empty:
+    print('Skrócone okna:', int(events.truncated.sum()), '— sprawdź odstęp uderzeń i długość ogona.')'''),
+('md', '## 3. Odsłuch każdego pliku\nRozwiń wybrane nagranie. Głośność oryginalna; różnica poziomu nie jest dowodem wady. Po odsłuchu zanotuj, jaką różnicę słyszy operator.'),
+('code', 'audio_gallery(SESSION)'),
+('md', '## 4. Galeria: sygnał i spektrogram\nPomarańczowe kreski to początki kandydatów. Jasne poziome pasma wskazują rezonanse, ich długość — wybrzmiewanie. Skala jest względna dla każdego pliku; kolory nie porównują bezwzględnej głośności.'),
+('code', 'spectrogram_gallery(SESSION)'),
+('md', '## 5. Czy cechy są powtarzalne?\nZobacz częstotliwość i zanik oraz rozrzut uderzeń na tej samej płycie. Duży rozrzut może oznaczać lokalną wadę, ale także zmienne miejsce lub siłę uderzenia. Zanik o 10 dB jest opisem okna, nie pomiarem stałej materiałowej.'),
+('code', 'feature_atlas(events)'),
+('md', '## 6. Czy porównujemy podobne warunki?\nJeżeli wszystkie NOK pochodzą z jednej sesji lub mają inny typ, model może rozpoznawać warunki zamiast pęknięcia.'),
+('code', 'metadata = metadata_audit(SESSION)'),
+('md', '''## 7. Pierwsze proste modele
+Porównujemy **odległość od dobrych wzorców**, **regresję logistyczną na rezonansach i ich zmienności** oraz **MFCC + średnią z 3 najwyższych ocen uderzeń**.
+Każda oceniana płyta jest poza treningiem. Przy małej próbie modelowanie zostanie pominięte.
+
+Próg jest ustalany wewnątrz treningu, jeśli wystarcza danych; inaczej używamy jawnego progu stałego.
+**Recall NOK** = część wykrytych wad. **False reject** = część dobrych płyt odrzuconych. Żaden wynik na demo nie potwierdza skuteczności u klienta.'''),
+('code', '''from pinglab.benchmark import benchmark
+leaderboard = predictions = folds = taps = None
+if events.empty:
+    print('Modelowanie pominięte: brak uderzeń.')
+else:
+    try:
+        leaderboard, predictions, folds, taps = benchmark(events)
+        display(leaderboard[['method','n_plates','recall_nok','false_reject','missed_nok','roc_auc','average_precision','recall_cp95']].round(3))
+        display(predictions.groupby(['method','threshold_policy']).size().rename('płyty'))
+        leaderboard.to_json(OUT/'leaderboard.json',orient='records',indent=2)
+        predictions.to_csv(OUT/'predictions.csv',index=False)
+        (OUT/'folds.json').write_text(json.dumps(folds,indent=2))
+    except ValueError as error:
+        print('Modelowanie pominięte:', error)'''),
+('md', '''## 8. Wnioski do omówienia
+Uzupełnij po odsłuchu prawdziwych nagrań:
+
+| Pytanie | Nasza obserwacja |
+|---|---|
+| Czy nagrania nadają się do porównania? | … |
+| Jaka różnica jest słyszalna i gdzie widać ją na wykresie? | … |
+| Czy powtarza się na innych płytach tego samego typu? | … |
+| Co zmienić w kolejnym nagraniu? | … |
+
+**Kolejność:** 1 — jakość, odsłuch, podział, kilka cech i proste modele; 2 — szum i liczba uderzeń; 3 — zamrożony AST, jeśli potrzebny.
+Szczegóły porównania i błędy każdej płyty: **06_porownanie_metod.ipynb**. Do korekty podziału: **02**.
+
+Przy 10 wadliwych płytach nawet 10/10 trafień daje dolną granicę dwustronnego 95% przedziału dwumianowego około 69%. To nie gwarantuje wyników w nowej sesji.
+**Run All zakończony** oznacza wykonanie analizy, a nie potwierdzenie jakości danych.'''),
+('code', "print('GOTOWE · eksploracja · źródło:', SESSION.source_kind)")
+])
+
+write('06_porownanie_metod.ipynb',[
+('md', '''# 06 · Porównanie metod i liczby uderzeń
+**Cel:** porównać kilka ustalonych z góry metod na tych samych płytach. `project.json` wybiera dane.
+A: średnia i odchylenie 3 cech rezonansu; B: 26 MFCC, model każdego uderzenia i średnia 3 największych ocen.
+Odległość uczy się tylko na OK; klasyfikatory korzystają z OK i NOK. Każda płyta w treningu B ma tę samą łączną wagę.
+
+Priorytetem jest liczba pominiętych NOK i odrzucanych OK. Nie uruchamiamy dziesiątek modeli, żeby wybrać przypadkowo najlepszy.'''),
+('code', BOOT),
+('code', '''from pinglab.dataset import analyze_manifest
+from pinglab.benchmark import benchmark, tap_count_curve
+import matplotlib.pyplot as plt
+OUT = SESSION.output / 'comparison'
+events, quality = analyze_manifest(MANIFEST,OUT,CONFIG,FMAX,
+    ANNOTATIONS if ANNOTATIONS.exists() else None)
+result = None
+if events.empty:
+    print('Brak uderzeń; popraw segmentację w 02.')
+else:
+    try:
+        result = benchmark(events)
+    except ValueError as error:
+        print(error)'''),
+('md', '''## Metryki poza treningiem
+Podział: do 5 foldów, rozłączne fizyczne płyty. Skalowanie i model są liczone ponownie w treningu.
+Jeśli w treningu jest przynajmniej 5 płyt każdej klasy, wewnętrzna walidacja dobiera próg bez pominięć NOK; zewnętrzny test może nadal mieć przeoczenia. Przy mniejszej próbie próg pozostaje stały.
+`average_precision` podsumowuje krzywą precision–recall (nie pole liczone trapezami). Przedziały są opisowe; bootstrap ustalonych prognoz nie obejmuje niepewności treningu.'''),
+('code', '''if result is not None:
+    leaderboard,predictions,folds,taps = result
+    display(leaderboard.round(3))
+    leaderboard.to_json(OUT/'leaderboard.json',orient='records',indent=2)
+    predictions.to_csv(OUT/'predictions.csv',index=False)
+    (OUT/'folds.json').write_text(json.dumps(folds,indent=2))
+    display(predictions.groupby(['method','threshold_policy']).size().rename('płyty'))'''),
+('md', '## Każdy błąd osobno\nWiersze poniżej to płytki pominięte lub niepotrzebnie odrzucone. Wróć do ich odsłuchu i zdjęcia. Nie poprawiaj progu na tych samych testowych błędach i nie przedstawiaj potem wyniku jako niezależnego.'),
+('code', '''if result is not None:
+    marked=predictions.assign(predicted=np.where(predictions.score>=predictions.threshold,'nok','ok'))
+    errors=marked[marked.label!=marked.predicted]
+    metadata=SESSION.records[['plate_id','path','plate_type','temperature','photo','notes']]
+    display(errors.merge(metadata,on='plate_id',how='left'))
+    fig,axes=plt.subplots(1,len(leaderboard),figsize=(11,3.5),constrained_layout=True)
+    for ax, row in zip(axes,leaderboard.itertuples()):
+        cm=np.array(row.confusion_matrix)
+        ax.imshow(cm,cmap='Blues')
+        for i in range(2):
+            for j in range(2): ax.text(j,i,str(cm[i,j]),ha='center',va='center')
+        ax.set(title=row.method,xticks=[0,1],xticklabels=['OK','NOK'],yticks=[0,1],yticklabels=['OK','NOK'],xlabel='Ocena modelu',ylabel='Etykieta')
+    display(fig); plt.close(fig)'''),
+('md', '''## Ile uderzeń potrzeba?
+Dla modelu B losujemy bez zwracania 1/3/5/10 uderzeń, 100 razy. Używamy ocen z modelu, który nie widział tej płyty, i zachowujemy próg dobrany dla pełnego zestawu uderzeń.
+Wszystkie k dotyczą tych samych płyt. Pomijamy k większe niż liczba dostępnych uderzeń na najuboższej płycie — demo ma tylko 3.
+To wrażliwość na wybór uderzeń przy ustalonym modelu i progu, nie ponowny trening dla każdego k. Rozrzut losowań nie jest przedziałem skuteczności dla populacji.'''),
+('code', '''if result is not None:
+    curve=tap_count_curve(taps,repeats=100)
+    curve.to_csv(OUT/'tap_count.csv',index=False)
+    if not curve.empty:
+        summary=curve.groupby('k')[['recall_nok','false_reject']].agg(['mean','min','max'])
+        display(summary.round(3))
+        fig,ax=plt.subplots(figsize=(8,3.5),constrained_layout=True)
+        for metric,name in [('recall_nok','Wykryte NOK'),('false_reject','Odrzucone OK')]:
+            q=curve.groupby('k')[metric]
+            ax.plot(q.mean().index,q.mean(),marker='o',label=name)
+            ax.fill_between(q.mean().index,q.quantile(.05),q.quantile(.95),alpha=.15)
+        ax.set(xlabel='Liczba uderzeń',ylabel='Odsetek',ylim=(-.03,1.03),xticks=summary.index)
+        ax.legend(); display(fig); plt.close(fig)
+    print('Wyniki zapisane. Dla powtórnych sesji użyj także testu sesji w 03.')'''),
+('md', '''## Co świadomie odkładamy?
+AST jest opcjonalnym porównaniem w 04. Pełny trening sieci, rozbudowane strojenie SVM/lasów i SHAP nie są potrzebne do pierwszej oceny wykonalności.
+Estymacja tłumienia każdego modu wymaga czystych nagrań i weryfikacji fizycznej — nie nazywamy prostego czasu zaniku pomiarem materiałowym.
+**Wynik bez separacji też jest wynikiem PoC.** Najpierw popraw etykiety i protokół, potem dodawaj złożoność.'''),
+('code', "print('GOTOWE · porównanie metod · źródło:', SESSION.source_kind)")
+])
+print('Created 7 notebooks')

@@ -53,3 +53,14 @@ odporności na rzeczywiste tło fabryki. Przy ocenie klienta należy użyć nowy
 
 Nie zweryfikowano skuteczności na ceramice klienta — jej nagrań jeszcze nie ma. Nie testowano MPS/CUDA;
 przygotowany i sprawdzony wariant używa CPU.
+
+## Aktualizacja 26.09.2026 — notebooki do pracy i udostępnienia
+
+- 32 testy jednostkowe/integracyjne: poprawne. Nowe testy sprawdzają zagnieżdżone podziały całych płyt, dopasowanie modelu jednoklasowego tylko na OK, brak sztucznych uderzeń i brak powrotu do demo przy błędnej ścieżce klienta.
+- 7 notebooków: pełne wykonanie nbclient na demo; zapis w `reports/notebook_validation.json`.
+- Osobny manifest z dwoma rzeczywistymi nagraniami RealImpact (WAV i transkodowany MP3), jedno wspólne ID obiektu i etykiety `unknown`: wszystkie 7 notebooków wykonane bez zmian ich kodu. Ocena modeli poprawnie pominięta. To test integracji, nie próba wykrywania wad. `reports/client_switch_validation.json`.
+- Paczka ZIP rozpakowana w innym katalogu, brak oryginalnych WAV demo; notebook 00 odtworzył dane i wykonał analizę z kodem zaimportowanym z rozpakowanej paczki. Test używał istniejących zależności Pythona; nie jest testem instalacji na Windows. `reports/portable_bundle_validation.json`.
+- Samodzielny HTML: 9 poprawnie wczytanych obrazów, 31 odtwarzaczy audio (gotowość 4, 5 s, brak błędów), brak zewnętrznych skryptów. Obejrzany w przeglądarce.
+- VS Code: faktyczne kliknięcie Run All na notebookach i kontrola wyników przez Computer Use. Widgety początkowo powodowały prośbę o dodatkowe pobieranie; wyłączono je domyślnie. Korekta sekund działa przez `CORRECTIONS`. Rozszerzenia Python/Jupyter/Renderers były już zainstalowane. Szczegóły końcowej kontroli: `reports/vscode_validation.json`.
+
+Wyniki numeryczne na symulacji nie wybierają metody dla klienta. Test szumu nadal pokazuje, że bazowy model może zawieść po zmianie warunków. Automatyczna segmentacja wymaga przeglądu prawdziwych nagrań.

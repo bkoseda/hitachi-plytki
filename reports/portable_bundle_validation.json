@@ -1,0 +1,7 @@
+{
+  "status": "passed",
+  "dataset_generated_from_scratch": true,
+  "png_figures": 9,
+  "imports_from_unpacked_bundle": true,
+  "environment": "existing Python dependencies; relocated project and fresh demo"
+}

@@ -1,32 +1,44 @@
 [
   {
+    "notebook": "00_eksploracja_do_przegladu.ipynb",
+    "seconds": 8.25,
+    "status": "passed",
+    "code_cells": 9
+  },
+  {
     "notebook": "01_pierwsza_para.ipynb",
-    "seconds": 3.64,
+    "seconds": 4.18,
     "status": "passed",
     "code_cells": 7
   },
   {
     "notebook": "02_seria_i_uderzenia.ipynb",
-    "seconds": 3.16,
+    "seconds": 3.64,
     "status": "passed",
     "code_cells": 6
   },
   {
     "notebook": "03_cechy_i_modele.ipynb",
-    "seconds": 3.96,
+    "seconds": 5.15,
     "status": "passed",
     "code_cells": 10
   },
   {
     "notebook": "04_gotowy_model_audio.ipynb",
-    "seconds": 6.88,
+    "seconds": 9.23,
     "status": "passed",
     "code_cells": 5
   },
   {
     "notebook": "05_odpornosc_i_protokol.ipynb",
-    "seconds": 4.52,
+    "seconds": 6.83,
     "status": "passed",
     "code_cells": 4
+  },
+  {
+    "notebook": "06_porownanie_metod.ipynb",
+    "seconds": 5.32,
+    "status": "passed",
+    "code_cells": 6
   }
 ]

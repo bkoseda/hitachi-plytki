@@ -73,3 +73,18 @@ Wszystkie warianty płytki pozostają razem; test nigdy nie używa płytki treni
 wariantów danej płytki w funkcji kosztu pozostaje taka sama. Jest to test wrażliwości przy znanym
 rozkładzie dodawanego szumu, nie niezależna ocena odporności na nową fabrykę. Użycie tego samego
 nagrania tła w treningu i teście ogranicza wniosek do tego tła. Zostaw inną sesję tła do końcowego testu.
+
+## Wspólna sesja i porównanie A/B (aktualizacja 26.09)
+
+Notebooki od 00 do 06 czytają `project.json`; dawny opis ręcznych ustawień w każdym notebooku dotyczy tylko opcjonalnych nadpisań. Wspólne pasmo jest automatycznie obniżane do najniższej częstotliwości Nyquista źródeł. Typ danych (`synthetic`, `external`, `client`) jest jawny.
+
+00/06 rozszerzają medianowy baseline z 03:
+- A: średnia i odchylenie trzech cech rezonansu dla płyty. Porównujemy najbliższy wzorzec OK oraz tę samą regularizowaną regresję L2 co wcześniej. Nie stroimy kary na wyniku testowym.
+- Dystans A jest dzielony przez roboczy próg wyliczony z dobrych płyt treningowych; próg 1 oznacza ten roboczy poziom. To normalizacja skali, nie kalibracja prawdopodobieństwa.
+- B: MFCC każdego uderzenia, regresja i średnia do 3 najwyższych ocen. Każda płyta ma łączną wagę 1 w funkcji straty. Skalowanie korzysta tylko z treningowych uderzeń, ale płyty z większą liczbą uderzeń bardziej wpływają na jego statystyki; utrzymuj stały protokół.
+- Wspólny zewnętrzny podział stratyfikowany do 5 foldów; żadna fizyczna płyta nie przecieka między treningiem a testem. Przy >=5 płyt każdej klasy w treningu: wewnętrzne 3 foldy dobierają największy próg z zerem przeoczeń NOK. Następnie model jest dopasowany na całym treningu. Przeniesienie progu po reficie może zmienić jego zachowanie; sprawdza to zewnętrzny test.
+- Przy zbyt małym treningu próg jest stały, co zapisujemy w `threshold_policy`. Minimum programu 4+4 nie oznacza wystarczającej próby naukowej. Odległość uczy się wyłącznie z OK także wewnątrz zagnieżdżonej oceny.
+- Average precision, ROC-AUC, recall, false reject, macierz pomyłek i dokładny dwustronny 95% przedział Cloppera–Pearsona. Bootstrap resampluje ustalone prognozy OOF, a nie cały trening. Porównanie metod jest eksploracyjne; ostateczny wybór wymaga nowej serii.
+- Krzywa liczby uderzeń używa wyłącznie ocen OOF modelu B, stałego progu i tej samej grupy płyt. Pomija k większe niż liczba uderzeń na dowolnej płycie; nie zastępuje brakujących stuknięć losowaniem ze zwracaniem.
+
+Galeria 00 używa PNG i osadzonego audio, więc zapisane wyniki działają także bez widgetów. Ścieżki zdjęć są metadanymi do przeglądu, nie cechą modelu. Automatycznie wykryte uderzenia wymagają przeglądu; kod nie potwierdza automatycznie jakości etykiet, podwójnych uderzeń ani przesterowania analogowego.

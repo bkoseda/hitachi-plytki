@@ -1,0 +1,37 @@
+[
+  {
+    "notebook": "00_eksploracja_do_przegladu.ipynb",
+    "status": "passed",
+    "source": "external WAV + MP3, unknown labels, one physical object"
+  },
+  {
+    "notebook": "01_pierwsza_para.ipynb",
+    "status": "passed",
+    "source": "external WAV + MP3, unknown labels, one physical object"
+  },
+  {
+    "notebook": "02_seria_i_uderzenia.ipynb",
+    "status": "passed",
+    "source": "external WAV + MP3, unknown labels, one physical object"
+  },
+  {
+    "notebook": "03_cechy_i_modele.ipynb",
+    "status": "passed",
+    "source": "external WAV + MP3, unknown labels, one physical object"
+  },
+  {
+    "notebook": "04_gotowy_model_audio.ipynb",
+    "status": "passed",
+    "source": "external WAV + MP3, unknown labels, one physical object"
+  },
+  {
+    "notebook": "05_odpornosc_i_protokol.ipynb",
+    "status": "passed",
+    "source": "external WAV + MP3, unknown labels, one physical object"
+  },
+  {
+    "notebook": "06_porownanie_metod.ipynb",
+    "status": "passed",
+    "source": "external WAV + MP3, unknown labels, one physical object"
+  }
+]
