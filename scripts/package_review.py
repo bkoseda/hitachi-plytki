@@ -45,7 +45,7 @@ parts.append("</body></html>")
 (out / "Ping_Lab_przeglad.html").write_text("\n".join(parts))
 # A shareable notebook is a snapshot; the zip provides imports and reproducible demo generation.
 nbformat.write(nb, out / "Ping_Lab_eksploracja.ipynb")
-paths = []
+paths = list((root / "reports").glob("*.json"))
 for pattern in [
     "src/pinglab/*.py",
     "notebooks/*.ipynb",
@@ -73,13 +73,14 @@ for name in [
     "scripts/verify_notebooks.py",
     "scripts/download_realimpact.py",
     "scripts/verify_client_switch.py",
+    "scripts/verify_portable_bundle.py",
 ]:
     paths.append(root / name)
 with zipfile.ZipFile(out / "Ping_Lab_start.zip", "w", zipfile.ZIP_DEFLATED) as archive:
     for path in sorted(set(paths)):
         # Remove machine-specific paths from saved output snapshots, never executable source.
         content = path.read_bytes()
-        if path.suffix == ".ipynb":
+        if path.suffix in (".ipynb", ".json"):
             content = content.replace(str(root).encode(), b".")
         archive.writestr("Ping_Lab/" + str(path.relative_to(root)), content)
     archive.write(out / "Ping_Lab_przeglad.html", "Ping_Lab/Ping_Lab_przeglad.html")

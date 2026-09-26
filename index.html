@@ -35,7 +35,7 @@
     <div id="stage-text" aria-live="polite"><h3>Porównuj. Jeszcze nie oceniaj modelu.</h3><p>Możesz sprawdzić jakość, barwę i rezonanse. Nie możesz wyznaczyć skuteczności detekcji z jednej pary.</p></div>
     <div class="mini-rule"></div><p class="small">W tym przewodniku używamy oznaczonej <b>symulacji</b>. To ćwiczenie obsługi, nie wynik dla klienta.</p>
   </div></div>
-  <details class="setup"><summary>Uruchom notebooki na tym Macu</summary><p>Otwórz folder projektu w Finderze i kliknij dwukrotnie <code>Start.command</code>. Możesz też wkleić do Terminala:</p><div class="command"><code>cd /Users/karolsii/dev/ceramic-ping-lab &amp;&amp; .venv/bin/jupyter lab</code><button data-copy="cd /Users/karolsii/dev/ceramic-ping-lab && .venv/bin/jupyter lab">Kopiuj</button></div><p>W Jupyterze otwórz <code>notebooks/01_pierwsza_para.ipynb</code>. Kernel: <b>Ping Lab (Python)</b>. Zmień ścieżki i wybierz <b>Run → Run All Cells</b>.</p></details>
+  <details class="setup"><summary>Uruchom notebooki na tym Macu</summary><p>Otwórz folder projektu w Finderze i kliknij dwukrotnie <code>Start.command</code>. Możesz też wkleić do Terminala:</p><div class="command"><code>cd /Users/karolsii/dev/ceramic-ping-lab &amp;&amp; .venv/bin/jupyter lab</code><button data-copy="cd /Users/karolsii/dev/ceramic-ping-lab && .venv/bin/jupyter lab">Kopiuj</button></div><p>W Jupyterze otwórz <code>notebooks/00_eksploracja_do_przegladu.ipynb</code>. Kernel: <b>Ping Lab (Python)</b>. Ustaw dane w <code>project.json</code> i wybierz <b>Run → Run All Cells</b>.</p></details>
 </section>
 <section class="page" data-page="1" hidden>
   <div class="eyebrow">01 / PIERWSZA PARA <span class="badge">SYMULACJA</span></div><h1>Najpierw ucho.<br>Potem wykres.</h1><p class="lead">Porównaj barwę i długość wybrzmiewania. Szczyty odsłuchu są wyrównane.</p>
@@ -43,13 +43,13 @@
   <div class="plot-top"><div class="segmented" id="pair-tabs"><button data-view="spectrum" class="active" aria-pressed="true">Widmo</button><button data-view="decay" aria-pressed="false">Wybrzmiewanie</button><button data-view="wave" aria-pressed="false">Sygnał</button><button data-view="spectrogram" aria-pressed="false">Spektrogram</button></div><label id="spec-picker" hidden>Próbka <select id="spec-sample"><option value="0">A</option><option value="1">B</option></select></label></div>
   <div class="chart" id="pair-chart" role="img" aria-label="Porównanie widma próbek A i B"></div><p id="pair-caption" class="caption" aria-live="polite"></p>
   <div class="takeaway"><b>Sprawdź przy kliencie</b><span>Czy różnica zostaje po zmianie płytki? Podparcie, geometria i miejsce uderzenia też zmieniają brzmienie.</span></div>
-  <div class="notebook-ref">OTWÓRZ <code>01_pierwsza_para.ipynb</code><span>Wgraj pliki → zmień FILE_A / FILE_B → uruchom komórki.</span></div>
+  <div class="notebook-ref">OTWÓRZ <code>01_pierwsza_para.ipynb</code><span>Wskaż manifest w project.json → Run All. Porównaj wybraną parę.</span></div>
 </section>
 <section class="page" data-page="2" hidden>
   <div class="eyebrow">02 / SEGMENTACJA <span class="badge">SYMULACJA</span></div><h1>Jedno nagranie.<br>Kilka uderzeń.</h1><p class="lead">Automat proponuje granice. Odsłuch potwierdza, co naprawdę jest uderzeniem.</p>
   <div class="plot-top"><label class="check"><input type="checkbox" id="bad-hit"> Pokaż przykładowy fałszywy podział ogona</label><span class="count" id="hit-count">3 kandydatów</span></div>
   <div class="chart" id="hits-chart" role="img" aria-label="Nagranie z zaznaczonymi uderzeniami"></div>
-  <div class="two-col"><div><h3>Co poprawiasz w notebooku?</h3><p>Usuń dodatkowy czas, dopisz pominięte uderzenie i kliknij <b>Zatwierdź i zapisz</b>. Dla każdej płytki stosuj to samo okno.</p><div class="command"><code id="hit-times">[0.400, 1.900, 3.400]</code><button id="copy-hits">Kopiuj czasy</button></div></div><div class="quiet-panel"><h3>Nie urywaj wybrzmiewania</h3><p>Odstęp między uderzeniami powinien pozwalać na zanik poprzedniego. Skrócony ogon może wyglądać jak większe tłumienie.</p></div></div>
+  <div class="two-col"><div><h3>Co poprawiasz w notebooku?</h3><p>Wpisz poprawne sekundy w <code>CORRECTIONS</code> i uruchom ponownie. Przyciski edytora są opcjonalne. Dla każdej płytki stosuj to samo okno.</p><div class="command"><code id="hit-times">[0.400, 1.900, 3.400]</code><button id="copy-hits">Kopiuj czasy</button></div></div><div class="quiet-panel"><h3>Nie urywaj wybrzmiewania</h3><p>Odstęp między uderzeniami powinien pozwalać na zanik poprzedniego. Skrócony ogon może wyglądać jak większe tłumienie.</p></div></div>
   <div class="notebook-ref">OTWÓRZ <code>02_seria_i_uderzenia.ipynb</code><span>Manifest → przegląd plików → zatwierdzenie czasów → eksport cech.</span></div>
 </section>
 <section class="page" data-page="3" hidden>
@@ -66,7 +66,7 @@
   <div class="model-choices"><button class="model active" data-method="baseline" aria-pressed="true"><span>01</span><b>Prosty klasyfikator</b><small>Cechy + regresja logistyczna</small></button><button class="model" data-method="normal" aria-pressed="false"><span>02</span><b>Tylko dobre wzorce</b><small>Odległość od znanych OK</small></button><button class="model" data-method="ast" aria-pressed="false"><span>03</span><b>Gotowy model AST</b><small>768 liczb, bez treningu sieci</small></button></div>
   <div class="method-copy" id="method-copy" aria-live="polite"></div>
   <details><summary>Jak czytać wynik?</summary><div class="three-col"><div><h3>Recall NOK</h3><p>Ile wadliwych płytek udało się wykryć?</p></div><div><h3>Fałszywe alarmy</h3><p>Ile dobrych płytek niepotrzebnie odrzucono?</p></div><div><h3>Balanced accuracy</h3><p>Średnia trafności na OK i NOK. Nie faworyzuje liczniejszej klasy.</p></div></div><p>Score 0.7 nie oznacza 70% pewności. Po wyborze metody potrzebujesz nowych danych do niezależnego sprawdzenia.</p></details>
-  <div class="notebook-ref">OTWÓRZ <code>03_cechy_i_modele.ipynb</code><span>AST: <code>04_gotowy_model_audio.ipynb</code>. Wagi są już pobrane na tym Macu.</span></div>
+  <div class="notebook-ref">OTWÓRZ <code>06_porownanie_metod.ipynb</code><span>AST: <code>04_gotowy_model_audio.ipynb</code>. Wagi są już pobrane na tym Macu.</span></div>
 </section>
 <section class="page" data-page="5" hidden>
   <div class="eyebrow">05 / ODPORNOŚĆ <span class="badge">SZUM SYNTETYCZNY</span></div><h1>Ta sama płytka.<br>Inne otoczenie.</h1><p class="lead">Dodaj tło i zobacz, kiedy wybrzmiewanie przestaje być czytelne.</p>
@@ -83,7 +83,7 @@ Powtarzalność: [czy kolejne uderzenia brzmią podobnie?]
 Prośba o zmianę: [jedna konkretna rzecz]
 Następne próbki: [inne płytki / miejsce / tło]</textarea><button id="copy-feedback">Kopiuj szablon</button><p class="small">Dwie próbki dają wskazówki do pomiaru. Nie dają wyniku skuteczności.</p></div></div>
   <div class="resources"><a href="README.md">Instrukcja projektu ↗</a><a href="docs/RESEARCH.md">Badania i dane publiczne ↗</a><a href="docs/METHODS.md">Parametry i ograniczenia ↗</a><a href="reports/demo/report.html">Raport z symulacji ↗</a></div>
-  <details><summary>Co jest już w folderze projektu?</summary><p>Pięć notebooków, pakiet Python, manifest CSV, korekta segmentacji, eksport raportu, testy, syntetyczna seria 30 płytek i pięć rzeczywistych nagrań RealImpact bez etykiet wad. Model AST działa lokalnie z pobranych wag.</p><p>Publiczne RealImpact: <code>data/external/realimpact/</code>. To jeden przedmiot oglądany z różnych pozycji mikrofonu, nie pięć różnych dobrych / złych płytek.</p></details>
+  <details><summary>Co jest już w folderze projektu?</summary><p>Siedem notebooków, wspólny project.json, pakiet Python, manifest CSV, korekta segmentacji, eksport raportu, testy, syntetyczna seria 30 płytek i pięć rzeczywistych nagrań RealImpact bez etykiet wad. Model AST działa lokalnie z pobranych wag.</p><p>Publiczne RealImpact: <code>data/external/realimpact/</code>. To jeden przedmiot oglądany z różnych pozycji mikrofonu, nie pięć różnych dobrych / złych płytek.</p></details>
 </section>
 </main>
 <footer><button id="prev" aria-label="Poprzedni krok">← Wstecz</button><div id="progress" aria-label="Postęp"></div><button id="next">Dalej →</button></footer>
