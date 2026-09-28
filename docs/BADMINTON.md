@@ -47,3 +47,15 @@ Zapowiedzi zidentyfikowano pomocniczo lokalnym Whisper small, a ich kolejność
 porównano z opisem użytkownika. Transkrypcja nie jest potrzebna przy ponownym
 Run All; notebook korzysta z jawnych granic w JSON.
 Źródło narzędzia: https://github.com/openai/whisper .
+
+## Porównanie XGBoost
+
+`pip install '.[boosting]'` (macOS: także `brew install libomp`).
+`python scripts/compare_xgboost.py reports/runs/badminton-four-series/features.csv reports/runs/badminton-xgboost`
+
+Ustalone 80 drzew, głębokość 2, learning rate 0.05, L2=5; bez strojenia na teście.
+Podział zachowuje całe rundy, wagi klas liczone wyłącznie na treningu.
+CSV zawiera accuracy, balanced accuracy, recall obu klas, AUC oraz treningowe BA.
+Notebook w paczce `deliverables/Badminton_Ping_Lab/analiza.ipynb` ma sekcję 10
+porównującą również wcześniejsze modele i AST, jeśli został uruchomiony.
+Nowe porównanie nie zastępuje zapisanego modelu roboczego.
