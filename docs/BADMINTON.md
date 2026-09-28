@@ -1,5 +1,11 @@
 # Badminton: sesja z czterema seriami
 
+Gotowe dodatkowe analizy 00–07 znajdziesz w [notebooks/badminton/START.md](../notebooks/badminton/START.md).
+Każdy wariant działa samodzielnie i ma zapisane wyniki, w tym osadzone odsłuchy.
+Wszystkie osiem przeszło wykonanie w świeżych kernelach; sprawdzono też renderowanie
+interaktywnej segmentacji w VS Code. Ponowny test całego zestawu:
+`.venv/bin/python scripts/verify_badminton_notebooks.py`.
+
 Otwórz `reports/runs/badminton-four-series/Badminton_eksploracja.ipynb` w VS Code,
 wybierz kernel projektu i kliknij **Run All**. Czytelną wersję z zapisanymi wynikami
 znajdziesz obok: `Badminton_raport.html`.
@@ -24,7 +30,7 @@ Uruchom z katalogu repozytorium:
 .venv/bin/python scripts/run_badminton_session.py
 ```
 
-Pliki audio i notebook wynikowy pozostają lokalne w katalogach ignorowanych przez Git.
+Źródłowe pliki audio i notebook wynikowy w `reports/runs/` pozostają lokalne w katalogach ignorowanych przez Git.
 Nie są dodawane do demonstracyjnej paczki do udostępnienia. Model AST korzysta z lokalnych
 wag; ustaw `RUN_AST=False` w notebooku, jeśli wagi nie są dostępne.
 
