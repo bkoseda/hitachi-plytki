@@ -31,3 +31,16 @@ oraz `vscode_validation.json`. Powtórzenie testu programowego:
 Ta weryfikacja potwierdza działanie narzędzi i odtwarzalność obliczeń.
 Nie zastępuje potwierdzenia fizycznych ID płytek ani niezależnej walidacji
 modelu na nowych sztukach i sesjach.
+
+## Uzupełnienie: cechy i tło
+
+`04_cechy_i_tlo.ipynb` wykonano w świeżym kernelu (7 komórek kodu,
+0 błędów, około 41 s) oraz osobno przez Run All w VS Code, również do
+komunikatu GOTOWE. Nie uruchamia AST. Sześć testów modeli i nowych kontroli
+przeszło pomyślnie. Zweryfikowano 17 640 ocen permutacji (30 na cechę
+i podział), rozdzielenie płytek we wszystkich pięciu wariantach kontroli
+oraz skończone wartości wyników. Udostępnienie parametrów modelu do inspekcji
+nie zmieniło wcześniejszych predykcji żadnego z czterech analizowanych modeli.
+
+Wyniki i ślad wykonania: `reports/runs/client-combined-20260929/explanations/`.
+Opis i ograniczenia: [cechy i tło](CLIENT_FEATURES_AND_BACKGROUND.md).

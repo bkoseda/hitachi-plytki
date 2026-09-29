@@ -9,6 +9,9 @@ Otwórz cały folder `ceramic-ping-lab` w VS Code. W notebooku wybierz kernel
 2. [03_modele_obu_paczek.ipynb](03_modele_obu_paczek.ipynb) — cechy i zamrożony AST,
    podział po całych płytkach, LR/XGBoost, accuracy/recall, kontrola kodeka i QC,
    próby z szumem i różną liczbą uderzeń.
+3. [04_cechy_i_tlo.ipynb](04_cechy_i_tlo.ipynb) — ważność cech regresji i XGBoost,
+   modele kontrolne uczone na fragmentach przed pingiem i cichych fragmentach,
+   porównanie ataku i ogona. Bez uruchamiania AST.
 
 [Raport HTML](../../reports/runs/client-combined-20260929/START.html) zawiera wyniki
 i odtwarzacz wszystkich 45 plików. Działa z dysku, bez serwera. Zachowaj obok

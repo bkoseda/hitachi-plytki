@@ -53,7 +53,8 @@ def balanced_group_weights(frame):
     return w / w.mean()
 
 
-def fit_predict(train, test, family, kind="lr"):
+def fit_model(train, family, kind="lr"):
+    """Fit on training data only; expose the estimator for diagnostic inspection."""
     cols = (
         QC_COLS
         if family == "qc"
@@ -62,11 +63,9 @@ def fit_predict(train, test, family, kind="lr"):
         else feature_columns(train, family)
     )
     x = train[cols].to_numpy(float)
-    z = test[cols].to_numpy(float)
     w = balanced_group_weights(train)
     scaler = StandardScaler().fit(x, sample_weight=w)
     x = scaler.transform(x)
-    z = scaler.transform(z)
     if kind == "lr":
         model = LogisticRegression(C=0.1, solver="liblinear", max_iter=2000, random_state=17)
     else:
@@ -84,7 +83,12 @@ def fit_predict(train, test, family, kind="lr"):
             random_state=17,
         )
     model.fit(x, train.label.to_numpy(), sample_weight=w)
-    return model.predict_proba(z)[:, 1]
+    return model, scaler, cols
+
+
+def fit_predict(train, test, family, kind="lr"):
+    model, scaler, cols = fit_model(train, family, kind)
+    return model.predict_proba(scaler.transform(test[cols].to_numpy(float)))[:, 1]
 
 
 def metrics(frame):

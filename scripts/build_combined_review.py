@@ -240,6 +240,8 @@ Notebooki: `notebooks/client/02_jakosc_obu_paczek.ipynb` i `03_modele_obu_paczek
         + json.dumps(gallery, ensure_ascii=False).replace("</", "<\\/")
         + """;const sel=document.getElementById('recording');data.forEach((r,i)=>{const o=document.createElement('option');o.value=i;o.textContent=r.id+' · '+r.name;sel.append(o)});function show(){const r=data[+sel.value];document.getElementById('audio').src=r.audio;document.getElementById('wave').src=r.image;document.getElementById('details').textContent=r.codec+' · '+r.seconds+' s · '+r.accepted+' kandydatów użytych · najdłuższy ciąg zer '+r.zero+' s · grupa '+r.group;}sel.addEventListener('change',show);show();</script></html>"""
     )
+    if (OUT / "explanations/START.html").exists():
+        page = page.replace("</nav>", '<a href="explanations/START.html">Cechy i tło</a></nav>', 1)
     (OUT / "START.html").write_text(page)
 
 
