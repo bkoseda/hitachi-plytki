@@ -1,5 +1,10 @@
 # Ping Lab — notebooki na pierwszy dzień
 
+**Aktualne nagrania klienta (29.09.2026):** zacznij od
+[notebooków obu paczek](notebooks/client/START.md). Są tam osobne notebooki
+jakości i modeli, raport oraz zalecenia do kolejnej sesji. Oba sprawdzono
+przez Run All w VS Code na lokalnej `.venv`.
+
 Otwórz cały folder projektu w VS Code, wybierz lokalny kernel `.venv` / **Ping Lab (Python)** i uruchom **notebooks/00_eksploracja_do_przegladu.ipynb → Run All**.
 
 **Jedna konfiguracja:** `project.json` wybiera manifest, adnotacje, katalog wyników i parametry audio dla wszystkich notebooków. Demo jest jawnie oznaczone jako syntetyczne. Gdy brakuje pliku klienta, analiza zgłasza błąd zamiast wracać do demo.
@@ -42,7 +47,10 @@ AST można dodać osobno: `pip install -e '.[embeddings]'`, następnie `python s
 
 `data/demo/` zawiera manifest 30 syntetycznych płyt i 90 uderzeń. Audio odtwarza się automatycznie przy pierwszym uruchomieniu demo.
 `data/external/realimpact/` to lokalne rzeczywiste nagrania jednego obiektu z różnych mikrofonów, bez etykiet wad; pobieranie: `scripts/download_realimpact.py`.
-Żadne z tych danych nie dowodzi wykrywania pęknięć klienta. Dane klienta, wagi, cache i pliki wyników roboczych są poza Git.
+Żadne z tych danych nie dowodzi wykrywania pęknięć klienta. Na polecenie użytkownika
+obie paczki klienta są wersjonowane w `assets/1-batch-ping` i `assets/2-batch-ok`;
+ich sumy kontrolne zawiera `config/client_archive_manifest.json`.
+Wagi, cache i pliki wyników roboczych pozostają poza Git.
 
 Dwie próbki wystarczą do przeglądu. Ocena modeli wymaga większej liczby niezależnych płyt obu klas. `plate_id` oznacza detal, nie plik ani uderzenie.
 
