@@ -1,0 +1,296 @@
+[
+  {
+    "path": "assets/1-batch-ping/FACTORY DIRTY NOISE.m4a",
+    "bytes": 803982,
+    "sha256": "1510cd55885dec44aa488ef850f0232ec7799d8184321d4e2c1ab238c4a23609",
+    "archive": "Recordings.zip"
+  },
+  {
+    "path": "assets/1-batch-ping/Bad 1/Image (18).jpg",
+    "bytes": 2664254,
+    "sha256": "474d3e2105e07e0186b3a8bebf646cd12f14e37ad368b4283723ed678d5c6d06",
+    "archive": "Recordings.zip"
+  },
+  {
+    "path": "assets/1-batch-ping/Bad 1/NOK ANGLE  2.m4a",
+    "bytes": 1544152,
+    "sha256": "499afb91d188d1765794771721ea395061fa2a2d2af1a69fffe48a76f9c906a3",
+    "archive": "Recordings.zip"
+  },
+  {
+    "path": "assets/1-batch-ping/Bad 1/NOK Normal HITS on 4 point support.m4a",
+    "bytes": 921926,
+    "sha256": "84f925d28f80a2337cee0bdbe59f5fec77c3b6d49f6533ed9172948bbb6da9b2",
+    "archive": "Recordings.zip"
+  },
+  {
+    "path": "assets/1-batch-ping/Bad 1/NOK tool change op.m4a",
+    "bytes": 689349,
+    "sha256": "ae8997b8a1525d41b977d8e9255ef744ecf53663e690d4de87ed6562bbe9122f",
+    "archive": "Recordings.zip"
+  },
+  {
+    "path": "assets/1-batch-ping/Bad 1/NOK Tool change.m4a",
+    "bytes": 728819,
+    "sha256": "e306df0b723d334873b9b0e6ae5c5deec60a7b7f2ad62b9201440e00cdc7ca92",
+    "archive": "Recordings.zip"
+  },
+  {
+    "path": "assets/1-batch-ping/Bad 2/Image (19).jpg",
+    "bytes": 2323662,
+    "sha256": "7646b7d90371b3ed44505afa698f884c75c8438bc8e8a07285e2a972b3748c75",
+    "archive": "Recordings.zip"
+  },
+  {
+    "path": "assets/1-batch-ping/Bad 2/NOK 4 point support tool change.m4a",
+    "bytes": 1028294,
+    "sha256": "5bad45d04ec8e009361251ffec352e64fd5efe760f2d8a7d48786f00f5340237",
+    "archive": "Recordings.zip"
+  },
+  {
+    "path": "assets/1-batch-ping/Bad 2/NOK 4 point support.m4a",
+    "bytes": 1032735,
+    "sha256": "ca697d1aa0c5fb210a768c2d08f8cd3321b38823d8775f992057f6dea5ef1679",
+    "archive": "Recordings.zip"
+  },
+  {
+    "path": "assets/1-batch-ping/Bad 2/NOK angle knocking around crack from 14 to 22.wav",
+    "bytes": 10122322,
+    "sha256": "76f9834943d2d01b98c5864f8c52465c33f6aeeb5605566c1ce76a613d162988",
+    "archive": "Recordings.zip"
+  },
+  {
+    "path": "assets/1-batch-ping/Bad 2/NOK Knocking around crack from 14 to 22 sec.wav",
+    "bytes": 9252562,
+    "sha256": "d288f1ed0990c51d9573e323d99a3beacbd6db7c51a21ed6d00b63287e1735da",
+    "archive": "Recordings.zip"
+  },
+  {
+    "path": "assets/1-batch-ping/Bad 2/NOK one point support.m4a",
+    "bytes": 1076651,
+    "sha256": "2f92f90e3a8fc2dfbc4b739387c01de65cbccd809fa0acb095f12c08f10355aa",
+    "archive": "Recordings.zip"
+  },
+  {
+    "path": "assets/1-batch-ping/Bad 3 Bitten/Image (20).jpg",
+    "bytes": 2250706,
+    "sha256": "7722ebeace5fb3cc6cdb5dc81bc507e55c5a7e3cf590914df7f873b519ddfc8e",
+    "archive": "Recordings.zip"
+  },
+  {
+    "path": "assets/1-batch-ping/Bad 3 Bitten/NOK 4 point support all hits tool change.m4a",
+    "bytes": 970546,
+    "sha256": "01b87e3f00341b3d0c57e3872041fd2317852099d2fe3618bb16b9c290b26f7a",
+    "archive": "Recordings.zip"
+  },
+  {
+    "path": "assets/1-batch-ping/Bad 3 Bitten/NOK 4 point support all hits.m4a",
+    "bytes": 824058,
+    "sha256": "3ab903170e14ee7a60e920ce3a45ebe8ef8b685b2bb5625cd062eecaa1996df3",
+    "archive": "Recordings.zip"
+  },
+  {
+    "path": "assets/1-batch-ping/Bad 3 Bitten/NOK one point support angle.m4a",
+    "bytes": 886613,
+    "sha256": "ab3d8c39bd753f6e2286e2df421668281df78526eee44a54d1b38e52be0f8c18",
+    "archive": "Recordings.zip"
+  },
+  {
+    "path": "assets/1-batch-ping/Bad 4 Bitten/Image (26).jpg",
+    "bytes": 2459865,
+    "sha256": "2aef151f5ee805452aa56dcc4c689e6ec2676252eb4061a3794c25958d93d70e",
+    "archive": "Recordings.zip"
+  },
+  {
+    "path": "assets/1-batch-ping/Bad 4 Bitten/NOK 1 point support angle.wav",
+    "bytes": 6679762,
+    "sha256": "b497a572ecd13815b7f122bbe109793d97f8ed2864a7ff5a8ff6d66067345dfc",
+    "archive": "Recordings.zip"
+  },
+  {
+    "path": "assets/1-batch-ping/Bad 4 Bitten/NOK 4 point support all hits shielded.wav",
+    "bytes": 5353042,
+    "sha256": "dd66aca420c643f62b3815696878fb25d28ac0f248a1feb2e0070b6b6f623e3a",
+    "archive": "Recordings.zip"
+  },
+  {
+    "path": "assets/1-batch-ping/Bad 4 Bitten/NOK 4 point support all hits.wav",
+    "bytes": 8354002,
+    "sha256": "2dc344262a8d96e372645e99a67da60e4cdc300e3696b6f8eb55936f17754476",
+    "archive": "Recordings.zip"
+  },
+  {
+    "path": "assets/1-batch-ping/OLD/NOK all hits 1.m4a",
+    "bytes": 327828,
+    "sha256": "16a75906ca381868bd2adf43821c4facd85f40337f41cf73d104fd0772848f61",
+    "archive": "Recordings.zip"
+  },
+  {
+    "path": "assets/1-batch-ping/OLD/NOK ANGLE.m4a",
+    "bytes": 524056,
+    "sha256": "ef81582e214a626805f02ec61084ec3f6320fda23ec01464f8d687e2149d4366",
+    "archive": "Recordings.zip"
+  },
+  {
+    "path": "assets/1-batch-ping/OLD/NOK ONE POINT 1.m4a",
+    "bytes": 257821,
+    "sha256": "2209954378f289d31e12c31e16923dcc39919e099bb6485ffe5ea3b3abd65d5f",
+    "archive": "Recordings.zip"
+  },
+  {
+    "path": "assets/1-batch-ping/OLD/Ok all hits 1.m4a",
+    "bytes": 376747,
+    "sha256": "fe27fd4730d9234526a7604525eb556368980c603f987b710917dce9c8b365ed",
+    "archive": "Recordings.zip"
+  },
+  {
+    "path": "assets/1-batch-ping/OLD/Ok all hits 2.m4a",
+    "bytes": 383832,
+    "sha256": "50eab53de978365209e1202f8ba2ec23e853c16845a9410f188f4250f11d3f2c",
+    "archive": "Recordings.zip"
+  },
+  {
+    "path": "assets/1-batch-ping/OLD/OK all hits 3.m4a",
+    "bytes": 358132,
+    "sha256": "879040b77de3c08bbf446e5d13fe058392bdfe50094d5b55f2ebd5189459276c",
+    "archive": "Recordings.zip"
+  },
+  {
+    "path": "assets/1-batch-ping/OLD/OK all hits 4.m4a",
+    "bytes": 408293,
+    "sha256": "0b5a801140a062d94f13aba3f731766194c9968683de022bd99b9eb397748d3d",
+    "archive": "Recordings.zip"
+  },
+  {
+    "path": "assets/1-batch-ping/OLD/OK Angle.m4a",
+    "bytes": 543544,
+    "sha256": "a2931923e30abfac51620426d7bf7f7a79df79bba441bc1e8e670ae9ffbda996",
+    "archive": "Recordings.zip"
+  },
+  {
+    "path": "assets/2-batch-ok/Ok 1 point support agnle part 3.wav",
+    "bytes": 5746642,
+    "sha256": "1f4bc3a5fbeae8b6bbac780fbf110bf6ea2938643753a9a1b95222669c80d265",
+    "archive": "OK.zip"
+  },
+  {
+    "path": "assets/2-batch-ok/Part 2/Ok 4 point .wav",
+    "bytes": 222802,
+    "sha256": "3befda29ddda474df0bc77e8e8405f3e9fd1314da195e73abadc4b0174344552",
+    "archive": "OK.zip"
+  },
+  {
+    "path": "assets/2-batch-ok/Part 2/Ok 4 point support 2.wav",
+    "bytes": 90322,
+    "sha256": "657db9e5403c344946456e67779afb6b691c0e605a1b98ac7dd7e51e7d6fbd61",
+    "archive": "OK.zip"
+  },
+  {
+    "path": "assets/2-batch-ok/Part 2/Ok 4 point support 3.wav",
+    "bytes": 4110802,
+    "sha256": "d627c2771e67e030edd210ca9ff66a6af83674bc046fb9d7e68277cd463f76b2",
+    "archive": "OK.zip"
+  },
+  {
+    "path": "assets/2-batch-ok/Part 2/Ok 4 point support.wav",
+    "bytes": 4057042,
+    "sha256": "69c36329fa7f6a2bca829bed89ecc02dbecdca3aa9daef5ec8ef241848759401",
+    "archive": "OK.zip"
+  },
+  {
+    "path": "assets/2-batch-ok/Part 2/Ok 4 point support4.wav",
+    "bytes": 3845842,
+    "sha256": "e4947d039a16a9c9ac8db4d0f4c0c74e2174ce0e984eef069ba090be9cbb2499",
+    "archive": "OK.zip"
+  },
+  {
+    "path": "assets/2-batch-ok/Part 3/OK 1 point support  4.wav",
+    "bytes": 230482,
+    "sha256": "3a6df3e71329ea74d2d91305e291101b7ab469eca17a894c12eb379e049af944",
+    "archive": "OK.zip"
+  },
+  {
+    "path": "assets/2-batch-ok/Part 3/OK 1 point support .wav",
+    "bytes": 3458002,
+    "sha256": "ded69dff13d6fd8ffd2cca5a6db0f4dbec02927e9b661c9b3ba74c7ca70ae295",
+    "archive": "OK.zip"
+  },
+  {
+    "path": "assets/2-batch-ok/Part 3/OK 1 point support 2.wav",
+    "bytes": 4020562,
+    "sha256": "e807ae6086132fe0691b06fd6afeb6dd5fe3aa96d90129de9090a75ba721c18e",
+    "archive": "OK.zip"
+  },
+  {
+    "path": "assets/2-batch-ok/Part 3/OK 1 point support 3.wav",
+    "bytes": 3060562,
+    "sha256": "b05d2515711c27ec1511269acc4e48bf2ca63d110bec881919d240ef5f6e4b38",
+    "archive": "OK.zip"
+  },
+  {
+    "path": "assets/2-batch-ok/Part 3/OK 4 point support 1.wav",
+    "bytes": 3878482,
+    "sha256": "f9c8dc4032f5440cb9a48cd287f92d95838df449dbc9e7c54cda4673d03de61b",
+    "archive": "OK.zip"
+  },
+  {
+    "path": "assets/2-batch-ok/Part 3/OK 4 point support 2.wav",
+    "bytes": 3882322,
+    "sha256": "b3c39a20783e5a0fc9fa9e468fa4feea826c8ee4fbdd95b3855b7625a61b7ed2",
+    "archive": "OK.zip"
+  },
+  {
+    "path": "assets/2-batch-ok/Ok 1 point support agnle part 4.wav",
+    "bytes": 3646162,
+    "sha256": "16343ab7e209d27baef61e55b3e08a89d074ebffa45b3b5d5d66c4933456a674",
+    "archive": "OK.zip"
+  },
+  {
+    "path": "assets/2-batch-ok/Ok 1 point support agnle part 5.wav",
+    "bytes": 4082002,
+    "sha256": "9e760cd51f56aff5fb7e91e56aec7051e2407ef908d7b201f8e5020b8c8f20c9",
+    "archive": "OK.zip"
+  },
+  {
+    "path": "assets/2-batch-ok/Ok 1 point support agnle part 6.wav",
+    "bytes": 4694482,
+    "sha256": "017ced3a0c3195658693462f4da5863cfc092d1a0a32a575da5b1a608584a4ae",
+    "archive": "OK.zip"
+  },
+  {
+    "path": "assets/2-batch-ok/OK 1 point support angle part 1.wav",
+    "bytes": 5827282,
+    "sha256": "771b936d35d5a43fa526abee1c940a979d46e65c554361e8b6c609547567a9f2",
+    "archive": "OK.zip"
+  },
+  {
+    "path": "assets/2-batch-ok/OK 1 point support angle part 2.wav",
+    "bytes": 5637202,
+    "sha256": "c750f6f88173af91b3d215366959a37b86e3a8e0795b31e15c564af63657f87d",
+    "archive": "OK.zip"
+  },
+  {
+    "path": "assets/2-batch-ok/OK 1 point support angle.wav",
+    "bytes": 5940562,
+    "sha256": "2bc8db0cfddcebbcd3147520b4f82c1b3a7e9d8b7d8dcb21bb4cc6f2cfe217c7",
+    "archive": "OK.zip"
+  },
+  {
+    "path": "assets/2-batch-ok/OK 4 point support 2.wav",
+    "bytes": 5738962,
+    "sha256": "bafd40d1cdf09b38e13650813adee28b56975ac277d6b80e0e916fc5e8cb6e48",
+    "archive": "OK.zip"
+  },
+  {
+    "path": "assets/2-batch-ok/OK 4 point support 3.wav",
+    "bytes": 5875282,
+    "sha256": "978e03d55fde05e66159d05922dec19b172e06c2d998946e44e04729ea95062d",
+    "archive": "OK.zip"
+  },
+  {
+    "path": "assets/2-batch-ok/OK 4 point support.wav",
+    "bytes": 6422482,
+    "sha256": "4b64aa2a3f03b44c2cf6830e144e898003d41467226877f1406b0edc0d655bfb",
+    "archive": "OK.zip"
+  }
+]
