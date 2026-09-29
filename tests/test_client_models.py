@@ -47,3 +47,14 @@ def test_held_out_labels_and_other_test_rows_do_not_change_prediction():
     test.loc[test.index[1:], cols] = 1e8
     changed = fit_predict(train, test, "physics")
     np.testing.assert_allclose(original[0], changed[0], rtol=1e-10, atol=1e-10)
+
+
+def test_combined_features_are_union_without_metadata():
+    data = example()
+    for i in range(1, 14):
+        for stat in ["mean", "std"]:
+            data[f"mfcc_{i:02d}_{stat}"] = 0.0
+    combined = feature_columns(data, "mfcc_physics")
+    assert len(combined) == len(set(combined)) == 41
+    assert set(combined) == set(feature_columns(data, "physics")) | set(feature_columns(data, "mfcc"))
+    assert not set(combined) & {"label", "group", "recording_id", "event_id"}

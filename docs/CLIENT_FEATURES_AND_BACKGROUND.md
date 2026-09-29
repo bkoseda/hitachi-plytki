@@ -4,6 +4,10 @@
 
 **Kierunek produkcyjny: MFCC + regresja logistyczna, porównywane z XGBoostem. AST pozostaje tylko punktem odniesienia.** Wyniki poniżej dotyczą pięciu zakładanych płytek, nie potwierdzonych mechanizmów wykrywania pęknięć.
 
+## Połączenie MFCC + physics
+
+Wspólny wektor ma 41 cech. W aktualnym porównaniu LR daje 27/27 poprawnych nagrań, XGB 26/27: tyle samo co samo MFCC. Physics nie poprawiło tutaj accuracy. W modelach łączonych przetasowanie całego MFCC obniża balanced accuracy średnio o około 41 punktów procentowych, a całego physics o około 5 pp (LR) lub 7 pp (XGB). Model korzysta więc z physics, ale główną rolę pełni MFCC. To diagnostyka sześciu współzależnych podziałów, nie dowód fizycznej przyczyny.
+
 ## Co dostaje model i jak się uczy
 
 1. Z nagrania wykrywamy kandydatów na uderzenia. Każde zaakceptowane okno ma 170 ms: 20 ms przed początkiem i 150 ms po nim. Odejmujemy składową stałą i normalizujemy amplitudę.
@@ -37,6 +41,16 @@ Cechy zaniku nie są obecnie głównym źródłem jakości XGB. To nie dowodzi, 
 | MFCC + XGB | mfcc_09_mean | 0.040 | 6.6 p.p. | 6 |
 | MFCC + XGB | mfcc_10_std | 0.031 | 5.5 p.p. | 6 |
 | MFCC + XGB | mfcc_10_mean | 0.011 | 2.1 p.p. | 5 |
+| MFCC + physics + LR | mfcc_02_mean | 0.059 | 4.1 p.p. | 6 |
+| MFCC + physics + LR | mfcc_13_mean | 0.056 | 6.1 p.p. | 6 |
+| MFCC + physics + LR | mfcc_10_std | 0.044 | 2.8 p.p. | 6 |
+| MFCC + physics + LR | mfcc_10_mean | 0.038 | 5.4 p.p. | 6 |
+| MFCC + physics + LR | mfcc_11_mean | 0.030 | 3.8 p.p. | 6 |
+| MFCC + physics + XGB | mfcc_02_mean | 0.072 | 8.6 p.p. | 6 |
+| MFCC + physics + XGB | mfcc_13_mean | 0.041 | 4.3 p.p. | 6 |
+| MFCC + physics + XGB | mfcc_09_mean | 0.031 | 6.0 p.p. | 6 |
+| MFCC + physics + XGB | flatness | 0.030 | 3.9 p.p. | 5 |
+| MFCC + physics + XGB | band_1 | 0.020 | 4.1 p.p. | 5 |
 | physics + LR | flatness | 0.102 | 4.5 p.p. | 6 |
 | physics + LR | band_5 | 0.082 | 4.9 p.p. | 6 |
 | physics + LR | bandwidth_hz | 0.045 | 1.2 p.p. | 6 |

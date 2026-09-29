@@ -14,11 +14,12 @@ MODEL_REVISION = "f826b80d28226b62986cc218e5cec390b1096902"
 
 
 class ASTEncoder:
-    def __init__(self, cache_dir="models/ast", offline=False, device="cpu"):
+    def __init__(self, cache_dir="models/ast", offline=False, device="cpu", threads=1):
         import torch
         from transformers import ASTFeatureExtractor, ASTModel
 
-        torch.set_num_threads(min(8, torch.get_num_threads()))
+        # One CPU thread is a safe default when XGBoost shares this kernel on macOS.
+        torch.set_num_threads(min(threads, torch.get_num_threads()))
         self.device = device
         self.cache_dir = str(Path(cache_dir).resolve())
         args = dict(cache_dir=self.cache_dir, local_files_only=offline, revision=MODEL_REVISION)

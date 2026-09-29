@@ -38,6 +38,14 @@ def data_checks():
     assert (scores.query("level == 'assumed_plate'").n == 5).all()
     assert (scores.query("level == 'recording'").n == 27).all()
     noise = pd.read_csv(OUT / "noise_metrics.csv")
+    assert len(noise) == 32 and noise.model.nunique() == 8
+    assert not noise.duplicated(["model", "variant"]).any()
+    snr = pd.read_csv(OUT / "noise_snr_audit.csv")
+    assert len(snr) == 540 and snr.event_id.nunique() == 270
+    np.testing.assert_allclose(snr.requested_snr_db, snr.measured_snr_db, atol=1e-8)
+    noisy_predictions = pd.read_csv(OUT / "noise_recording_predictions.csv")
+    assert len(noisy_predictions) == 8 * 3 * 27
+    assert not noisy_predictions.duplicated(["model", "variant", "recording_id"]).any()
     for model in noise.model.unique():
         g = noise[noise.model == model].set_index("variant")
         np.testing.assert_allclose(
@@ -51,6 +59,8 @@ def data_checks():
         embedding_events=len(reps),
         groups_disjoint=True,
         unchanged_by_gain=True,
+        noise_models=8,
+        controlled_snr_windows=540,
     )
 
 

@@ -32,3 +32,13 @@ def test_background_silence_is_finite_and_no_absolute_gain_feature():
     noise = np.random.default_rng(42).normal(size=4800) * 0.01
     a, b = mfcc_background(noise, sr), mfcc_background(noise * 0.1, sr)
     np.testing.assert_allclose(list(a.values()), list(b.values()), atol=1e-10)
+
+
+def test_combined_bundles_partition_all_features():
+    from pinglab.clientexplanations import feature_groups
+
+    cols = ["peak_hz", "mfcc_01_mean", "mfcc_01_std"]
+    groups = feature_groups(cols, "mfcc_physics")
+    assert groups["ALL"] == cols
+    assert set(groups["ALL_mfcc"]).isdisjoint(groups["ALL_physics"])
+    assert set(groups["ALL_mfcc"] + groups["ALL_physics"]) == set(cols)

@@ -17,6 +17,10 @@ REPORT = """# Co wykorzystują modele i czy rozpoznają tło?
 
 **Kierunek produkcyjny: MFCC + regresja logistyczna, porównywane z XGBoostem. AST pozostaje tylko punktem odniesienia.** Wyniki poniżej dotyczą pięciu zakładanych płytek, nie potwierdzonych mechanizmów wykrywania pęknięć.
 
+## Połączenie MFCC + physics
+
+Wspólny wektor ma 41 cech. W aktualnym porównaniu LR daje 27/27 poprawnych nagrań, XGB 26/27: tyle samo co samo MFCC. Physics nie poprawiło tutaj accuracy. W modelach łączonych przetasowanie całego MFCC obniża balanced accuracy średnio o około 41 punktów procentowych, a całego physics o około 5 pp (LR) lub 7 pp (XGB). Model korzysta więc z physics, ale główną rolę pełni MFCC. To diagnostyka sześciu współzależnych podziałów, nie dowód fizycznej przyczyny.
+
 ## Co dostaje model i jak się uczy
 
 1. Z nagrania wykrywamy kandydatów na uderzenia. Każde zaakceptowane okno ma 170 ms: 20 ms przed początkiem i 150 ms po nim. Odejmujemy składową stałą i normalizujemy amplitudę.
@@ -161,7 +165,7 @@ print(sys.executable)""",
         ),
         (
             "m",
-            "## 1. Jedno uderzenie → cechy → ocena → mediana serii\n170 ms = 20 ms przed +150 ms po początku. Jeden wiersz ma 26 MFCC lub 15 physics. Każdy model uczy się etykiet uderzeń na trzech płytkach; dwie całe inne płytki są testowe. Powtarzamy sześć podziałów. Dziesięć uderzeń na plik daje 270 wierszy. Seria nie trafia do modelu jako sekwencja: agregujemy dopiero jego oceny. AST jest wyłącznie punktem odniesienia w notebooku 03.",
+            "## 1. Jedno uderzenie → cechy → ocena → mediana serii\n170 ms = 20 ms przed +150 ms po początku. Jeden wiersz ma 26 MFCC, 15 physics albo ich połączenie: 41 cech. Każdy model uczy się etykiet uderzeń na trzech płytkach; dwie całe inne płytki są testowe. Powtarzamy sześć podziałów. Dziesięć uderzeń na plik daje 270 wierszy. Seria nie trafia do modelu jako sekwencja: agregujemy dopiero jego oceny. AST jest wyłącznie punktem odniesienia w notebooku 03.",
         ),
         (
             "c",
@@ -182,7 +186,7 @@ display(Image(filename=str(OUT/'importance.png')))""",
         ),
         (
             "m",
-            "## 3. Ranking i znaczenie nazw\nMFCC_mean to średnia po ramkach wewnątrz uderzenia, MFCC_std — zmienność. Numer MFCC nie jest numerem pasma Hz. `flatness`: podobieństwo widma do równomiernego szumu; `band_1`: udział energii 80–201 Hz, `band_2`: 201–504 Hz, `band_5`: 3.18–7.97 kHz. W tabeli LR dodatnia waga przesuwa ocenę ku NOK, ujemna ku OK (przy pozostałych cechach stałych). Gain XGB nie ma takiego znaku. Nie porównuj wartości gain bezpośrednio z wagą regresji.",
+            "## 3. Ranking i znaczenie nazw\nDla modeli łączonych pokazujemy również przetasowanie całej rodziny: ALL_mfcc i ALL_physics. To sprawdza wkład rodziny przy zachowaniu drugiej; pojedyncze skorelowane cechy mogą się zastępować.\n\nMFCC_mean to średnia po ramkach wewnątrz uderzenia, MFCC_std — zmienność. Numer MFCC nie jest numerem pasma Hz. `flatness`: podobieństwo widma do równomiernego szumu; `band_1`: udział energii 80–201 Hz, `band_2`: 201–504 Hz, `band_5`: 3.18–7.97 kHz. W tabeli LR dodatnia waga przesuwa ocenę ku NOK, ujemna ku OK (przy pozostałych cechach stałych). Gain XGB nie ma takiego znaku. Nie porównuj wartości gain bezpośrednio z wagą regresji.",
         ),
         (
             "c",

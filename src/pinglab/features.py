@@ -91,6 +91,7 @@ def feature_columns(frame, family="physics"):
         "resonance": ["peak_hz", "centroid_hz", "decay10_s"],
         "physics": physics,
         "mfcc": [c for c in frame if c.startswith("mfcc_")],
+        "mfcc_physics": physics + [c for c in frame if c.startswith("mfcc_")],
         "mel": [c for c in frame if c.startswith("mel_")],
         "ast": [c for c in frame if c.startswith("ast_")],
     }

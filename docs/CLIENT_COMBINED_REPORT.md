@@ -37,12 +37,12 @@ W każdej z 6 prób odkładamy **całą jedną płytkę NOK i całą jedną OK**
 
 Wynik nagrania to mediana ocen 10 uderzeń. Tabela uśrednia oceny z prób, w których nagranie było odłożone; próg wynosi 0,5. To mały eksperyment eksploracyjny, nie niezależny końcowy test produkcyjny. Oceny modelu nie są skalibrowanym prawdopodobieństwem pęknięcia.
 
-MFCC opisuje kształt widma, czyli w przybliżeniu barwę dźwięku. Physics to 15 cech opisujących częstotliwości i zanik. LR to prosty klasyfikator liniowy. XGB to zespół małych drzew. AST jest zamrożonym transformerem AudioSet, który tworzy 768 liczb opisujących dźwięk; dopiero LR lub XGB uczy się naszych etykiet. AST pracuje przy 16 kHz, traci pasmo powyżej 8 kHz i standardowo dopełnia krótkie uderzenia do długiego wejścia. Nie dostrajaliśmy transformera.
+MFCC opisuje kształt widma, czyli w przybliżeniu barwę dźwięku. Physics to 15 cech opisujących częstotliwości i zanik. MFCC + physics łączy 26 + 15 = 41 cech w jednym wektorze, dla LR i XGB. Więcej cech nie gwarantuje poprawy: może również ułatwić uczenie różnic stanowiska. LR to prosty klasyfikator liniowy. XGB to zespół małych drzew. AST jest zamrożonym transformerem AudioSet, który tworzy 768 liczb opisujących dźwięk; dopiero LR lub XGB uczy się naszych etykiet. AST pracuje przy 16 kHz, traci pasmo powyżej 8 kHz i standardowo dopełnia krótkie uderzenia do długiego wejścia. Nie dostrajaliśmy transformera.
 
 ## Wyniki i ich granice
 
 MFCC + LR: po uśrednieniu odłożonych predykcji 27/27 nagrań poprawnych, 9/9 nagrań NOK wykrytych. **W jednej pojedynczej próbie odrzucił jedno nagranie OK**; balanced accuracy poszczególnych prób wynosi 90%–100%. Wyniku 100% z tabeli nie należy opisywać jako bezbłędności każdej próby.
-AST + LR: 25/27 poprawnych, 8/9 NOK, jedno fałszywe odrzucenie OK. AST + XGB: 24/27. Prostsze MFCC jest obecnie wystarczającym punktem odniesienia.
+AST + LR: 25/27 poprawnych, 8/9 NOK, jedno fałszywe odrzucenie OK. AST + XGB: 24/27. Połączenie MFCC + physics daje 27/27 dla LR i 26/27 dla XGB, tyle samo co samo MFCC. Prostsze MFCC pozostaje punktem odniesienia.
 
 Po zebraniu ocen wszystkich nagrań danej grupy MFCC i AST poprawnie klasyfikują 5/5 zakładanych płytek. **To nadal tylko dwie uszkodzone sztuki.** Powtarzane podziały ani tysiące uderzeń nie zwiększają tej liczby. Nie podajemy sztucznie wąskich przedziałów ufności liczonych po uderzeniach.
 
@@ -58,7 +58,9 @@ W OLD, wyłączonym z uczenia, MFCC poprawnie rozpoznaje 6/8 plików, AST 7/8. N
 
 ## Szum i liczba uderzeń
 
-Ściszenie o 12 dB nie zmienia wyników, zgodnie z normalizacją amplitudy. Po dodaniu aktywnego fragmentu nagranego tła do odłożonych uderzeń MFCC nadal wykrywa 9/9 nagrań NOK, ale fałszywie odrzuca 5/18 OK przy SNR 20 dB i 6/18 przy 10 dB. Niższy SNR oznacza mocniejsze tło. To kontrolowana domieszka do okien już wykrytych, nie test detektora na zaszumionej całej sesji. AST nie przeszedł w tej rundzie testu szumu.
+Ściszenie o 12 dB nie zmienia wyników, zgodnie z normalizacją amplitudy. Po dodaniu aktywnego fragmentu nagranego tła do odłożonych uderzeń MFCC nadal wykrywa 9/9 nagrań NOK, ale fałszywie odrzuca 5/18 OK przy SNR 20 dB i 6/18 przy 10 dB. Niższy SNR oznacza mocniejsze tło. To kontrolowana domieszka do okien już wykrytych, nie test detektora na zaszumionej całej sesji. Test obejmuje teraz również AST + LR i AST + XGB oraz połączenie MFCC + physics. Tabela poniżej pokazuje wszystkie warianty. Dla każdego modelu używamy dokładnie tych samych zaszumionych uderzeń; modele uczą się wyłącznie na oryginałach. SNR odnosi się do mocy całego oryginalnego okna względem dodawanego tła, nie do nieznanego czystego dźwięku płytki.
+
+**Połączenie cech nie poprawiło odporności w sposób spójny.** Przy 20 dB MFCC + physics + LR odrzuca 4/18 OK zamiast 5/18 dla MFCC + LR; przy mocniejszym tle 10 dB odrzuca już 10/18 zamiast 6/18. AST + LR odrzuca odpowiednio 4/18 i 8/18 OK. AST + XGB przy 10 dB odrzuca aż 17/18 OK. Wszystkie te warianty po domieszaniu tła wykrywają 9/9 NOK. Wysoki recall nie wystarcza, jeśli prawie wszystko zostaje uznane za wadliwe. AUC może pozostać wysokie, choć decyzje przy stałym progu 0.5 się pogarszają: tło przesuwa oceny ku NOK. Nie poprawiamy progu na tych samych testach.
 
 Wykres 1/3/5/10 uderzeń pokazuje stabilność mediany ocen na tych samych odłożonych nagraniach. Pasmo oznacza rozrzut 100 losowań, nie przedział ufności skuteczności na nowych płytkach. Nie wyznaczamy jeszcze minimalnej liczby uderzeń do produkcji ani nie porównujemy „master tap” bez pozycji trafień.
 

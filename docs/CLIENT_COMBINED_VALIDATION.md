@@ -44,3 +44,25 @@ nie zmieniło wcześniejszych predykcji żadnego z czterech analizowanych modeli
 
 Wyniki i ślad wykonania: `reports/runs/client-combined-20260929/explanations/`.
 Opis i ograniczenia: [cechy i tło](CLIENT_FEATURES_AND_BACKGROUND.md).
+
+
+## Uzupełnienie: MFCC + physics oraz odporność AST
+
+- Dodano wspólny wektor 41 cech dla LR i XGB, z tymi samymi sześcioma podziałami po płytkach.
+- Notebook 03 wykonany w świeżym kernelu: 9 komórek, 0 błędów, około 25 s z cache.
+- Notebook 04 wykonany w świeżym kernelu: 7 komórek, 0 błędów, około 73 s.
+  Następnie ponownie wykonany przez Run All w VS Code i zapisany z wynikami.
+- Ponowna kontrola 03 w interfejsie VS Code utknęła przy restarcie kernela.
+  Zatrzymano wyłącznie nowy zawieszony proces tego kernela. W tej aktualizacji
+  nie potwierdzono Run All dla 03 w interfejsie; pełne wykonanie programowe jest potwierdzone.
+- 27 testów modeli, cech, audio i pipeline przeszło. Sprawdzono 41 unikalnych
+  cech bez metadanych oraz rozdzielenie rodzin w teście ważności.
+- Osiem modeli, cztery warunki: oryginał, −12 dB, tło SNR 20 i 10 dB.
+  AST ponownie zakodował 810 zmienionych okien. Wyniki są lokalnie buforowane.
+  Sprawdzono rzeczywisty stosunek RMS dla 540 mieszanek, 648 ocen nagrań
+  oraz brak zmiany accuracy/AUC po ściszeniu każdego modelu.
+- Na macOS domyślny AST używa jednego wątku CPU, aby uniknąć zaobserwowanego
+  konfliktu puli OpenMP po uruchomieniu XGBoost w tym samym procesie.
+
+Ślady: `validation_fusion_noise.json`, `fusion_noise_delivery_validation.json`,
+`noise_snr_audit.csv`, `noise_recording_predictions.csv` w katalogu tej rundy.

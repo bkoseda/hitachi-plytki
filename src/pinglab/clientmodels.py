@@ -19,6 +19,8 @@ SPECS = {
     "mel + LR": ("mel", "lr"),
     "physics + XGB": ("physics", "xgb"),
     "MFCC + XGB": ("mfcc", "xgb"),
+    "MFCC + physics + LR": ("mfcc_physics", "lr"),
+    "MFCC + physics + XGB": ("mfcc_physics", "xgb"),
     "AST + LR": ("ast", "lr"),
     "AST + XGB": ("ast", "xgb"),
     "QC only + LR": ("qc", "lr"),

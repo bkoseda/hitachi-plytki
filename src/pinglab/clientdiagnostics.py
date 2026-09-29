@@ -1,5 +1,6 @@
 """Acquisition diagnostics and controlled perturbations for the client pilot."""
 
+import hashlib
 import json
 
 import matplotlib.pyplot as plt
@@ -166,9 +167,26 @@ def perturbations(root=None):
     core = pd.read_pickle(out / "model_input.pkl")
     noise, sr = sf.read(out / "decoded/R16.wav")
     noise = noise[19 * sr : 30 * sr]
-    variants = []
+    from .embeddings import ASTEncoder
+
+    # Single-thread PyTorch avoids an OpenMP pool conflict after XGBoost on macOS.
+    encoder = ASTEncoder(root / "models/ast", offline=True, threads=1)
+    cache = root / "data/cache/client-ast-perturbations"
+    cache.mkdir(parents=True, exist_ok=True)
+    names = [
+        "physics + LR",
+        "physics + XGB",
+        "MFCC + LR",
+        "MFCC + XGB",
+        "MFCC + physics + LR",
+        "MFCC + physics + XGB",
+        "AST + LR",
+        "AST + XGB",
+    ]
+    specs = {k: SPECS[k] for k in names}
+    variants, audit, all_predictions = [], [], []
     for variant, snr in [("gain -12 dB", None), ("factory SNR 20 dB", 20), ("factory SNR 10 dB", 10)]:
-        rows = []
+        rows, vectors = [], []
         for i, r in enumerate(core.itertuples()):
             y, sr = sf.read(out / "clips" / f"{r.event_id}.wav")
             if snr is None:
@@ -180,11 +198,35 @@ def perturbations(root=None):
                 n -= n.mean()
                 n *= np.sqrt(np.mean(y * y)) / max(np.sqrt(np.mean(n * n)), 1e-12) / 10 ** (snr / 20)
                 z = y + n
+                measured = 20 * np.log10(np.sqrt(np.mean(y * y)) / np.sqrt(np.mean(n * n)))
+                assert abs(measured - snr) < 1e-8
+                audit.append(
+                    dict(
+                        event_id=r.event_id,
+                        variant=variant,
+                        requested_snr_db=snr,
+                        measured_snr_db=float(measured),
+                        noise_start_s=19 + a / sr,
+                    )
+                )
             rows.append(extract_features(z, sr, r.onset_offset_s))
+            key = hashlib.sha256(
+                z.astype(np.float32).tobytes() + str(sr).encode() + encoder.revision.encode() + b"peak095-v1"
+            ).hexdigest()
+            path = cache / f"{key}.npy"
+            if path.exists():
+                vector = np.load(path, allow_pickle=False)
+            else:
+                vector = encoder.encode(z, sr)
+                np.save(path, vector)
+            assert vector.shape == (768,) and np.isfinite(vector).all()
+            vectors.append(vector)
+            if (i + 1) % 30 == 0:
+                print(f"{variant}: AST {i + 1}/{len(core)}", flush=True)
         changed = core.copy()
         for col in rows[0]:
             changed[col] = [row[col] for row in rows]
-        specs = {k: SPECS[k] for k in ["physics + LR", "MFCC + LR"]}
+        changed.loc[:, feature_columns(changed, "ast")] = np.stack(vectors)
         from .clientmodels import fit_predict, group_folds, metrics
 
         predictions = []
@@ -202,14 +244,16 @@ def perturbations(root=None):
             .score.median()
         )
         p = p.groupby(["model", "recording_id", "group", "label"], as_index=False).score.mean()
+        p["variant"] = variant
+        all_predictions.append(p)
         for model, g in p.groupby("model"):
             variants.append(dict(variant=variant, model=model, **metrics(g)))
         print("Perturbation", variant, flush=True)
     baseline = pd.read_csv(out / "model_comparison.csv")
-    baseline = baseline[
-        (baseline.level == "recording") & baseline.model.isin(["physics + LR", "MFCC + LR"])
-    ].drop(columns="level")
+    baseline = baseline[(baseline.level == "recording") & baseline.model.isin(names)].drop(columns="level")
     baseline["variant"] = "original"
     result = pd.concat([baseline, pd.DataFrame(variants)], ignore_index=True)
     result.to_csv(out / "noise_metrics.csv", index=False)
+    pd.DataFrame(audit).to_csv(out / "noise_snr_audit.csv", index=False)
+    pd.concat(all_predictions, ignore_index=True).to_csv(out / "noise_recording_predictions.csv", index=False)
     return result

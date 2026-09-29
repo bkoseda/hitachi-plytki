@@ -30,12 +30,14 @@ def picture(name):
 def performance_figures():
     scores = pd.read_csv(OUT / "model_comparison.csv")
     s = scores[scores.level == "recording"].set_index("model")
-    fig, ax = plt.subplots(figsize=(10, 4), constrained_layout=True)
+    fig, ax = plt.subplots(figsize=(13, 5), constrained_layout=True)
     names = [
         "physics + LR",
         "physics + XGB",
         "MFCC + LR",
         "MFCC + XGB",
+        "MFCC + physics + LR",
+        "MFCC + physics + XGB",
         "AST + LR",
         "AST + XGB",
         "QC only + LR",
@@ -91,7 +93,7 @@ def write_report():
         comp[c] = comp[c].map(lambda v: f"{v:.1%}")
     codec = json.loads((OUT / "codec_control.json").read_text())
     noise = pd.read_csv(OUT / "noise_metrics.csv")
-    noise = noise[noise.model == "MFCC + LR"][["variant", "recall_nok", "false_reject_ok", "accuracy"]]
+    noise = noise[["model", "variant", "recall_nok", "false_reject_ok", "accuracy"]]
     folds = pd.read_csv(OUT / "fold_metrics.csv")
     mainfolds = folds[folds.model == "MFCC + LR"]
     permutations = pd.read_csv(OUT / "group_label_permutations.csv")
@@ -135,12 +137,12 @@ W każdej z 6 prób odkładamy **całą jedną płytkę NOK i całą jedną OK**
 
 Wynik nagrania to mediana ocen 10 uderzeń. Tabela uśrednia oceny z prób, w których nagranie było odłożone; próg wynosi 0,5. To mały eksperyment eksploracyjny, nie niezależny końcowy test produkcyjny. Oceny modelu nie są skalibrowanym prawdopodobieństwem pęknięcia.
 
-MFCC opisuje kształt widma, czyli w przybliżeniu barwę dźwięku. Physics to 15 cech opisujących częstotliwości i zanik. LR to prosty klasyfikator liniowy. XGB to zespół małych drzew. AST jest zamrożonym transformerem AudioSet, który tworzy 768 liczb opisujących dźwięk; dopiero LR lub XGB uczy się naszych etykiet. AST pracuje przy 16 kHz, traci pasmo powyżej 8 kHz i standardowo dopełnia krótkie uderzenia do długiego wejścia. Nie dostrajaliśmy transformera.
+MFCC opisuje kształt widma, czyli w przybliżeniu barwę dźwięku. Physics to 15 cech opisujących częstotliwości i zanik. MFCC + physics łączy 26 + 15 = 41 cech w jednym wektorze, dla LR i XGB. Więcej cech nie gwarantuje poprawy: może również ułatwić uczenie różnic stanowiska. LR to prosty klasyfikator liniowy. XGB to zespół małych drzew. AST jest zamrożonym transformerem AudioSet, który tworzy 768 liczb opisujących dźwięk; dopiero LR lub XGB uczy się naszych etykiet. AST pracuje przy 16 kHz, traci pasmo powyżej 8 kHz i standardowo dopełnia krótkie uderzenia do długiego wejścia. Nie dostrajaliśmy transformera.
 
 ## Wyniki i ich granice
 
 MFCC + LR: po uśrednieniu odłożonych predykcji 27/27 nagrań poprawnych, 9/9 nagrań NOK wykrytych. **W jednej pojedynczej próbie odrzucił jedno nagranie OK**; balanced accuracy poszczególnych prób wynosi {mainfolds.balanced_accuracy.min():.0%}–{mainfolds.balanced_accuracy.max():.0%}. Wyniku 100% z tabeli nie należy opisywać jako bezbłędności każdej próby.
-AST + LR: 25/27 poprawnych, 8/9 NOK, jedno fałszywe odrzucenie OK. AST + XGB: 24/27. Prostsze MFCC jest obecnie wystarczającym punktem odniesienia.
+AST + LR: 25/27 poprawnych, 8/9 NOK, jedno fałszywe odrzucenie OK. AST + XGB: 24/27. Połączenie MFCC + physics daje 27/27 dla LR i 26/27 dla XGB, tyle samo co samo MFCC. Prostsze MFCC pozostaje punktem odniesienia.
 
 Po zebraniu ocen wszystkich nagrań danej grupy MFCC i AST poprawnie klasyfikują 5/5 zakładanych płytek. **To nadal tylko dwie uszkodzone sztuki.** Powtarzane podziały ani tysiące uderzeń nie zwiększają tej liczby. Nie podajemy sztucznie wąskich przedziałów ufności liczonych po uderzeniach.
 
@@ -156,7 +158,9 @@ W OLD, wyłączonym z uczenia, MFCC poprawnie rozpoznaje 6/8 plików, AST 7/8. N
 
 ## Szum i liczba uderzeń
 
-Ściszenie o 12 dB nie zmienia wyników, zgodnie z normalizacją amplitudy. Po dodaniu aktywnego fragmentu nagranego tła do odłożonych uderzeń MFCC nadal wykrywa 9/9 nagrań NOK, ale fałszywie odrzuca 5/18 OK przy SNR 20 dB i 6/18 przy 10 dB. Niższy SNR oznacza mocniejsze tło. To kontrolowana domieszka do okien już wykrytych, nie test detektora na zaszumionej całej sesji. AST nie przeszedł w tej rundzie testu szumu.
+Ściszenie o 12 dB nie zmienia wyników, zgodnie z normalizacją amplitudy. Po dodaniu aktywnego fragmentu nagranego tła do odłożonych uderzeń MFCC nadal wykrywa 9/9 nagrań NOK, ale fałszywie odrzuca 5/18 OK przy SNR 20 dB i 6/18 przy 10 dB. Niższy SNR oznacza mocniejsze tło. To kontrolowana domieszka do okien już wykrytych, nie test detektora na zaszumionej całej sesji. Test obejmuje teraz również AST + LR i AST + XGB oraz połączenie MFCC + physics. Tabela poniżej pokazuje wszystkie warianty. Dla każdego modelu używamy dokładnie tych samych zaszumionych uderzeń; modele uczą się wyłącznie na oryginałach. SNR odnosi się do mocy całego oryginalnego okna względem dodawanego tła, nie do nieznanego czystego dźwięku płytki.
+
+**Połączenie cech nie poprawiło odporności w sposób spójny.** Przy 20 dB MFCC + physics + LR odrzuca 4/18 OK zamiast 5/18 dla MFCC + LR; przy mocniejszym tle 10 dB odrzuca już 10/18 zamiast 6/18. AST + LR odrzuca odpowiednio 4/18 i 8/18 OK. AST + XGB przy 10 dB odrzuca aż 17/18 OK. Wszystkie te warianty po domieszaniu tła wykrywają 9/9 NOK. Wysoki recall nie wystarcza, jeśli prawie wszystko zostaje uznane za wadliwe. AUC może pozostać wysokie, choć decyzje przy stałym progu 0.5 się pogarszają: tło przesuwa oceny ku NOK. Nie poprawiamy progu na tych samych testach.
 
 Wykres 1/3/5/10 uderzeń pokazuje stabilność mediany ocen na tych samych odłożonych nagraniach. Pasmo oznacza rozrzut 100 losowań, nie przedział ufności skuteczności na nowych płytkach. Nie wyznaczamy jeszcze minimalnej liczby uderzeń do produkcji ani nie porównujemy „master tap” bez pozycji trafień.
 
@@ -373,7 +377,7 @@ Wynik jest obiecującą poszlaką. Sposób zapisu jest powiązany z klasą, wię
     recordings, candidates, features = prepare(ROOT)
     representations = embeddings(ROOT)
 display(representations.groupby(["scope","group"]).agg(nagrania=("recording_id","nunique"),uderzenia=("event_id","size")))
-print("Physics: 15 cech; MFCC: 26; mel: 40; AST: 768.")""",
+print("Physics: 15 cech; MFCC: 26; MFCC + physics: 41; mel: 40; AST: 768.")""",
             ),
             (
                 "m",
@@ -399,7 +403,7 @@ display(pd.DataFrame(audit)[["fold","train_groups","test_groups","train_taps","t
             ),
             (
                 "m",
-                "## 4. Porównanie modeli\n**Accuracy**: ile decyzji jest poprawnych. **Recall NOK**: ile wadliwych wykryliśmy. **Fałszywe odrzucenia OK**: ile dobrych odrzuciliśmy. **Balanced accuracy** nadaje obu klasom równą wagę. **AUC** ocenia uporządkowanie wyników bez konkretnego progu. Próg 0.5 jest stały, a oceny nie są skalibrowanym prawdopodobieństwem wady.\n\nTabela nagrań uśrednia przewidywania ze wszystkich prób, w których dany plik był odłożony. W jednej próbie MFCC odrzuca jedno OK, choć po uśrednieniu tabela pokazuje 27/27. Poniżej są również osobne próby i tylko pięć zakładanych płytek.",
+                "## 4. Porównanie modeli\n**MFCC + physics** to wspólny wektor 41 cech: 26 MFCC i 15 fizycznych. Wcześniejsze rozdzielenie było punktem odniesienia, nie wynikiem testu korelacji. XGBoost potrafi ignorować część cech, ale dodatkowe cechy mogą też wzmacniać przypadkowe zależności przy zaledwie pięciu płytkach. Sprawdzamy połączenie na identycznych podziałach, bez dostrajania parametrów do wyniku.\n\n**Accuracy**: ile decyzji jest poprawnych. **Recall NOK**: ile wadliwych wykryliśmy. **Fałszywe odrzucenia OK**: ile dobrych odrzuciliśmy. **Balanced accuracy** nadaje obu klasom równą wagę. **AUC** ocenia uporządkowanie wyników bez konkretnego progu. Próg 0.5 jest stały, a oceny nie są skalibrowanym prawdopodobieństwem wady.\n\nTabela nagrań uśrednia przewidywania ze wszystkich prób, w których dany plik był odłożony. W jednej próbie MFCC odrzuca jedno OK, choć po uśrednieniu tabela pokazuje 27/27. Poniżej są również osobne próby i tylko pięć zakładanych płytek.",
             ),
             (
                 "c",
@@ -407,7 +411,7 @@ display(pd.DataFrame(audit)[["fold","train_groups","test_groups","train_taps","t
 display(scores[scores.level.eq("recording")][cols].round(3))
 display(scores[scores.level.eq("assumed_plate")][cols].round(3))
 folds = pd.read_csv(OUT / "fold_metrics.csv")
-display(folds[folds.model.isin(["MFCC + LR","AST + LR"])].round(3))""",
+display(folds[folds.model.isin(["MFCC + LR","MFCC + physics + LR","MFCC + physics + XGB","AST + LR"])].round(3))""",
             ),
             (
                 "m",
@@ -426,14 +430,16 @@ print("OLD: diagnostyka innych plików, nie potwierdzony test niezależnych pły
             ),
             (
                 "m",
-                "## 6. Szum: utrzymuje wykrywanie NOK, odrzuca więcej OK\nUczymy na oryginałach, zmieniamy tylko odłożone okna. SNR 20 dB jest słabszym szumem niż 10 dB. Używamy aktywnego fragmentu tła 19–30 s; wyciszoną część pomijamy. Test nie obejmuje ponownej detekcji uderzeń ani AST. Ściszenie powinno nie zmieniać wyniku dzięki normalizacji.",
+                "## 6. Odporność na tło: także AST i MFCC + physics\nUczymy na oryginałach, zmieniamy tylko odłożone okna. Wszystkie osiem modeli dostaje te same zmienione sygnały. Używamy nagranego tła z sekund 19–30, dodanego matematycznie do uderzeń. Dobieramy jego amplitudę: RMS(tła) = RMS(oryginału) / 10^(SNR/20). Przy 20 dB tło ma 1/10 amplitudy RMS oryginału, przy 10 dB około 1/3,16. To SNR dodanej domieszki względem całego okna, które już zawiera własne tło.\n\nAST ponownie oblicza embedding zaszumionego audio; nie dodajemy szumu do wektorów. Pierwsze uruchomienie jest dłuższe, kolejne korzystają z lokalnego cache. Test obejmuje klasyfikację, bez ponownej detekcji uderzeń. Ściszenie sprawdza normalizację amplitudy.\n\n**Jak czytać wynik:** przy SNR 10 dB MFCC + LR odrzuca 6/18 dobrych, połączenie MFCC + physics + LR 10/18, AST + LR 8/18, a AST + XGB 17/18. Wszystkie wykrywają 9/9 NOK. Sam recall wygląda więc dobrze, ale odrzucanie dobrych rośnie. Przy 20 dB połączenie LR ma o jeden fałszywy alarm mniej niż samo MFCC; nie ma spójnej przewagi przy obu poziomach tła. Wysokie AUC i gorsze decyzje wskazują na przesunięcie ocen względem stałego progu 0.5. Nie dostrajamy go do tego testu.",
             ),
             (
                 "c",
                 """from pinglab.clientdiagnostics import perturbations
-with contextlib.redirect_stdout(io.StringIO()):
-    noise_results = perturbations(ROOT)
-display(noise_results[["model","variant","accuracy","recall_nok","false_reject_ok","auc"]].round(3))""",
+noise_results = perturbations(ROOT)
+display(noise_results[["model","variant","accuracy","recall_nok","false_reject_ok","auc","tp","fn","fp"]].round(3))
+display(noise_results.pivot(index="model", columns="variant", values="balanced_accuracy").round(3))
+snr_audit = pd.read_csv(OUT / "noise_snr_audit.csv")
+print("Maksymalny błąd ustawienia SNR [dB]:", (snr_audit.measured_snr_db-snr_audit.requested_snr_db).abs().max())""",
             ),
             (
                 "m",

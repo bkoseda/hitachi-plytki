@@ -8,8 +8,10 @@ Otwórz cały folder `ceramic-ping-lab` w VS Code. W notebooku wybierz kernel
    zmienność ustawienia i zalecenia dla operatora.
 2. [03_modele_obu_paczek.ipynb](03_modele_obu_paczek.ipynb) — cechy i zamrożony AST,
    podział po całych płytkach, LR/XGBoost, accuracy/recall, kontrola kodeka i QC,
-   próby z szumem i różną liczbą uderzeń.
+   MFCC + physics (41 cech) oraz próby z szumem obejmujące również AST.
+   Nowe porównania: sekcje 4 i 6.
 3. [04_cechy_i_tlo.ipynb](04_cechy_i_tlo.ipynb) — ważność cech regresji i XGBoost,
+   wkład całej rodziny MFCC/physics w modelu łączonym (sekcje 2–3),
    modele kontrolne uczone na fragmentach przed pingiem i cichych fragmentach,
    porównanie ataku i ogona. Bez uruchamiania AST.
 

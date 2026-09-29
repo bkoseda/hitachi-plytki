@@ -21,6 +21,8 @@ MODELS = {
     "physics + XGB": ("physics", "xgb"),
     "MFCC + LR": ("mfcc", "lr"),
     "MFCC + XGB": ("mfcc", "xgb"),
+    "MFCC + physics + LR": ("mfcc_physics", "lr"),
+    "MFCC + physics + XGB": ("mfcc_physics", "xgb"),
 }
 
 
@@ -43,6 +45,10 @@ def file_block_permutation(frame, rng):
 
 
 def feature_groups(cols, family):
+    if family == "mfcc_physics":
+        mfcc = [c for c in cols if c.startswith("mfcc_")]
+        physics = [c for c in cols if not c.startswith("mfcc_")]
+        return {"ALL": cols, "ALL_mfcc": mfcc, "ALL_physics": physics}
     if family == "mfcc":
         return {
             "ALL": cols,
@@ -137,7 +143,7 @@ def importances(root=None, repeats=30):
     )
     summary = summary.merge(ns, how="left", on=["model", "feature"])
     summary.to_csv(out / "feature_importance.csv", index=False)
-    fig, axs = plt.subplots(2, 2, figsize=(12, 8), constrained_layout=True)
+    fig, axs = plt.subplots(3, 2, figsize=(12, 12), constrained_layout=True)
     for ax, name in zip(axs.flat, MODELS):
         top = (
             summary[(summary.model == name) & ~summary.feature.str.startswith("ALL")]
