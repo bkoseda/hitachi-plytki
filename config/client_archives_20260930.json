@@ -1,0 +1,130 @@
+[
+  {
+    "archive": "OneDrive_2026-09-30.zip",
+    "archive_sha256": "9a8d5391af5347c0c9a95150b338c8416fa0cdd0eb0d6787a131b7fe90fcda03",
+    "member": "Mic Enhancements Off/factory noise- Enhancements off.wav",
+    "path": "assets/3-batch-enhancements-off/Mic Enhancements Off/factory noise- Enhancements off.wav",
+    "sha256": "ddaf975589ad0372a9260118272d9d5cadfd1241b3209127390b04b9c1819613",
+    "size_bytes": 6606802
+  },
+  {
+    "archive": "OneDrive_2026-09-30.zip",
+    "archive_sha256": "9a8d5391af5347c0c9a95150b338c8416fa0cdd0eb0d6787a131b7fe90fcda03",
+    "member": "Mic Enhancements Off/Ok no enhacements off angle.wav",
+    "path": "assets/3-batch-enhancements-off/Mic Enhancements Off/Ok no enhacements off angle.wav",
+    "sha256": "8d3f0985e63bba700e25ad91fe44c7c46f09ba360146e49116d0a51dd625f9f0",
+    "size_bytes": 4819282
+  },
+  {
+    "archive": "OneDrive_2026-09-30.zip",
+    "archive_sha256": "9a8d5391af5347c0c9a95150b338c8416fa0cdd0eb0d6787a131b7fe90fcda03",
+    "member": "Mic Enhancements Off/OK no enhacements off.wav",
+    "path": "assets/3-batch-enhancements-off/Mic Enhancements Off/OK no enhacements off.wav",
+    "sha256": "eb4f5f562a8732cfd668b5a63398f9dec86fad206e794166fdda73bd9bedc844",
+    "size_bytes": 5786962
+  },
+  {
+    "archive": "OneDrive_2_9-30-2026.zip",
+    "archive_sha256": "640899299f674254f1b8e725afdde7dedcd63f3927f780aafa6e954ebc1de85c",
+    "member": "BAD/BAD2/BAD lab test angle single point.wav",
+    "path": "assets/4-batch-lab-test/BAD/BAD2/BAD lab test angle single point.wav",
+    "sha256": "df723d06fc7ead1a48214abd875760e5ac4ac31f3716176d8262cdae4795c776",
+    "size_bytes": 7011922
+  },
+  {
+    "archive": "OneDrive_2_9-30-2026.zip",
+    "archive_sha256": "640899299f674254f1b8e725afdde7dedcd63f3927f780aafa6e954ebc1de85c",
+    "member": "BAD/BAD2/NOK LAB TEST 2.wav",
+    "path": "assets/4-batch-lab-test/BAD/BAD2/NOK LAB TEST 2.wav",
+    "sha256": "a04ec4fc45d918416b039f6904ddc71646ec8eedcc93acb144fa359d0f120043",
+    "size_bytes": 11316562
+  },
+  {
+    "archive": "OneDrive_2_9-30-2026.zip",
+    "archive_sha256": "640899299f674254f1b8e725afdde7dedcd63f3927f780aafa6e954ebc1de85c",
+    "member": "BAD/BAD2/NOK LAB TEST 3.wav",
+    "path": "assets/4-batch-lab-test/BAD/BAD2/NOK LAB TEST 3.wav",
+    "sha256": "aa945ccf4aeccc82be45f9dfe6ceff9a3de0092467275ad1d877f6f3181c76e6",
+    "size_bytes": 10871122
+  },
+  {
+    "archive": "OneDrive_2_9-30-2026.zip",
+    "archive_sha256": "640899299f674254f1b8e725afdde7dedcd63f3927f780aafa6e954ebc1de85c",
+    "member": "BAD/BAD2/NOK LAB test angle 2.wav",
+    "path": "assets/4-batch-lab-test/BAD/BAD2/NOK LAB test angle 2.wav",
+    "sha256": "a41c6db8501cb861579d65a589064b85a8ddca71dc72ede88ab89038588ffa27",
+    "size_bytes": 5439442
+  },
+  {
+    "archive": "OneDrive_2_9-30-2026.zip",
+    "archive_sha256": "640899299f674254f1b8e725afdde7dedcd63f3927f780aafa6e954ebc1de85c",
+    "member": "BAD/BAD2/NOK lab test angle 3.wav",
+    "path": "assets/4-batch-lab-test/BAD/BAD2/NOK lab test angle 3.wav",
+    "sha256": "e2b7c992469a8b870ef2ce334f36171516c9bf562fba43949fbd6b2c71c22a5d",
+    "size_bytes": 8194642
+  },
+  {
+    "archive": "OneDrive_2_9-30-2026.zip",
+    "archive_sha256": "640899299f674254f1b8e725afdde7dedcd63f3927f780aafa6e954ebc1de85c",
+    "member": "BAD/BAD2/NOK LAB Test angle.wav",
+    "path": "assets/4-batch-lab-test/BAD/BAD2/NOK LAB Test angle.wav",
+    "sha256": "a1bd8683cef1ce8d941a4ac4865f46832546ab9035ec59c0224a181569404f38",
+    "size_bytes": 10625362
+  },
+  {
+    "archive": "OneDrive_2_9-30-2026.zip",
+    "archive_sha256": "640899299f674254f1b8e725afdde7dedcd63f3927f780aafa6e954ebc1de85c",
+    "member": "BAD/BAD2/NOK LAB TEST.wav",
+    "path": "assets/4-batch-lab-test/BAD/BAD2/NOK LAB TEST.wav",
+    "sha256": "1e11f57ed5b6c348cfe60f3b81d721d8d20144b543c30d34051649ac4abeb525",
+    "size_bytes": 5717842
+  },
+  {
+    "archive": "OneDrive_2_9-30-2026.zip",
+    "archive_sha256": "640899299f674254f1b8e725afdde7dedcd63f3927f780aafa6e954ebc1de85c",
+    "member": "OK/OK LAB TEST 2.wav",
+    "path": "assets/4-batch-lab-test/OK/OK LAB TEST 2.wav",
+    "sha256": "ddc105d44997c43acfdea0f643d6179a3c6ed778b5c0a6143858908d4b9aa66e",
+    "size_bytes": 7929682
+  },
+  {
+    "archive": "OneDrive_2_9-30-2026.zip",
+    "archive_sha256": "640899299f674254f1b8e725afdde7dedcd63f3927f780aafa6e954ebc1de85c",
+    "member": "OK/OK LAB TEST 3.wav",
+    "path": "assets/4-batch-lab-test/OK/OK LAB TEST 3.wav",
+    "sha256": "ca2010fd5464a441a6d5db089bad4b8c6a33ffa2cafde003dccbfe5a901fc4cf",
+    "size_bytes": 6864082
+  },
+  {
+    "archive": "OneDrive_2_9-30-2026.zip",
+    "archive_sha256": "640899299f674254f1b8e725afdde7dedcd63f3927f780aafa6e954ebc1de85c",
+    "member": "OK/OK LAB TEST ANGLE 2.wav",
+    "path": "assets/4-batch-lab-test/OK/OK LAB TEST ANGLE 2.wav",
+    "sha256": "8a13961d4aca94302aa9ab84b468f990118a2b7dae95612086a6a0d5764de24d",
+    "size_bytes": 6727762
+  },
+  {
+    "archive": "OneDrive_2_9-30-2026.zip",
+    "archive_sha256": "640899299f674254f1b8e725afdde7dedcd63f3927f780aafa6e954ebc1de85c",
+    "member": "OK/OK LAB TEST angle 3 one point.wav",
+    "path": "assets/4-batch-lab-test/OK/OK LAB TEST angle 3 one point.wav",
+    "sha256": "7aca5f133052af8031cb7f4ee4996aa9cfbc3ad1aa37c6fa8e8bf6319e8a8c9e",
+    "size_bytes": 7292242
+  },
+  {
+    "archive": "OneDrive_2_9-30-2026.zip",
+    "archive_sha256": "640899299f674254f1b8e725afdde7dedcd63f3927f780aafa6e954ebc1de85c",
+    "member": "OK/OK LAB TEST ANGLE.wav",
+    "path": "assets/4-batch-lab-test/OK/OK LAB TEST ANGLE.wav",
+    "sha256": "83598d3e90a1169223c44e0d0e7da22f8a32907c52157246122d6c222502645a",
+    "size_bytes": 4684882
+  },
+  {
+    "archive": "OneDrive_2_9-30-2026.zip",
+    "archive_sha256": "640899299f674254f1b8e725afdde7dedcd63f3927f780aafa6e954ebc1de85c",
+    "member": "OK/OK lab test.wav",
+    "path": "assets/4-batch-lab-test/OK/OK lab test.wav",
+    "sha256": "b372f72a5c12bcb56efeede648db64b837cf53ff1dbdfb54c170cb83ba0cb6fa",
+    "size_bytes": 8384722
+  }
+]
