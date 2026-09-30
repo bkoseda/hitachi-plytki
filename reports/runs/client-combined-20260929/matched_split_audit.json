@@ -1,0 +1,170 @@
+[
+  {
+    "fold": "Bad_1__OK_1",
+    "train_groups": [
+      "Bad_2",
+      "OK_2",
+      "OK_3"
+    ],
+    "test_groups": [
+      "Bad_1",
+      "OK_1"
+    ],
+    "train_recordings": [
+      "G13",
+      "G14",
+      "G15",
+      "G20",
+      "G21",
+      "R06"
+    ],
+    "test_recordings": [
+      "G04",
+      "G05",
+      "G06",
+      "R02"
+    ],
+    "train_taps": 60,
+    "test_taps": 40
+  },
+  {
+    "fold": "Bad_1__OK_2",
+    "train_groups": [
+      "Bad_2",
+      "OK_1",
+      "OK_3"
+    ],
+    "test_groups": [
+      "Bad_1",
+      "OK_2"
+    ],
+    "train_recordings": [
+      "G04",
+      "G05",
+      "G06",
+      "G20",
+      "G21",
+      "R06"
+    ],
+    "test_recordings": [
+      "G13",
+      "G14",
+      "G15",
+      "R02"
+    ],
+    "train_taps": 60,
+    "test_taps": 40
+  },
+  {
+    "fold": "Bad_1__OK_3",
+    "train_groups": [
+      "Bad_2",
+      "OK_1",
+      "OK_2"
+    ],
+    "test_groups": [
+      "Bad_1",
+      "OK_3"
+    ],
+    "train_recordings": [
+      "G04",
+      "G05",
+      "G06",
+      "G13",
+      "G14",
+      "G15",
+      "R06"
+    ],
+    "test_recordings": [
+      "G20",
+      "G21",
+      "R02"
+    ],
+    "train_taps": 70,
+    "test_taps": 30
+  },
+  {
+    "fold": "Bad_2__OK_1",
+    "train_groups": [
+      "Bad_1",
+      "OK_2",
+      "OK_3"
+    ],
+    "test_groups": [
+      "Bad_2",
+      "OK_1"
+    ],
+    "train_recordings": [
+      "G13",
+      "G14",
+      "G15",
+      "G20",
+      "G21",
+      "R02"
+    ],
+    "test_recordings": [
+      "G04",
+      "G05",
+      "G06",
+      "R06"
+    ],
+    "train_taps": 60,
+    "test_taps": 40
+  },
+  {
+    "fold": "Bad_2__OK_2",
+    "train_groups": [
+      "Bad_1",
+      "OK_1",
+      "OK_3"
+    ],
+    "test_groups": [
+      "Bad_2",
+      "OK_2"
+    ],
+    "train_recordings": [
+      "G04",
+      "G05",
+      "G06",
+      "G20",
+      "G21",
+      "R02"
+    ],
+    "test_recordings": [
+      "G13",
+      "G14",
+      "G15",
+      "R06"
+    ],
+    "train_taps": 60,
+    "test_taps": 40
+  },
+  {
+    "fold": "Bad_2__OK_3",
+    "train_groups": [
+      "Bad_1",
+      "OK_1",
+      "OK_2"
+    ],
+    "test_groups": [
+      "Bad_2",
+      "OK_3"
+    ],
+    "train_recordings": [
+      "G04",
+      "G05",
+      "G06",
+      "G13",
+      "G14",
+      "G15",
+      "R02"
+    ],
+    "test_recordings": [
+      "G20",
+      "G21",
+      "R06"
+    ],
+    "train_taps": 70,
+    "test_taps": 30
+  }
+]

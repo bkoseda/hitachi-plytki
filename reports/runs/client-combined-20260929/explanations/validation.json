@@ -1,0 +1,17 @@
+{
+  "python": "/Users/karolsii/dev/ceramic-ping-lab/.venv/bin/python",
+  "fresh_kernel": true,
+  "code_cells": 7,
+  "errors": 0,
+  "seconds": 41.03,
+  "tests_passed": 6,
+  "previous_four_models_predictions_unchanged": true,
+  "vscode_run_all": true,
+  "vscode_finished": {
+    "finished_utc": "2026-09-29T14:01:49.564845+00:00",
+    "python": "/Users/karolsii/dev/ceramic-ping-lab/.venv/bin/python",
+    "recompute": true
+  },
+  "grouped_controls_checked": 5,
+  "permutation_evaluations": 17640
+}

@@ -72,3 +72,16 @@ Po Run All wyniki są w katalogu wskazanym w `project.json`; kolejne wykonanie a
 Ostatni test wymaga pobranego RealImpact; uruchamia wszystkie notebooki na osobnym WAV i MP3 bez etykiet, bez zmiany `project.json`. Testy podziałów sprawdzają rozdzielenie fizycznych płyt i dopasowanie wzorców tylko na OK. Zapis kontroli VS Code jest w `reports/vscode_validation.json`.
 
 Eksperyment z jedną rakietą i etykietami central/offcenter: [instrukcja sesji badminton](docs/BADMINTON.md).
+
+## Raporty do pobrania z GitHub
+
+Aktualny raport: [30.09 — nowe paczki](reports/runs/client-update-20260930/START.html).
+Poprzednia runda: [29.09 — obie paczki](reports/runs/client-combined-20260929/START.html).
+Po sklonowaniu lub pobraniu i rozpakowaniu całego repo otwórz `START.html`
+w przeglądarce. GitHub pokazuje kod HTML; wykresy i odtwarzacze oglądaj lokalnie.
+Raporty używają audio z sąsiedniego katalogu `assets`, więc zachowaj strukturę repo.
+
+Repo zawiera oryginalne dane, wykonane notebooki, raporty i tabele wyników.
+Środowisko `.venv`, wagi AST oraz pośrednie WAV-y/cache nie są przesyłane.
+Uruchomienie notebooków odtworzy pliki pośrednie; instalacja zależności i pobranie
+wag AST są opisane wyżej oraz w `notebooks/client/START.md`.

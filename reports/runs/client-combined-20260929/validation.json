@@ -1,0 +1,25 @@
+{
+  "python": "/Users/karolsii/dev/ceramic-ping-lab/.venv/bin/python",
+  "notebooks": [
+    {
+      "name": "02_jakosc_obu_paczek",
+      "seconds": 4.93,
+      "code_cells": 7,
+      "errors": 0
+    },
+    {
+      "name": "03_modele_obu_paczek",
+      "seconds": 25.2,
+      "code_cells": 9,
+      "errors": 0
+    }
+  ],
+  "data_checks": {
+    "archive_files_verified": 49,
+    "audio_files": 45,
+    "events": 3613,
+    "embedding_events": 410,
+    "groups_disjoint": true,
+    "unchanged_by_gain": true
+  }
+}

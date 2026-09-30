@@ -1,0 +1,47 @@
+{
+  "native_app": "Microsoft VS Code",
+  "kernel": "/Users/karolsii/dev/ceramic-ping-lab/.venv/bin/python",
+  "python": "3.12.14",
+  "run_all_clicked_for_both": true,
+  "quality_finished": {
+    "notebook": "quality",
+    "finished_utc": "2026-09-29T13:24:20.599870+00:00",
+    "python": "/Users/karolsii/dev/ceramic-ping-lab/.venv/bin/python"
+  },
+  "models_finished": {
+    "notebook": "models",
+    "finished_utc": "2026-09-29T13:29:54.055907+00:00",
+    "python": "/Users/karolsii/dev/ceramic-ping-lab/.venv/bin/python"
+  },
+  "interactive_checks": [
+    "R02 to G13 selection updates waveform, spectrogram and events",
+    "G13 playback completed 0:05",
+    "start time changed to 2.00 seconds and outputs updated"
+  ],
+  "notebooks": [
+    {
+      "name": "02_jakosc_obu_paczek",
+      "code_cells": 7,
+      "errors": 0,
+      "sha256": "6c8e15cfa391feb94e8cebe2ffbae89e35843d108f98a30f2cb1983ec26d1a4a"
+    },
+    {
+      "name": "03_modele_obu_paczek",
+      "code_cells": 9,
+      "errors": 0,
+      "sha256": "83da961f1bd5dc2c59b6061b751164464ff46f079b95d1016233fefabe64bbb6"
+    }
+  ],
+  "html_checks": {
+    "gallery_audio_paths": 45,
+    "all_local_links_exist": true
+  },
+  "data_checks": {
+    "archive_files_verified": 49,
+    "audio_files": 45,
+    "events": 3613,
+    "embedding_events": 410,
+    "groups_disjoint": true,
+    "unchanged_by_gain": true
+  }
+}

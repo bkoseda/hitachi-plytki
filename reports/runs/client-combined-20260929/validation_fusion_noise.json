@@ -1,0 +1,1 @@
+{"seconds": 24.45799620800244, "cells": 9, "errors": 0, "checks": {"archive_files_verified": 49, "audio_files": 45, "events": 3613, "embedding_events": 410, "groups_disjoint": true, "unchanged_by_gain": true, "noise_models": 8, "controlled_snr_windows": 540}}

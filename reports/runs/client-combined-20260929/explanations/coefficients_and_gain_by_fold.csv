@@ -1,0 +1,985 @@
+model,fold,feature,value
+physics + LR,Bad_1__OK_1,peak_hz,0.03984500888663406
+physics + LR,Bad_1__OK_1,centroid_hz,-0.05336441120252861
+physics + LR,Bad_1__OK_1,bandwidth_hz,0.5164516166874382
+physics + LR,Bad_1__OK_1,rolloff85_hz,-0.07751686617723781
+physics + LR,Bad_1__OK_1,flatness,0.5760483485929335
+physics + LR,Bad_1__OK_1,entropy,0.014945002000962979
+physics + LR,Bad_1__OK_1,decay10_s,-0.07565975907891276
+physics + LR,Bad_1__OK_1,late_early_ratio,0.3028623230797649
+physics + LR,Bad_1__OK_1,peak_count,-0.4326498215580627
+physics + LR,Bad_1__OK_1,band_1,0.13135738260641858
+physics + LR,Bad_1__OK_1,band_2,0.22379467303775408
+physics + LR,Bad_1__OK_1,band_3,0.3116592451685406
+physics + LR,Bad_1__OK_1,band_4,0.2535227338157873
+physics + LR,Bad_1__OK_1,band_5,-0.4435030908018293
+physics + LR,Bad_1__OK_1,band_6,0.3003939616016296
+physics + XGB,Bad_1__OK_1,peak_hz,0.08345358073711395
+physics + XGB,Bad_1__OK_1,centroid_hz,0.15663330256938934
+physics + XGB,Bad_1__OK_1,bandwidth_hz,0.06310071796178818
+physics + XGB,Bad_1__OK_1,rolloff85_hz,0.12149699032306671
+physics + XGB,Bad_1__OK_1,flatness,0.1137399822473526
+physics + XGB,Bad_1__OK_1,entropy,0.0
+physics + XGB,Bad_1__OK_1,decay10_s,0.0
+physics + XGB,Bad_1__OK_1,late_early_ratio,0.05387818440794945
+physics + XGB,Bad_1__OK_1,peak_count,0.015176480636000633
+physics + XGB,Bad_1__OK_1,band_1,0.15386547148227692
+physics + XGB,Bad_1__OK_1,band_2,0.0708780288696289
+physics + XGB,Bad_1__OK_1,band_3,0.02167678251862526
+physics + XGB,Bad_1__OK_1,band_4,0.05019523948431015
+physics + XGB,Bad_1__OK_1,band_5,0.08264489471912384
+physics + XGB,Bad_1__OK_1,band_6,0.013260277919471264
+MFCC + LR,Bad_1__OK_1,mfcc_01_mean,-0.11784323575753591
+MFCC + LR,Bad_1__OK_1,mfcc_01_std,0.06657215564211595
+MFCC + LR,Bad_1__OK_1,mfcc_02_mean,0.6861547931350775
+MFCC + LR,Bad_1__OK_1,mfcc_02_std,-0.06559004208556302
+MFCC + LR,Bad_1__OK_1,mfcc_03_mean,-0.21328865486733836
+MFCC + LR,Bad_1__OK_1,mfcc_03_std,-0.2956145710777339
+MFCC + LR,Bad_1__OK_1,mfcc_04_mean,0.017680006663313624
+MFCC + LR,Bad_1__OK_1,mfcc_04_std,0.19792890403313776
+MFCC + LR,Bad_1__OK_1,mfcc_05_mean,0.09793381883714732
+MFCC + LR,Bad_1__OK_1,mfcc_05_std,0.022646757665617193
+MFCC + LR,Bad_1__OK_1,mfcc_06_mean,-0.15813763071788783
+MFCC + LR,Bad_1__OK_1,mfcc_06_std,-0.045039233837115084
+MFCC + LR,Bad_1__OK_1,mfcc_07_mean,-0.3475500269864948
+MFCC + LR,Bad_1__OK_1,mfcc_07_std,-0.2343372824965115
+MFCC + LR,Bad_1__OK_1,mfcc_08_mean,0.10401945261165899
+MFCC + LR,Bad_1__OK_1,mfcc_08_std,-0.05237874419264271
+MFCC + LR,Bad_1__OK_1,mfcc_09_mean,0.49446502017931043
+MFCC + LR,Bad_1__OK_1,mfcc_09_std,-0.07338332707432173
+MFCC + LR,Bad_1__OK_1,mfcc_10_mean,0.5307779721977951
+MFCC + LR,Bad_1__OK_1,mfcc_10_std,-0.4699498399084634
+MFCC + LR,Bad_1__OK_1,mfcc_11_mean,0.23616316016991967
+MFCC + LR,Bad_1__OK_1,mfcc_11_std,-0.4609786594961915
+MFCC + LR,Bad_1__OK_1,mfcc_12_mean,-0.15159429713998795
+MFCC + LR,Bad_1__OK_1,mfcc_12_std,0.21944091417131734
+MFCC + LR,Bad_1__OK_1,mfcc_13_mean,-0.3591797434072436
+MFCC + LR,Bad_1__OK_1,mfcc_13_std,-0.4183081912191344
+MFCC + XGB,Bad_1__OK_1,mfcc_01_mean,0.012812506407499313
+MFCC + XGB,Bad_1__OK_1,mfcc_01_std,0.025695933029055595
+MFCC + XGB,Bad_1__OK_1,mfcc_02_mean,0.13322700560092926
+MFCC + XGB,Bad_1__OK_1,mfcc_02_std,0.0
+MFCC + XGB,Bad_1__OK_1,mfcc_03_mean,0.008882362395524979
+MFCC + XGB,Bad_1__OK_1,mfcc_03_std,0.06902904808521271
+MFCC + XGB,Bad_1__OK_1,mfcc_04_mean,0.018204698339104652
+MFCC + XGB,Bad_1__OK_1,mfcc_04_std,0.0
+MFCC + XGB,Bad_1__OK_1,mfcc_05_mean,0.0
+MFCC + XGB,Bad_1__OK_1,mfcc_05_std,0.0
+MFCC + XGB,Bad_1__OK_1,mfcc_06_mean,0.0
+MFCC + XGB,Bad_1__OK_1,mfcc_06_std,0.01271273847669363
+MFCC + XGB,Bad_1__OK_1,mfcc_07_mean,0.09666275233030319
+MFCC + XGB,Bad_1__OK_1,mfcc_07_std,0.0
+MFCC + XGB,Bad_1__OK_1,mfcc_08_mean,0.0
+MFCC + XGB,Bad_1__OK_1,mfcc_08_std,0.0
+MFCC + XGB,Bad_1__OK_1,mfcc_09_mean,0.10129235684871674
+MFCC + XGB,Bad_1__OK_1,mfcc_09_std,0.0
+MFCC + XGB,Bad_1__OK_1,mfcc_10_mean,0.12432496249675751
+MFCC + XGB,Bad_1__OK_1,mfcc_10_std,0.13391441106796265
+MFCC + XGB,Bad_1__OK_1,mfcc_11_mean,0.1129397451877594
+MFCC + XGB,Bad_1__OK_1,mfcc_11_std,0.0
+MFCC + XGB,Bad_1__OK_1,mfcc_12_mean,0.0
+MFCC + XGB,Bad_1__OK_1,mfcc_12_std,0.0
+MFCC + XGB,Bad_1__OK_1,mfcc_13_mean,0.05872073397040367
+MFCC + XGB,Bad_1__OK_1,mfcc_13_std,0.09158070385456085
+MFCC + physics + LR,Bad_1__OK_1,peak_hz,0.00306991706328327
+MFCC + physics + LR,Bad_1__OK_1,centroid_hz,0.047672395071406824
+MFCC + physics + LR,Bad_1__OK_1,bandwidth_hz,0.24003393467598108
+MFCC + physics + LR,Bad_1__OK_1,rolloff85_hz,0.05528288325670293
+MFCC + physics + LR,Bad_1__OK_1,flatness,0.1946410379390463
+MFCC + physics + LR,Bad_1__OK_1,entropy,0.004729040882662389
+MFCC + physics + LR,Bad_1__OK_1,decay10_s,-0.08961802440352641
+MFCC + physics + LR,Bad_1__OK_1,late_early_ratio,0.13183098586096437
+MFCC + physics + LR,Bad_1__OK_1,peak_count,-0.18158908185388614
+MFCC + physics + LR,Bad_1__OK_1,band_1,0.04997880519901107
+MFCC + physics + LR,Bad_1__OK_1,band_2,0.10947390535718324
+MFCC + physics + LR,Bad_1__OK_1,band_3,0.1884788747466876
+MFCC + physics + LR,Bad_1__OK_1,band_4,-0.027302710176610862
+MFCC + physics + LR,Bad_1__OK_1,band_5,-0.10045804635231574
+MFCC + physics + LR,Bad_1__OK_1,band_6,0.205239848691855
+MFCC + physics + LR,Bad_1__OK_1,mfcc_01_mean,-0.051012570315045976
+MFCC + physics + LR,Bad_1__OK_1,mfcc_01_std,0.028195535504912266
+MFCC + physics + LR,Bad_1__OK_1,mfcc_02_mean,0.523740198155452
+MFCC + physics + LR,Bad_1__OK_1,mfcc_02_std,-0.04442182890898744
+MFCC + physics + LR,Bad_1__OK_1,mfcc_03_mean,-0.1791642749786254
+MFCC + physics + LR,Bad_1__OK_1,mfcc_03_std,-0.2554784730187923
+MFCC + physics + LR,Bad_1__OK_1,mfcc_04_mean,0.01659118345360707
+MFCC + physics + LR,Bad_1__OK_1,mfcc_04_std,0.17326867640370053
+MFCC + physics + LR,Bad_1__OK_1,mfcc_05_mean,0.07337134696615434
+MFCC + physics + LR,Bad_1__OK_1,mfcc_05_std,-0.0012387081750810942
+MFCC + physics + LR,Bad_1__OK_1,mfcc_06_mean,-0.1290699795199134
+MFCC + physics + LR,Bad_1__OK_1,mfcc_06_std,-0.035881152882321396
+MFCC + physics + LR,Bad_1__OK_1,mfcc_07_mean,-0.34017224560099973
+MFCC + physics + LR,Bad_1__OK_1,mfcc_07_std,-0.21857571662439715
+MFCC + physics + LR,Bad_1__OK_1,mfcc_08_mean,0.053735961936039245
+MFCC + physics + LR,Bad_1__OK_1,mfcc_08_std,-0.08975992872472036
+MFCC + physics + LR,Bad_1__OK_1,mfcc_09_mean,0.4742622608733698
+MFCC + physics + LR,Bad_1__OK_1,mfcc_09_std,-0.06542441373708233
+MFCC + physics + LR,Bad_1__OK_1,mfcc_10_mean,0.5469143137268294
+MFCC + physics + LR,Bad_1__OK_1,mfcc_10_std,-0.4564819274594726
+MFCC + physics + LR,Bad_1__OK_1,mfcc_11_mean,0.21650456697578066
+MFCC + physics + LR,Bad_1__OK_1,mfcc_11_std,-0.44224941824336705
+MFCC + physics + LR,Bad_1__OK_1,mfcc_12_mean,-0.1818657592332319
+MFCC + physics + LR,Bad_1__OK_1,mfcc_12_std,0.24702819119254862
+MFCC + physics + LR,Bad_1__OK_1,mfcc_13_mean,-0.3341138015965929
+MFCC + physics + LR,Bad_1__OK_1,mfcc_13_std,-0.3978511837038912
+MFCC + physics + XGB,Bad_1__OK_1,peak_hz,0.0
+MFCC + physics + XGB,Bad_1__OK_1,centroid_hz,0.04731455817818642
+MFCC + physics + XGB,Bad_1__OK_1,bandwidth_hz,0.0
+MFCC + physics + XGB,Bad_1__OK_1,rolloff85_hz,0.05296526849269867
+MFCC + physics + XGB,Bad_1__OK_1,flatness,0.08093895018100739
+MFCC + physics + XGB,Bad_1__OK_1,entropy,0.0
+MFCC + physics + XGB,Bad_1__OK_1,decay10_s,0.0
+MFCC + physics + XGB,Bad_1__OK_1,late_early_ratio,0.0
+MFCC + physics + XGB,Bad_1__OK_1,peak_count,0.0
+MFCC + physics + XGB,Bad_1__OK_1,band_1,0.10591720044612885
+MFCC + physics + XGB,Bad_1__OK_1,band_2,0.016008764505386353
+MFCC + physics + XGB,Bad_1__OK_1,band_3,0.016081396490335464
+MFCC + physics + XGB,Bad_1__OK_1,band_4,0.0
+MFCC + physics + XGB,Bad_1__OK_1,band_5,0.07494401931762695
+MFCC + physics + XGB,Bad_1__OK_1,band_6,0.0
+MFCC + physics + XGB,Bad_1__OK_1,mfcc_01_mean,0.0
+MFCC + physics + XGB,Bad_1__OK_1,mfcc_01_std,0.0061447350308299065
+MFCC + physics + XGB,Bad_1__OK_1,mfcc_02_mean,0.081326924264431
+MFCC + physics + XGB,Bad_1__OK_1,mfcc_02_std,0.0
+MFCC + physics + XGB,Bad_1__OK_1,mfcc_03_mean,0.0025660560932010412
+MFCC + physics + XGB,Bad_1__OK_1,mfcc_03_std,0.014867525547742844
+MFCC + physics + XGB,Bad_1__OK_1,mfcc_04_mean,0.004473503213375807
+MFCC + physics + XGB,Bad_1__OK_1,mfcc_04_std,0.0
+MFCC + physics + XGB,Bad_1__OK_1,mfcc_05_mean,0.0
+MFCC + physics + XGB,Bad_1__OK_1,mfcc_05_std,0.0
+MFCC + physics + XGB,Bad_1__OK_1,mfcc_06_mean,0.0
+MFCC + physics + XGB,Bad_1__OK_1,mfcc_06_std,0.005438975989818573
+MFCC + physics + XGB,Bad_1__OK_1,mfcc_07_mean,0.07037314027547836
+MFCC + physics + XGB,Bad_1__OK_1,mfcc_07_std,0.0055915736593306065
+MFCC + physics + XGB,Bad_1__OK_1,mfcc_08_mean,0.0
+MFCC + physics + XGB,Bad_1__OK_1,mfcc_08_std,0.0
+MFCC + physics + XGB,Bad_1__OK_1,mfcc_09_mean,0.07138670980930328
+MFCC + physics + XGB,Bad_1__OK_1,mfcc_09_std,0.0
+MFCC + physics + XGB,Bad_1__OK_1,mfcc_10_mean,0.07610226422548294
+MFCC + physics + XGB,Bad_1__OK_1,mfcc_10_std,0.10164003819227219
+MFCC + physics + XGB,Bad_1__OK_1,mfcc_11_mean,0.06736653298139572
+MFCC + physics + XGB,Bad_1__OK_1,mfcc_11_std,0.006181137170642614
+MFCC + physics + XGB,Bad_1__OK_1,mfcc_12_mean,0.0
+MFCC + physics + XGB,Bad_1__OK_1,mfcc_12_std,0.0
+MFCC + physics + XGB,Bad_1__OK_1,mfcc_13_mean,0.03723589703440666
+MFCC + physics + XGB,Bad_1__OK_1,mfcc_13_std,0.055134739726781845
+physics + LR,Bad_1__OK_2,peak_hz,0.11760638692782557
+physics + LR,Bad_1__OK_2,centroid_hz,0.25224340247017646
+physics + LR,Bad_1__OK_2,bandwidth_hz,0.2885618756376672
+physics + LR,Bad_1__OK_2,rolloff85_hz,-0.053308442586645154
+physics + LR,Bad_1__OK_2,flatness,0.5779062364617269
+physics + LR,Bad_1__OK_2,entropy,0.032564017218784
+physics + LR,Bad_1__OK_2,decay10_s,-0.37419848519617765
+physics + LR,Bad_1__OK_2,late_early_ratio,0.06615186704400486
+physics + LR,Bad_1__OK_2,peak_count,-0.4556083693021824
+physics + LR,Bad_1__OK_2,band_1,0.06959187683249528
+physics + LR,Bad_1__OK_2,band_2,0.6281852730897486
+physics + LR,Bad_1__OK_2,band_3,-0.18124586431282233
+physics + LR,Bad_1__OK_2,band_4,0.3116630843440199
+physics + LR,Bad_1__OK_2,band_5,-0.47655639195550037
+physics + LR,Bad_1__OK_2,band_6,0.672304409872572
+physics + XGB,Bad_1__OK_2,peak_hz,0.006903527304530144
+physics + XGB,Bad_1__OK_2,centroid_hz,0.10449732095003128
+physics + XGB,Bad_1__OK_2,bandwidth_hz,0.04269913583993912
+physics + XGB,Bad_1__OK_2,rolloff85_hz,0.11133960634469986
+physics + XGB,Bad_1__OK_2,flatness,0.15415799617767334
+physics + XGB,Bad_1__OK_2,entropy,0.0
+physics + XGB,Bad_1__OK_2,decay10_s,0.0
+physics + XGB,Bad_1__OK_2,late_early_ratio,0.05388479679822922
+physics + XGB,Bad_1__OK_2,peak_count,0.003315408481284976
+physics + XGB,Bad_1__OK_2,band_1,0.13386279344558716
+physics + XGB,Bad_1__OK_2,band_2,0.07490485906600952
+physics + XGB,Bad_1__OK_2,band_3,0.00752221466973424
+physics + XGB,Bad_1__OK_2,band_4,0.0715705007314682
+physics + XGB,Bad_1__OK_2,band_5,0.12748533487319946
+physics + XGB,Bad_1__OK_2,band_6,0.10785634070634842
+MFCC + LR,Bad_1__OK_2,mfcc_01_mean,-0.20286402843417395
+MFCC + LR,Bad_1__OK_2,mfcc_01_std,0.01633383348350383
+MFCC + LR,Bad_1__OK_2,mfcc_02_mean,0.8572296496444831
+MFCC + LR,Bad_1__OK_2,mfcc_02_std,-0.14012541085985494
+MFCC + LR,Bad_1__OK_2,mfcc_03_mean,-0.04110703270770654
+MFCC + LR,Bad_1__OK_2,mfcc_03_std,-0.1940839224044642
+MFCC + LR,Bad_1__OK_2,mfcc_04_mean,-0.06901435723255539
+MFCC + LR,Bad_1__OK_2,mfcc_04_std,0.12719761915183284
+MFCC + LR,Bad_1__OK_2,mfcc_05_mean,0.21677093713428053
+MFCC + LR,Bad_1__OK_2,mfcc_05_std,-0.07958072234873813
+MFCC + LR,Bad_1__OK_2,mfcc_06_mean,-0.24436811756373875
+MFCC + LR,Bad_1__OK_2,mfcc_06_std,0.04945046241038321
+MFCC + LR,Bad_1__OK_2,mfcc_07_mean,-0.4178409219632091
+MFCC + LR,Bad_1__OK_2,mfcc_07_std,-0.13392519984116996
+MFCC + LR,Bad_1__OK_2,mfcc_08_mean,-0.037936311791616224
+MFCC + LR,Bad_1__OK_2,mfcc_08_std,0.1530239473213665
+MFCC + LR,Bad_1__OK_2,mfcc_09_mean,0.5756657215000038
+MFCC + LR,Bad_1__OK_2,mfcc_09_std,-0.09692909511523852
+MFCC + LR,Bad_1__OK_2,mfcc_10_mean,0.6317059905350024
+MFCC + LR,Bad_1__OK_2,mfcc_10_std,-0.4595427261907558
+MFCC + LR,Bad_1__OK_2,mfcc_11_mean,0.314265494645679
+MFCC + LR,Bad_1__OK_2,mfcc_11_std,-0.5383875943693377
+MFCC + LR,Bad_1__OK_2,mfcc_12_mean,-0.17227278794706877
+MFCC + LR,Bad_1__OK_2,mfcc_12_std,0.28962429207033646
+MFCC + LR,Bad_1__OK_2,mfcc_13_mean,-0.5170798984437296
+MFCC + LR,Bad_1__OK_2,mfcc_13_std,-0.42094903475909545
+MFCC + XGB,Bad_1__OK_2,mfcc_01_mean,0.09562472254037857
+MFCC + XGB,Bad_1__OK_2,mfcc_01_std,0.0
+MFCC + XGB,Bad_1__OK_2,mfcc_02_mean,0.2089606523513794
+MFCC + XGB,Bad_1__OK_2,mfcc_02_std,0.0
+MFCC + XGB,Bad_1__OK_2,mfcc_03_mean,1.8579228708404116e-05
+MFCC + XGB,Bad_1__OK_2,mfcc_03_std,0.05319119244813919
+MFCC + XGB,Bad_1__OK_2,mfcc_04_mean,0.026718543842434883
+MFCC + XGB,Bad_1__OK_2,mfcc_04_std,0.042427729815244675
+MFCC + XGB,Bad_1__OK_2,mfcc_05_mean,0.0
+MFCC + XGB,Bad_1__OK_2,mfcc_05_std,0.0
+MFCC + XGB,Bad_1__OK_2,mfcc_06_mean,0.0
+MFCC + XGB,Bad_1__OK_2,mfcc_06_std,0.0
+MFCC + XGB,Bad_1__OK_2,mfcc_07_mean,0.05145263671875
+MFCC + XGB,Bad_1__OK_2,mfcc_07_std,0.0
+MFCC + XGB,Bad_1__OK_2,mfcc_08_mean,0.0
+MFCC + XGB,Bad_1__OK_2,mfcc_08_std,0.0
+MFCC + XGB,Bad_1__OK_2,mfcc_09_mean,0.0544273778796196
+MFCC + XGB,Bad_1__OK_2,mfcc_09_std,0.0
+MFCC + XGB,Bad_1__OK_2,mfcc_10_mean,0.08519544452428818
+MFCC + XGB,Bad_1__OK_2,mfcc_10_std,0.04241584986448288
+MFCC + XGB,Bad_1__OK_2,mfcc_11_mean,0.07273709774017334
+MFCC + XGB,Bad_1__OK_2,mfcc_11_std,0.07350916415452957
+MFCC + XGB,Bad_1__OK_2,mfcc_12_mean,0.032957497984170914
+MFCC + XGB,Bad_1__OK_2,mfcc_12_std,0.0021222082432359457
+MFCC + XGB,Bad_1__OK_2,mfcc_13_mean,0.11119633913040161
+MFCC + XGB,Bad_1__OK_2,mfcc_13_std,0.0470450334250927
+MFCC + physics + LR,Bad_1__OK_2,peak_hz,0.042479751842794684
+MFCC + physics + LR,Bad_1__OK_2,centroid_hz,0.14594657384439116
+MFCC + physics + LR,Bad_1__OK_2,bandwidth_hz,0.21594784725617586
+MFCC + physics + LR,Bad_1__OK_2,rolloff85_hz,0.10029840974608065
+MFCC + physics + LR,Bad_1__OK_2,flatness,0.2165808613058634
+MFCC + physics + LR,Bad_1__OK_2,entropy,0.02734849506047423
+MFCC + physics + LR,Bad_1__OK_2,decay10_s,-0.14645554384517112
+MFCC + physics + LR,Bad_1__OK_2,late_early_ratio,0.10605762260414414
+MFCC + physics + LR,Bad_1__OK_2,peak_count,-0.14079686498035873
+MFCC + physics + LR,Bad_1__OK_2,band_1,0.06074484839491785
+MFCC + physics + LR,Bad_1__OK_2,band_2,0.25421029689519986
+MFCC + physics + LR,Bad_1__OK_2,band_3,0.03217012328423331
+MFCC + physics + LR,Bad_1__OK_2,band_4,-0.04508690168453563
+MFCC + physics + LR,Bad_1__OK_2,band_5,-0.08901862548176495
+MFCC + physics + LR,Bad_1__OK_2,band_6,0.2939093549815332
+MFCC + physics + LR,Bad_1__OK_2,mfcc_01_mean,-0.05603709088303953
+MFCC + physics + LR,Bad_1__OK_2,mfcc_01_std,-0.0022053626967205447
+MFCC + physics + LR,Bad_1__OK_2,mfcc_02_mean,0.6101386169446794
+MFCC + physics + LR,Bad_1__OK_2,mfcc_02_std,-0.08860992665378256
+MFCC + physics + LR,Bad_1__OK_2,mfcc_03_mean,-0.048961964266138074
+MFCC + physics + LR,Bad_1__OK_2,mfcc_03_std,-0.1514971043246873
+MFCC + physics + LR,Bad_1__OK_2,mfcc_04_mean,-0.09339429945495593
+MFCC + physics + LR,Bad_1__OK_2,mfcc_04_std,0.12027101729448718
+MFCC + physics + LR,Bad_1__OK_2,mfcc_05_mean,0.17312603474288313
+MFCC + physics + LR,Bad_1__OK_2,mfcc_05_std,-0.08601397896112337
+MFCC + physics + LR,Bad_1__OK_2,mfcc_06_mean,-0.23731551273002588
+MFCC + physics + LR,Bad_1__OK_2,mfcc_06_std,0.058202464297056646
+MFCC + physics + LR,Bad_1__OK_2,mfcc_07_mean,-0.4353687780776145
+MFCC + physics + LR,Bad_1__OK_2,mfcc_07_std,-0.1087934509697194
+MFCC + physics + LR,Bad_1__OK_2,mfcc_08_mean,-0.09468998829725545
+MFCC + physics + LR,Bad_1__OK_2,mfcc_08_std,0.10284136003418398
+MFCC + physics + LR,Bad_1__OK_2,mfcc_09_mean,0.5451360009485884
+MFCC + physics + LR,Bad_1__OK_2,mfcc_09_std,-0.07736015657720206
+MFCC + physics + LR,Bad_1__OK_2,mfcc_10_mean,0.632200257007475
+MFCC + physics + LR,Bad_1__OK_2,mfcc_10_std,-0.43912441822421605
+MFCC + physics + LR,Bad_1__OK_2,mfcc_11_mean,0.27670528320696786
+MFCC + physics + LR,Bad_1__OK_2,mfcc_11_std,-0.5362235078861108
+MFCC + physics + LR,Bad_1__OK_2,mfcc_12_mean,-0.23156313655898386
+MFCC + physics + LR,Bad_1__OK_2,mfcc_12_std,0.3290226970480148
+MFCC + physics + LR,Bad_1__OK_2,mfcc_13_mean,-0.4979793094045961
+MFCC + physics + LR,Bad_1__OK_2,mfcc_13_std,-0.38106124549560744
+MFCC + physics + XGB,Bad_1__OK_2,peak_hz,0.0
+MFCC + physics + XGB,Bad_1__OK_2,centroid_hz,0.025356648489832878
+MFCC + physics + XGB,Bad_1__OK_2,bandwidth_hz,0.026179349049925804
+MFCC + physics + XGB,Bad_1__OK_2,rolloff85_hz,0.054464057087898254
+MFCC + physics + XGB,Bad_1__OK_2,flatness,0.11426182091236115
+MFCC + physics + XGB,Bad_1__OK_2,entropy,0.0
+MFCC + physics + XGB,Bad_1__OK_2,decay10_s,0.0
+MFCC + physics + XGB,Bad_1__OK_2,late_early_ratio,0.0
+MFCC + physics + XGB,Bad_1__OK_2,peak_count,0.0
+MFCC + physics + XGB,Bad_1__OK_2,band_1,0.054343074560165405
+MFCC + physics + XGB,Bad_1__OK_2,band_2,0.0
+MFCC + physics + XGB,Bad_1__OK_2,band_3,0.0
+MFCC + physics + XGB,Bad_1__OK_2,band_4,0.0
+MFCC + physics + XGB,Bad_1__OK_2,band_5,0.0445968434214592
+MFCC + physics + XGB,Bad_1__OK_2,band_6,0.04948011413216591
+MFCC + physics + XGB,Bad_1__OK_2,mfcc_01_mean,0.0
+MFCC + physics + XGB,Bad_1__OK_2,mfcc_01_std,0.0
+MFCC + physics + XGB,Bad_1__OK_2,mfcc_02_mean,0.1773134022951126
+MFCC + physics + XGB,Bad_1__OK_2,mfcc_02_std,0.0
+MFCC + physics + XGB,Bad_1__OK_2,mfcc_03_mean,0.0
+MFCC + physics + XGB,Bad_1__OK_2,mfcc_03_std,0.00176029815338552
+MFCC + physics + XGB,Bad_1__OK_2,mfcc_04_mean,0.005738267209380865
+MFCC + physics + XGB,Bad_1__OK_2,mfcc_04_std,0.01258925162255764
+MFCC + physics + XGB,Bad_1__OK_2,mfcc_05_mean,0.008906162343919277
+MFCC + physics + XGB,Bad_1__OK_2,mfcc_05_std,0.0
+MFCC + physics + XGB,Bad_1__OK_2,mfcc_06_mean,0.0
+MFCC + physics + XGB,Bad_1__OK_2,mfcc_06_std,0.0
+MFCC + physics + XGB,Bad_1__OK_2,mfcc_07_mean,0.0774458795785904
+MFCC + physics + XGB,Bad_1__OK_2,mfcc_07_std,0.0
+MFCC + physics + XGB,Bad_1__OK_2,mfcc_08_mean,0.0
+MFCC + physics + XGB,Bad_1__OK_2,mfcc_08_std,0.0
+MFCC + physics + XGB,Bad_1__OK_2,mfcc_09_mean,0.046591293066740036
+MFCC + physics + XGB,Bad_1__OK_2,mfcc_09_std,0.0
+MFCC + physics + XGB,Bad_1__OK_2,mfcc_10_mean,0.07994981110095978
+MFCC + physics + XGB,Bad_1__OK_2,mfcc_10_std,0.028026649728417397
+MFCC + physics + XGB,Bad_1__OK_2,mfcc_11_mean,0.04361196234822273
+MFCC + physics + XGB,Bad_1__OK_2,mfcc_11_std,0.02055543288588524
+MFCC + physics + XGB,Bad_1__OK_2,mfcc_12_mean,0.0
+MFCC + physics + XGB,Bad_1__OK_2,mfcc_12_std,0.0
+MFCC + physics + XGB,Bad_1__OK_2,mfcc_13_mean,0.09374791383743286
+MFCC + physics + XGB,Bad_1__OK_2,mfcc_13_std,0.03508177772164345
+physics + LR,Bad_1__OK_3,peak_hz,-0.06443770874681083
+physics + LR,Bad_1__OK_3,centroid_hz,-0.13899298700246657
+physics + LR,Bad_1__OK_3,bandwidth_hz,0.2781325763702358
+physics + LR,Bad_1__OK_3,rolloff85_hz,-0.1027513655531676
+physics + LR,Bad_1__OK_3,flatness,0.6207619412069688
+physics + LR,Bad_1__OK_3,entropy,0.32181967685249846
+physics + LR,Bad_1__OK_3,decay10_s,-0.7138812034657894
+physics + LR,Bad_1__OK_3,late_early_ratio,-0.17676306598721128
+physics + LR,Bad_1__OK_3,peak_count,-0.35928587042644494
+physics + LR,Bad_1__OK_3,band_1,0.34399117753097974
+physics + LR,Bad_1__OK_3,band_2,0.20583207944812001
+physics + LR,Bad_1__OK_3,band_3,-0.17965188632340587
+physics + LR,Bad_1__OK_3,band_4,0.738316797540394
+physics + LR,Bad_1__OK_3,band_5,-0.6702340688531366
+physics + LR,Bad_1__OK_3,band_6,0.17335906019347422
+physics + XGB,Bad_1__OK_3,peak_hz,0.0744682028889656
+physics + XGB,Bad_1__OK_3,centroid_hz,0.08503459393978119
+physics + XGB,Bad_1__OK_3,bandwidth_hz,0.055441465228796005
+physics + XGB,Bad_1__OK_3,rolloff85_hz,0.0
+physics + XGB,Bad_1__OK_3,flatness,0.13773943483829498
+physics + XGB,Bad_1__OK_3,entropy,0.0
+physics + XGB,Bad_1__OK_3,decay10_s,0.0
+physics + XGB,Bad_1__OK_3,late_early_ratio,0.12864848971366882
+physics + XGB,Bad_1__OK_3,peak_count,0.0
+physics + XGB,Bad_1__OK_3,band_1,0.25460848212242126
+physics + XGB,Bad_1__OK_3,band_2,0.06492164731025696
+physics + XGB,Bad_1__OK_3,band_3,0.0
+physics + XGB,Bad_1__OK_3,band_4,0.11542342603206635
+physics + XGB,Bad_1__OK_3,band_5,0.08371426165103912
+physics + XGB,Bad_1__OK_3,band_6,0.0
+MFCC + LR,Bad_1__OK_3,mfcc_01_mean,-0.12048935705496276
+MFCC + LR,Bad_1__OK_3,mfcc_01_std,-0.03457417838357125
+MFCC + LR,Bad_1__OK_3,mfcc_02_mean,0.6316957213010236
+MFCC + LR,Bad_1__OK_3,mfcc_02_std,0.05880464141455701
+MFCC + LR,Bad_1__OK_3,mfcc_03_mean,-0.23625655475637136
+MFCC + LR,Bad_1__OK_3,mfcc_03_std,-0.34795679706986
+MFCC + LR,Bad_1__OK_3,mfcc_04_mean,0.30435228579445617
+MFCC + LR,Bad_1__OK_3,mfcc_04_std,0.18779039193109523
+MFCC + LR,Bad_1__OK_3,mfcc_05_mean,0.0805896915480806
+MFCC + LR,Bad_1__OK_3,mfcc_05_std,-0.10917851273361767
+MFCC + LR,Bad_1__OK_3,mfcc_06_mean,0.059877962469233485
+MFCC + LR,Bad_1__OK_3,mfcc_06_std,-0.17938109276870573
+MFCC + LR,Bad_1__OK_3,mfcc_07_mean,-0.4043545672762111
+MFCC + LR,Bad_1__OK_3,mfcc_07_std,-0.3001122158025215
+MFCC + LR,Bad_1__OK_3,mfcc_08_mean,0.25446664834444627
+MFCC + LR,Bad_1__OK_3,mfcc_08_std,-0.08013782022065583
+MFCC + LR,Bad_1__OK_3,mfcc_09_mean,0.6219460337977131
+MFCC + LR,Bad_1__OK_3,mfcc_09_std,-0.03534774877716449
+MFCC + LR,Bad_1__OK_3,mfcc_10_mean,0.5820008055654159
+MFCC + LR,Bad_1__OK_3,mfcc_10_std,-0.36778816676259296
+MFCC + LR,Bad_1__OK_3,mfcc_11_mean,0.18159163196169315
+MFCC + LR,Bad_1__OK_3,mfcc_11_std,-0.18541835231115214
+MFCC + LR,Bad_1__OK_3,mfcc_12_mean,-0.28989371800123176
+MFCC + LR,Bad_1__OK_3,mfcc_12_std,0.23385924628807936
+MFCC + LR,Bad_1__OK_3,mfcc_13_mean,-0.5039455797459856
+MFCC + LR,Bad_1__OK_3,mfcc_13_std,-0.3895731130989444
+MFCC + XGB,Bad_1__OK_3,mfcc_01_mean,0.0
+MFCC + XGB,Bad_1__OK_3,mfcc_01_std,0.013021047227084637
+MFCC + XGB,Bad_1__OK_3,mfcc_02_mean,0.11361878365278244
+MFCC + XGB,Bad_1__OK_3,mfcc_02_std,0.0
+MFCC + XGB,Bad_1__OK_3,mfcc_03_mean,0.05398010462522507
+MFCC + XGB,Bad_1__OK_3,mfcc_03_std,0.07636827975511551
+MFCC + XGB,Bad_1__OK_3,mfcc_04_mean,0.03269105404615402
+MFCC + XGB,Bad_1__OK_3,mfcc_04_std,0.012271841987967491
+MFCC + XGB,Bad_1__OK_3,mfcc_05_mean,0.0
+MFCC + XGB,Bad_1__OK_3,mfcc_05_std,0.0
+MFCC + XGB,Bad_1__OK_3,mfcc_06_mean,0.0
+MFCC + XGB,Bad_1__OK_3,mfcc_06_std,0.03837018832564354
+MFCC + XGB,Bad_1__OK_3,mfcc_07_mean,0.06739065796136856
+MFCC + XGB,Bad_1__OK_3,mfcc_07_std,0.016337590292096138
+MFCC + XGB,Bad_1__OK_3,mfcc_08_mean,0.059192683547735214
+MFCC + XGB,Bad_1__OK_3,mfcc_08_std,0.0
+MFCC + XGB,Bad_1__OK_3,mfcc_09_mean,0.22561369836330414
+MFCC + XGB,Bad_1__OK_3,mfcc_09_std,0.0
+MFCC + XGB,Bad_1__OK_3,mfcc_10_mean,0.07215945422649384
+MFCC + XGB,Bad_1__OK_3,mfcc_10_std,0.0708470568060875
+MFCC + XGB,Bad_1__OK_3,mfcc_11_mean,0.04985753074288368
+MFCC + XGB,Bad_1__OK_3,mfcc_11_std,0.0
+MFCC + XGB,Bad_1__OK_3,mfcc_12_mean,0.0119634959846735
+MFCC + XGB,Bad_1__OK_3,mfcc_12_std,0.0
+MFCC + XGB,Bad_1__OK_3,mfcc_13_mean,0.058059725910425186
+MFCC + XGB,Bad_1__OK_3,mfcc_13_std,0.028256818652153015
+MFCC + physics + LR,Bad_1__OK_3,peak_hz,-0.008396088678548217
+MFCC + physics + LR,Bad_1__OK_3,centroid_hz,-0.008047437070758423
+MFCC + physics + LR,Bad_1__OK_3,bandwidth_hz,0.18743095496832735
+MFCC + physics + LR,Bad_1__OK_3,rolloff85_hz,0.02304209966218274
+MFCC + physics + LR,Bad_1__OK_3,flatness,0.1618313881373902
+MFCC + physics + LR,Bad_1__OK_3,entropy,0.10354688245436883
+MFCC + physics + LR,Bad_1__OK_3,decay10_s,-0.33086562961021165
+MFCC + physics + LR,Bad_1__OK_3,late_early_ratio,-0.10382505759388364
+MFCC + physics + LR,Bad_1__OK_3,peak_count,-0.09350356553505648
+MFCC + physics + LR,Bad_1__OK_3,band_1,0.08237365420978646
+MFCC + physics + LR,Bad_1__OK_3,band_2,0.07825958369792715
+MFCC + physics + LR,Bad_1__OK_3,band_3,-0.022798889600489237
+MFCC + physics + LR,Bad_1__OK_3,band_4,0.15169114875721107
+MFCC + physics + LR,Bad_1__OK_3,band_5,-0.17064596880329672
+MFCC + physics + LR,Bad_1__OK_3,band_6,0.11704221041281414
+MFCC + physics + LR,Bad_1__OK_3,mfcc_01_mean,-0.0030531245287173455
+MFCC + physics + LR,Bad_1__OK_3,mfcc_01_std,-0.008202865562172009
+MFCC + physics + LR,Bad_1__OK_3,mfcc_02_mean,0.48267699118379703
+MFCC + physics + LR,Bad_1__OK_3,mfcc_02_std,0.07590881457290428
+MFCC + physics + LR,Bad_1__OK_3,mfcc_03_mean,-0.20858494539079955
+MFCC + physics + LR,Bad_1__OK_3,mfcc_03_std,-0.3342289984372687
+MFCC + physics + LR,Bad_1__OK_3,mfcc_04_mean,0.2738917970739773
+MFCC + physics + LR,Bad_1__OK_3,mfcc_04_std,0.16114914235959454
+MFCC + physics + LR,Bad_1__OK_3,mfcc_05_mean,0.012463975264228556
+MFCC + physics + LR,Bad_1__OK_3,mfcc_05_std,-0.10366753506729925
+MFCC + physics + LR,Bad_1__OK_3,mfcc_06_mean,0.06652050586413338
+MFCC + physics + LR,Bad_1__OK_3,mfcc_06_std,-0.18640166107027165
+MFCC + physics + LR,Bad_1__OK_3,mfcc_07_mean,-0.3478582487490736
+MFCC + physics + LR,Bad_1__OK_3,mfcc_07_std,-0.281954007652154
+MFCC + physics + LR,Bad_1__OK_3,mfcc_08_mean,0.1901176373203762
+MFCC + physics + LR,Bad_1__OK_3,mfcc_08_std,-0.11098606705668122
+MFCC + physics + LR,Bad_1__OK_3,mfcc_09_mean,0.5712249545763497
+MFCC + physics + LR,Bad_1__OK_3,mfcc_09_std,-0.03931908517446388
+MFCC + physics + LR,Bad_1__OK_3,mfcc_10_mean,0.5573487065982186
+MFCC + physics + LR,Bad_1__OK_3,mfcc_10_std,-0.37362518265217654
+MFCC + physics + LR,Bad_1__OK_3,mfcc_11_mean,0.18159481589452783
+MFCC + physics + LR,Bad_1__OK_3,mfcc_11_std,-0.18395574870903358
+MFCC + physics + LR,Bad_1__OK_3,mfcc_12_mean,-0.28254231621401343
+MFCC + physics + LR,Bad_1__OK_3,mfcc_12_std,0.26701195133991423
+MFCC + physics + LR,Bad_1__OK_3,mfcc_13_mean,-0.4349369203407113
+MFCC + physics + LR,Bad_1__OK_3,mfcc_13_std,-0.39574787683076845
+MFCC + physics + XGB,Bad_1__OK_3,peak_hz,0.0
+MFCC + physics + XGB,Bad_1__OK_3,centroid_hz,0.00012978843005839735
+MFCC + physics + XGB,Bad_1__OK_3,bandwidth_hz,0.0
+MFCC + physics + XGB,Bad_1__OK_3,rolloff85_hz,0.0
+MFCC + physics + XGB,Bad_1__OK_3,flatness,0.07789342105388641
+MFCC + physics + XGB,Bad_1__OK_3,entropy,0.0
+MFCC + physics + XGB,Bad_1__OK_3,decay10_s,0.0
+MFCC + physics + XGB,Bad_1__OK_3,late_early_ratio,0.012105072848498821
+MFCC + physics + XGB,Bad_1__OK_3,peak_count,0.0
+MFCC + physics + XGB,Bad_1__OK_3,band_1,0.07393188774585724
+MFCC + physics + XGB,Bad_1__OK_3,band_2,0.0
+MFCC + physics + XGB,Bad_1__OK_3,band_3,0.0
+MFCC + physics + XGB,Bad_1__OK_3,band_4,0.009199794381856918
+MFCC + physics + XGB,Bad_1__OK_3,band_5,0.008784458041191101
+MFCC + physics + XGB,Bad_1__OK_3,band_6,0.0
+MFCC + physics + XGB,Bad_1__OK_3,mfcc_01_mean,0.0
+MFCC + physics + XGB,Bad_1__OK_3,mfcc_01_std,0.021778538823127747
+MFCC + physics + XGB,Bad_1__OK_3,mfcc_02_mean,0.0872846320271492
+MFCC + physics + XGB,Bad_1__OK_3,mfcc_02_std,0.0
+MFCC + physics + XGB,Bad_1__OK_3,mfcc_03_mean,0.05948782339692116
+MFCC + physics + XGB,Bad_1__OK_3,mfcc_03_std,0.06058919057250023
+MFCC + physics + XGB,Bad_1__OK_3,mfcc_04_mean,0.035579293966293335
+MFCC + physics + XGB,Bad_1__OK_3,mfcc_04_std,0.0
+MFCC + physics + XGB,Bad_1__OK_3,mfcc_05_mean,0.0
+MFCC + physics + XGB,Bad_1__OK_3,mfcc_05_std,0.0
+MFCC + physics + XGB,Bad_1__OK_3,mfcc_06_mean,0.0
+MFCC + physics + XGB,Bad_1__OK_3,mfcc_06_std,0.02376079000532627
+MFCC + physics + XGB,Bad_1__OK_3,mfcc_07_mean,0.05057429522275925
+MFCC + physics + XGB,Bad_1__OK_3,mfcc_07_std,0.020471448078751564
+MFCC + physics + XGB,Bad_1__OK_3,mfcc_08_mean,0.0
+MFCC + physics + XGB,Bad_1__OK_3,mfcc_08_std,0.0
+MFCC + physics + XGB,Bad_1__OK_3,mfcc_09_mean,0.17786085605621338
+MFCC + physics + XGB,Bad_1__OK_3,mfcc_09_std,0.0
+MFCC + physics + XGB,Bad_1__OK_3,mfcc_10_mean,0.06066673994064331
+MFCC + physics + XGB,Bad_1__OK_3,mfcc_10_std,0.11097192019224167
+MFCC + physics + XGB,Bad_1__OK_3,mfcc_11_mean,0.019101694226264954
+MFCC + physics + XGB,Bad_1__OK_3,mfcc_11_std,0.0
+MFCC + physics + XGB,Bad_1__OK_3,mfcc_12_mean,0.020385082811117172
+MFCC + physics + XGB,Bad_1__OK_3,mfcc_12_std,0.0
+MFCC + physics + XGB,Bad_1__OK_3,mfcc_13_mean,0.062006451189517975
+MFCC + physics + XGB,Bad_1__OK_3,mfcc_13_std,0.007436782121658325
+physics + LR,Bad_2__OK_1,peak_hz,-0.0655305564730806
+physics + LR,Bad_2__OK_1,centroid_hz,-0.14217085613334873
+physics + LR,Bad_2__OK_1,bandwidth_hz,0.42031764126364485
+physics + LR,Bad_2__OK_1,rolloff85_hz,0.019464206893640517
+physics + LR,Bad_2__OK_1,flatness,0.647430895402162
+physics + LR,Bad_2__OK_1,entropy,0.1002996082649144
+physics + LR,Bad_2__OK_1,decay10_s,-0.16317029490402543
+physics + LR,Bad_2__OK_1,late_early_ratio,0.33076540369336926
+physics + LR,Bad_2__OK_1,peak_count,-0.1768927658983482
+physics + LR,Bad_2__OK_1,band_1,0.33938110866724364
+physics + LR,Bad_2__OK_1,band_2,0.2044274573533905
+physics + LR,Bad_2__OK_1,band_3,0.2623917268268306
+physics + LR,Bad_2__OK_1,band_4,0.2928557573277591
+physics + LR,Bad_2__OK_1,band_5,-0.5097971526569326
+physics + LR,Bad_2__OK_1,band_6,0.1715434541529802
+physics + XGB,Bad_2__OK_1,peak_hz,0.05267321690917015
+physics + XGB,Bad_2__OK_1,centroid_hz,0.10960352420806885
+physics + XGB,Bad_2__OK_1,bandwidth_hz,0.011725896038115025
+physics + XGB,Bad_2__OK_1,rolloff85_hz,0.10625777393579483
+physics + XGB,Bad_2__OK_1,flatness,0.10360271483659744
+physics + XGB,Bad_2__OK_1,entropy,0.03713229298591614
+physics + XGB,Bad_2__OK_1,decay10_s,0.0
+physics + XGB,Bad_2__OK_1,late_early_ratio,0.0
+physics + XGB,Bad_2__OK_1,peak_count,0.0
+physics + XGB,Bad_2__OK_1,band_1,0.2118348628282547
+physics + XGB,Bad_2__OK_1,band_2,0.14513428509235382
+physics + XGB,Bad_2__OK_1,band_3,0.08412113785743713
+physics + XGB,Bad_2__OK_1,band_4,0.04826232045888901
+physics + XGB,Bad_2__OK_1,band_5,0.07132107764482498
+physics + XGB,Bad_2__OK_1,band_6,0.01833084411919117
+MFCC + LR,Bad_2__OK_1,mfcc_01_mean,0.047303895806908934
+MFCC + LR,Bad_2__OK_1,mfcc_01_std,0.12901125780621986
+MFCC + LR,Bad_2__OK_1,mfcc_02_mean,0.5947202144496243
+MFCC + LR,Bad_2__OK_1,mfcc_02_std,-0.0932919655624768
+MFCC + LR,Bad_2__OK_1,mfcc_03_mean,-0.26587517174875175
+MFCC + LR,Bad_2__OK_1,mfcc_03_std,-0.19890888266129625
+MFCC + LR,Bad_2__OK_1,mfcc_04_mean,0.08801998971540143
+MFCC + LR,Bad_2__OK_1,mfcc_04_std,0.20226944565366806
+MFCC + LR,Bad_2__OK_1,mfcc_05_mean,-0.13340997526341958
+MFCC + LR,Bad_2__OK_1,mfcc_05_std,0.19901481684043884
+MFCC + LR,Bad_2__OK_1,mfcc_06_mean,-0.4126587204210219
+MFCC + LR,Bad_2__OK_1,mfcc_06_std,-0.20500363028577842
+MFCC + LR,Bad_2__OK_1,mfcc_07_mean,0.047518254554725615
+MFCC + LR,Bad_2__OK_1,mfcc_07_std,-0.14139478504488567
+MFCC + LR,Bad_2__OK_1,mfcc_08_mean,0.41415980691949245
+MFCC + LR,Bad_2__OK_1,mfcc_08_std,-0.25091139039383203
+MFCC + LR,Bad_2__OK_1,mfcc_09_mean,0.3547229237149547
+MFCC + LR,Bad_2__OK_1,mfcc_09_std,-0.06439512180467652
+MFCC + LR,Bad_2__OK_1,mfcc_10_mean,0.182163538159484
+MFCC + LR,Bad_2__OK_1,mfcc_10_std,-0.45380990521925546
+MFCC + LR,Bad_2__OK_1,mfcc_11_mean,0.41678588251739196
+MFCC + LR,Bad_2__OK_1,mfcc_11_std,-0.45310937466779666
+MFCC + LR,Bad_2__OK_1,mfcc_12_mean,-0.03172976850300562
+MFCC + LR,Bad_2__OK_1,mfcc_12_std,0.11708454585248675
+MFCC + LR,Bad_2__OK_1,mfcc_13_mean,-0.47021691242779917
+MFCC + LR,Bad_2__OK_1,mfcc_13_std,-0.15906759520043368
+MFCC + XGB,Bad_2__OK_1,mfcc_01_mean,0.0023455375339835882
+MFCC + XGB,Bad_2__OK_1,mfcc_01_std,0.0
+MFCC + XGB,Bad_2__OK_1,mfcc_02_mean,0.1152026578783989
+MFCC + XGB,Bad_2__OK_1,mfcc_02_std,0.1391812562942505
+MFCC + XGB,Bad_2__OK_1,mfcc_03_mean,0.09922066330909729
+MFCC + XGB,Bad_2__OK_1,mfcc_03_std,0.034198153764009476
+MFCC + XGB,Bad_2__OK_1,mfcc_04_mean,0.005711105186492205
+MFCC + XGB,Bad_2__OK_1,mfcc_04_std,0.0
+MFCC + XGB,Bad_2__OK_1,mfcc_05_mean,0.0
+MFCC + XGB,Bad_2__OK_1,mfcc_05_std,0.0023047877475619316
+MFCC + XGB,Bad_2__OK_1,mfcc_06_mean,0.07132837921380997
+MFCC + XGB,Bad_2__OK_1,mfcc_06_std,0.0
+MFCC + XGB,Bad_2__OK_1,mfcc_07_mean,0.005647174082696438
+MFCC + XGB,Bad_2__OK_1,mfcc_07_std,0.0
+MFCC + XGB,Bad_2__OK_1,mfcc_08_mean,0.09617441147565842
+MFCC + XGB,Bad_2__OK_1,mfcc_08_std,0.012598805129528046
+MFCC + XGB,Bad_2__OK_1,mfcc_09_mean,0.038346465677022934
+MFCC + XGB,Bad_2__OK_1,mfcc_09_std,0.0
+MFCC + XGB,Bad_2__OK_1,mfcc_10_mean,0.005699540488421917
+MFCC + XGB,Bad_2__OK_1,mfcc_10_std,0.26863691210746765
+MFCC + XGB,Bad_2__OK_1,mfcc_11_mean,0.039173148572444916
+MFCC + XGB,Bad_2__OK_1,mfcc_11_std,0.02751600183546543
+MFCC + XGB,Bad_2__OK_1,mfcc_12_mean,0.0
+MFCC + XGB,Bad_2__OK_1,mfcc_12_std,0.0
+MFCC + XGB,Bad_2__OK_1,mfcc_13_mean,0.030138175934553146
+MFCC + XGB,Bad_2__OK_1,mfcc_13_std,0.00657681142911315
+MFCC + physics + LR,Bad_2__OK_1,peak_hz,-0.04054991448363266
+MFCC + physics + LR,Bad_2__OK_1,centroid_hz,-0.040072437294246775
+MFCC + physics + LR,Bad_2__OK_1,bandwidth_hz,0.1461000720304119
+MFCC + physics + LR,Bad_2__OK_1,rolloff85_hz,0.03125580467234644
+MFCC + physics + LR,Bad_2__OK_1,flatness,0.26724964067998064
+MFCC + physics + LR,Bad_2__OK_1,entropy,0.07182170146386771
+MFCC + physics + LR,Bad_2__OK_1,decay10_s,-0.1364885341048331
+MFCC + physics + LR,Bad_2__OK_1,late_early_ratio,0.08560645468394797
+MFCC + physics + LR,Bad_2__OK_1,peak_count,-0.022245873580995546
+MFCC + physics + LR,Bad_2__OK_1,band_1,0.14532453821504504
+MFCC + physics + LR,Bad_2__OK_1,band_2,0.10450178555164213
+MFCC + physics + LR,Bad_2__OK_1,band_3,0.13464735107742903
+MFCC + physics + LR,Bad_2__OK_1,band_4,0.1134487253862335
+MFCC + physics + LR,Bad_2__OK_1,band_5,-0.23305500003572377
+MFCC + physics + LR,Bad_2__OK_1,band_6,0.09991102637044835
+MFCC + physics + LR,Bad_2__OK_1,mfcc_01_mean,0.01003410855489453
+MFCC + physics + LR,Bad_2__OK_1,mfcc_01_std,0.08627472244703147
+MFCC + physics + LR,Bad_2__OK_1,mfcc_02_mean,0.4624563446418685
+MFCC + physics + LR,Bad_2__OK_1,mfcc_02_std,-0.05921609632938201
+MFCC + physics + LR,Bad_2__OK_1,mfcc_03_mean,-0.12695449920969454
+MFCC + physics + LR,Bad_2__OK_1,mfcc_03_std,-0.15861337500284461
+MFCC + physics + LR,Bad_2__OK_1,mfcc_04_mean,0.07183421437160836
+MFCC + physics + LR,Bad_2__OK_1,mfcc_04_std,0.21237858105124546
+MFCC + physics + LR,Bad_2__OK_1,mfcc_05_mean,-0.1423896602406795
+MFCC + physics + LR,Bad_2__OK_1,mfcc_05_std,0.16767416807101218
+MFCC + physics + LR,Bad_2__OK_1,mfcc_06_mean,-0.379313244240054
+MFCC + physics + LR,Bad_2__OK_1,mfcc_06_std,-0.1698094784125256
+MFCC + physics + LR,Bad_2__OK_1,mfcc_07_mean,0.02563747658741118
+MFCC + physics + LR,Bad_2__OK_1,mfcc_07_std,-0.1559049077627097
+MFCC + physics + LR,Bad_2__OK_1,mfcc_08_mean,0.35619335708786504
+MFCC + physics + LR,Bad_2__OK_1,mfcc_08_std,-0.25350150869495713
+MFCC + physics + LR,Bad_2__OK_1,mfcc_09_mean,0.29529796088727867
+MFCC + physics + LR,Bad_2__OK_1,mfcc_09_std,-0.02656083787818438
+MFCC + physics + LR,Bad_2__OK_1,mfcc_10_mean,0.18894240284227456
+MFCC + physics + LR,Bad_2__OK_1,mfcc_10_std,-0.42533774448555
+MFCC + physics + LR,Bad_2__OK_1,mfcc_11_mean,0.40429527054659614
+MFCC + physics + LR,Bad_2__OK_1,mfcc_11_std,-0.42523564752743787
+MFCC + physics + LR,Bad_2__OK_1,mfcc_12_mean,-0.0415585725295008
+MFCC + physics + LR,Bad_2__OK_1,mfcc_12_std,0.1420456565623526
+MFCC + physics + LR,Bad_2__OK_1,mfcc_13_mean,-0.4667361929070349
+MFCC + physics + LR,Bad_2__OK_1,mfcc_13_std,-0.1362719409482976
+MFCC + physics + XGB,Bad_2__OK_1,peak_hz,0.0
+MFCC + physics + XGB,Bad_2__OK_1,centroid_hz,0.04135500639677048
+MFCC + physics + XGB,Bad_2__OK_1,bandwidth_hz,0.0036851009353995323
+MFCC + physics + XGB,Bad_2__OK_1,rolloff85_hz,0.048256270587444305
+MFCC + physics + XGB,Bad_2__OK_1,flatness,0.004828988574445248
+MFCC + physics + XGB,Bad_2__OK_1,entropy,0.022087065503001213
+MFCC + physics + XGB,Bad_2__OK_1,decay10_s,0.0
+MFCC + physics + XGB,Bad_2__OK_1,late_early_ratio,0.0
+MFCC + physics + XGB,Bad_2__OK_1,peak_count,0.004805288277566433
+MFCC + physics + XGB,Bad_2__OK_1,band_1,0.09234806150197983
+MFCC + physics + XGB,Bad_2__OK_1,band_2,0.0538724847137928
+MFCC + physics + XGB,Bad_2__OK_1,band_3,0.02540215663611889
+MFCC + physics + XGB,Bad_2__OK_1,band_4,0.0
+MFCC + physics + XGB,Bad_2__OK_1,band_5,0.040043361485004425
+MFCC + physics + XGB,Bad_2__OK_1,band_6,0.0
+MFCC + physics + XGB,Bad_2__OK_1,mfcc_01_mean,0.07180200517177582
+MFCC + physics + XGB,Bad_2__OK_1,mfcc_01_std,0.012429403141140938
+MFCC + physics + XGB,Bad_2__OK_1,mfcc_02_mean,0.09563704580068588
+MFCC + physics + XGB,Bad_2__OK_1,mfcc_02_std,0.03827584534883499
+MFCC + physics + XGB,Bad_2__OK_1,mfcc_03_mean,0.05576508119702339
+MFCC + physics + XGB,Bad_2__OK_1,mfcc_03_std,0.005883838981389999
+MFCC + physics + XGB,Bad_2__OK_1,mfcc_04_mean,0.003292332636192441
+MFCC + physics + XGB,Bad_2__OK_1,mfcc_04_std,0.0
+MFCC + physics + XGB,Bad_2__OK_1,mfcc_05_mean,0.0
+MFCC + physics + XGB,Bad_2__OK_1,mfcc_05_std,0.0
+MFCC + physics + XGB,Bad_2__OK_1,mfcc_06_mean,0.05553432181477547
+MFCC + physics + XGB,Bad_2__OK_1,mfcc_06_std,0.0
+MFCC + physics + XGB,Bad_2__OK_1,mfcc_07_mean,0.0
+MFCC + physics + XGB,Bad_2__OK_1,mfcc_07_std,0.0
+MFCC + physics + XGB,Bad_2__OK_1,mfcc_08_mean,0.07297269999980927
+MFCC + physics + XGB,Bad_2__OK_1,mfcc_08_std,0.01999742165207863
+MFCC + physics + XGB,Bad_2__OK_1,mfcc_09_mean,0.005695324391126633
+MFCC + physics + XGB,Bad_2__OK_1,mfcc_09_std,0.0
+MFCC + physics + XGB,Bad_2__OK_1,mfcc_10_mean,0.002920651575550437
+MFCC + physics + XGB,Bad_2__OK_1,mfcc_10_std,0.15903021395206451
+MFCC + physics + XGB,Bad_2__OK_1,mfcc_11_mean,0.02285059727728367
+MFCC + physics + XGB,Bad_2__OK_1,mfcc_11_std,0.007171043660491705
+MFCC + physics + XGB,Bad_2__OK_1,mfcc_12_mean,0.0
+MFCC + physics + XGB,Bad_2__OK_1,mfcc_12_std,0.0
+MFCC + physics + XGB,Bad_2__OK_1,mfcc_13_mean,0.018710142001509666
+MFCC + physics + XGB,Bad_2__OK_1,mfcc_13_std,0.015348249115049839
+physics + LR,Bad_2__OK_2,peak_hz,0.05942751346672966
+physics + LR,Bad_2__OK_2,centroid_hz,0.01697343316128928
+physics + LR,Bad_2__OK_2,bandwidth_hz,0.2912424218915145
+physics + LR,Bad_2__OK_2,rolloff85_hz,0.021873509131429845
+physics + LR,Bad_2__OK_2,flatness,0.717880914949195
+physics + LR,Bad_2__OK_2,entropy,0.1653591165181608
+physics + LR,Bad_2__OK_2,decay10_s,-0.6698130582945968
+physics + LR,Bad_2__OK_2,late_early_ratio,0.1078922094423243
+physics + LR,Bad_2__OK_2,peak_count,-0.15044409955491908
+physics + LR,Bad_2__OK_2,band_1,0.4075189527354582
+physics + LR,Bad_2__OK_2,band_2,0.49424816740360406
+physics + LR,Bad_2__OK_2,band_3,-0.07163757334393855
+physics + LR,Bad_2__OK_2,band_4,0.18682654231720827
+physics + LR,Bad_2__OK_2,band_5,-0.45966454687958264
+physics + LR,Bad_2__OK_2,band_6,0.26580234679579506
+physics + XGB,Bad_2__OK_2,peak_hz,0.0
+physics + XGB,Bad_2__OK_2,centroid_hz,0.04842997342348099
+physics + XGB,Bad_2__OK_2,bandwidth_hz,0.007803119253367186
+physics + XGB,Bad_2__OK_2,rolloff85_hz,0.0
+physics + XGB,Bad_2__OK_2,flatness,0.1401449739933014
+physics + XGB,Bad_2__OK_2,entropy,0.1147102564573288
+physics + XGB,Bad_2__OK_2,decay10_s,0.022142453119158745
+physics + XGB,Bad_2__OK_2,late_early_ratio,0.01782340183854103
+physics + XGB,Bad_2__OK_2,peak_count,0.0675894170999527
+physics + XGB,Bad_2__OK_2,band_1,0.15964354574680328
+physics + XGB,Bad_2__OK_2,band_2,0.20258493721485138
+physics + XGB,Bad_2__OK_2,band_3,0.0
+physics + XGB,Bad_2__OK_2,band_4,0.08151839673519135
+physics + XGB,Bad_2__OK_2,band_5,0.08767662197351456
+physics + XGB,Bad_2__OK_2,band_6,0.04993295297026634
+MFCC + LR,Bad_2__OK_2,mfcc_01_mean,-0.11462439524618435
+MFCC + LR,Bad_2__OK_2,mfcc_01_std,0.0391025461589828
+MFCC + LR,Bad_2__OK_2,mfcc_02_mean,0.827627565796382
+MFCC + LR,Bad_2__OK_2,mfcc_02_std,-0.13196883127910927
+MFCC + LR,Bad_2__OK_2,mfcc_03_mean,-0.18925596981471576
+MFCC + LR,Bad_2__OK_2,mfcc_03_std,-0.1649732258560959
+MFCC + LR,Bad_2__OK_2,mfcc_04_mean,0.058066094030335726
+MFCC + LR,Bad_2__OK_2,mfcc_04_std,0.26248242622524914
+MFCC + LR,Bad_2__OK_2,mfcc_05_mean,-0.031484130897453624
+MFCC + LR,Bad_2__OK_2,mfcc_05_std,0.13226583762592248
+MFCC + LR,Bad_2__OK_2,mfcc_06_mean,-0.4748040238336001
+MFCC + LR,Bad_2__OK_2,mfcc_06_std,-0.12178826549634947
+MFCC + LR,Bad_2__OK_2,mfcc_07_mean,-0.024497358769846673
+MFCC + LR,Bad_2__OK_2,mfcc_07_std,-0.07133089652628577
+MFCC + LR,Bad_2__OK_2,mfcc_08_mean,0.44777833068654493
+MFCC + LR,Bad_2__OK_2,mfcc_08_std,-0.16447436104916519
+MFCC + LR,Bad_2__OK_2,mfcc_09_mean,0.4917489106273195
+MFCC + LR,Bad_2__OK_2,mfcc_09_std,-0.03822710794541826
+MFCC + LR,Bad_2__OK_2,mfcc_10_mean,0.3849812997313771
+MFCC + LR,Bad_2__OK_2,mfcc_10_std,-0.4383446091507845
+MFCC + LR,Bad_2__OK_2,mfcc_11_mean,0.5328432164517045
+MFCC + LR,Bad_2__OK_2,mfcc_11_std,-0.5627788555714884
+MFCC + LR,Bad_2__OK_2,mfcc_12_mean,-0.10054024310330138
+MFCC + LR,Bad_2__OK_2,mfcc_12_std,0.1957106045327988
+MFCC + LR,Bad_2__OK_2,mfcc_13_mean,-0.6864921424863593
+MFCC + LR,Bad_2__OK_2,mfcc_13_std,-0.15210170164220307
+MFCC + XGB,Bad_2__OK_2,mfcc_01_mean,0.0
+MFCC + XGB,Bad_2__OK_2,mfcc_01_std,0.0
+MFCC + XGB,Bad_2__OK_2,mfcc_02_mean,0.12556864321231842
+MFCC + XGB,Bad_2__OK_2,mfcc_02_std,0.053841639310121536
+MFCC + XGB,Bad_2__OK_2,mfcc_03_mean,0.07845036685466766
+MFCC + XGB,Bad_2__OK_2,mfcc_03_std,0.0
+MFCC + XGB,Bad_2__OK_2,mfcc_04_mean,0.0
+MFCC + XGB,Bad_2__OK_2,mfcc_04_std,0.10063707828521729
+MFCC + XGB,Bad_2__OK_2,mfcc_05_mean,0.0
+MFCC + XGB,Bad_2__OK_2,mfcc_05_std,0.0
+MFCC + XGB,Bad_2__OK_2,mfcc_06_mean,0.08841169625520706
+MFCC + XGB,Bad_2__OK_2,mfcc_06_std,0.0
+MFCC + XGB,Bad_2__OK_2,mfcc_07_mean,0.04364468529820442
+MFCC + XGB,Bad_2__OK_2,mfcc_07_std,0.0
+MFCC + XGB,Bad_2__OK_2,mfcc_08_mean,0.05361170321702957
+MFCC + XGB,Bad_2__OK_2,mfcc_08_std,0.0
+MFCC + XGB,Bad_2__OK_2,mfcc_09_mean,0.028989410027861595
+MFCC + XGB,Bad_2__OK_2,mfcc_09_std,0.0
+MFCC + XGB,Bad_2__OK_2,mfcc_10_mean,0.014513080939650536
+MFCC + XGB,Bad_2__OK_2,mfcc_10_std,0.040449097752571106
+MFCC + XGB,Bad_2__OK_2,mfcc_11_mean,0.12950950860977173
+MFCC + XGB,Bad_2__OK_2,mfcc_11_std,0.056539151817560196
+MFCC + XGB,Bad_2__OK_2,mfcc_12_mean,0.046151719987392426
+MFCC + XGB,Bad_2__OK_2,mfcc_12_std,0.002897439291700721
+MFCC + XGB,Bad_2__OK_2,mfcc_13_mean,0.13678474724292755
+MFCC + XGB,Bad_2__OK_2,mfcc_13_std,0.0
+MFCC + physics + LR,Bad_2__OK_2,peak_hz,-0.011514642394233991
+MFCC + physics + LR,Bad_2__OK_2,centroid_hz,0.023931659452767696
+MFCC + physics + LR,Bad_2__OK_2,bandwidth_hz,0.1595784214605372
+MFCC + physics + LR,Bad_2__OK_2,rolloff85_hz,0.05740310490221149
+MFCC + physics + LR,Bad_2__OK_2,flatness,0.2990648773799398
+MFCC + physics + LR,Bad_2__OK_2,entropy,0.11843749039900667
+MFCC + physics + LR,Bad_2__OK_2,decay10_s,-0.3067802625078341
+MFCC + physics + LR,Bad_2__OK_2,late_early_ratio,0.015729624997606023
+MFCC + physics + LR,Bad_2__OK_2,peak_count,0.016008730784313967
+MFCC + physics + LR,Bad_2__OK_2,band_1,0.18969585704714315
+MFCC + physics + LR,Bad_2__OK_2,band_2,0.18799245246199478
+MFCC + physics + LR,Bad_2__OK_2,band_3,0.008640951539010257
+MFCC + physics + LR,Bad_2__OK_2,band_4,0.09966668268891918
+MFCC + physics + LR,Bad_2__OK_2,band_5,-0.24634804426076365
+MFCC + physics + LR,Bad_2__OK_2,band_6,0.13189351215342754
+MFCC + physics + LR,Bad_2__OK_2,mfcc_01_mean,-0.08818740971758592
+MFCC + physics + LR,Bad_2__OK_2,mfcc_01_std,0.0439466914907262
+MFCC + physics + LR,Bad_2__OK_2,mfcc_02_mean,0.6163324647970344
+MFCC + physics + LR,Bad_2__OK_2,mfcc_02_std,-0.08572573659848981
+MFCC + physics + LR,Bad_2__OK_2,mfcc_03_mean,-0.04864535414925568
+MFCC + physics + LR,Bad_2__OK_2,mfcc_03_std,-0.11165164798467041
+MFCC + physics + LR,Bad_2__OK_2,mfcc_04_mean,0.033062489461419695
+MFCC + physics + LR,Bad_2__OK_2,mfcc_04_std,0.26422937202047747
+MFCC + physics + LR,Bad_2__OK_2,mfcc_05_mean,-0.09331589588736061
+MFCC + physics + LR,Bad_2__OK_2,mfcc_05_std,0.11145707748889612
+MFCC + physics + LR,Bad_2__OK_2,mfcc_06_mean,-0.45055861460352825
+MFCC + physics + LR,Bad_2__OK_2,mfcc_06_std,-0.10220810029239558
+MFCC + physics + LR,Bad_2__OK_2,mfcc_07_mean,-0.039720946852548046
+MFCC + physics + LR,Bad_2__OK_2,mfcc_07_std,-0.1029247188727202
+MFCC + physics + LR,Bad_2__OK_2,mfcc_08_mean,0.3579725203358165
+MFCC + physics + LR,Bad_2__OK_2,mfcc_08_std,-0.18181727994452376
+MFCC + physics + LR,Bad_2__OK_2,mfcc_09_mean,0.39812276959675136
+MFCC + physics + LR,Bad_2__OK_2,mfcc_09_std,0.006694489344028621
+MFCC + physics + LR,Bad_2__OK_2,mfcc_10_mean,0.3531187920630535
+MFCC + physics + LR,Bad_2__OK_2,mfcc_10_std,-0.4439239499442114
+MFCC + physics + LR,Bad_2__OK_2,mfcc_11_mean,0.48484343423324106
+MFCC + physics + LR,Bad_2__OK_2,mfcc_11_std,-0.5486861563345365
+MFCC + physics + LR,Bad_2__OK_2,mfcc_12_mean,-0.11949224879828205
+MFCC + physics + LR,Bad_2__OK_2,mfcc_12_std,0.24822730748069124
+MFCC + physics + LR,Bad_2__OK_2,mfcc_13_mean,-0.6365855509881123
+MFCC + physics + LR,Bad_2__OK_2,mfcc_13_std,-0.12365794302585387
+MFCC + physics + XGB,Bad_2__OK_2,peak_hz,0.0
+MFCC + physics + XGB,Bad_2__OK_2,centroid_hz,0.0075201732106506824
+MFCC + physics + XGB,Bad_2__OK_2,bandwidth_hz,0.0
+MFCC + physics + XGB,Bad_2__OK_2,rolloff85_hz,0.0
+MFCC + physics + XGB,Bad_2__OK_2,flatness,0.1266166865825653
+MFCC + physics + XGB,Bad_2__OK_2,entropy,0.0
+MFCC + physics + XGB,Bad_2__OK_2,decay10_s,0.014347529038786888
+MFCC + physics + XGB,Bad_2__OK_2,late_early_ratio,0.0
+MFCC + physics + XGB,Bad_2__OK_2,peak_count,0.0
+MFCC + physics + XGB,Bad_2__OK_2,band_1,0.09277437627315521
+MFCC + physics + XGB,Bad_2__OK_2,band_2,0.09948612749576569
+MFCC + physics + XGB,Bad_2__OK_2,band_3,0.0
+MFCC + physics + XGB,Bad_2__OK_2,band_4,0.005234085489064455
+MFCC + physics + XGB,Bad_2__OK_2,band_5,0.05142303556203842
+MFCC + physics + XGB,Bad_2__OK_2,band_6,0.010440856218338013
+MFCC + physics + XGB,Bad_2__OK_2,mfcc_01_mean,0.0
+MFCC + physics + XGB,Bad_2__OK_2,mfcc_01_std,0.0
+MFCC + physics + XGB,Bad_2__OK_2,mfcc_02_mean,0.09439247101545334
+MFCC + physics + XGB,Bad_2__OK_2,mfcc_02_std,0.0
+MFCC + physics + XGB,Bad_2__OK_2,mfcc_03_mean,0.00917529035359621
+MFCC + physics + XGB,Bad_2__OK_2,mfcc_03_std,0.0
+MFCC + physics + XGB,Bad_2__OK_2,mfcc_04_mean,0.0
+MFCC + physics + XGB,Bad_2__OK_2,mfcc_04_std,0.06536977738142014
+MFCC + physics + XGB,Bad_2__OK_2,mfcc_05_mean,0.0
+MFCC + physics + XGB,Bad_2__OK_2,mfcc_05_std,0.0
+MFCC + physics + XGB,Bad_2__OK_2,mfcc_06_mean,0.07836060971021652
+MFCC + physics + XGB,Bad_2__OK_2,mfcc_06_std,0.0
+MFCC + physics + XGB,Bad_2__OK_2,mfcc_07_mean,0.0
+MFCC + physics + XGB,Bad_2__OK_2,mfcc_07_std,0.0
+MFCC + physics + XGB,Bad_2__OK_2,mfcc_08_mean,0.023617565631866455
+MFCC + physics + XGB,Bad_2__OK_2,mfcc_08_std,0.0
+MFCC + physics + XGB,Bad_2__OK_2,mfcc_09_mean,0.041024480015039444
+MFCC + physics + XGB,Bad_2__OK_2,mfcc_09_std,0.0
+MFCC + physics + XGB,Bad_2__OK_2,mfcc_10_mean,0.0027683409862220287
+MFCC + physics + XGB,Bad_2__OK_2,mfcc_10_std,0.035339128226041794
+MFCC + physics + XGB,Bad_2__OK_2,mfcc_11_mean,0.04250895977020264
+MFCC + physics + XGB,Bad_2__OK_2,mfcc_11_std,0.056397031992673874
+MFCC + physics + XGB,Bad_2__OK_2,mfcc_12_mean,0.05757186561822891
+MFCC + physics + XGB,Bad_2__OK_2,mfcc_12_std,0.0
+MFCC + physics + XGB,Bad_2__OK_2,mfcc_13_mean,0.08563166111707687
+MFCC + physics + XGB,Bad_2__OK_2,mfcc_13_std,0.0
+physics + LR,Bad_2__OK_3,peak_hz,-0.13517810472045674
+physics + LR,Bad_2__OK_3,centroid_hz,-0.21265704443235595
+physics + LR,Bad_2__OK_3,bandwidth_hz,0.35182103005152765
+physics + LR,Bad_2__OK_3,rolloff85_hz,-0.02598388813060881
+physics + LR,Bad_2__OK_3,flatness,0.7585601585616077
+physics + LR,Bad_2__OK_3,entropy,0.2795716088525871
+physics + LR,Bad_2__OK_3,decay10_s,-0.7565474292284261
+physics + LR,Bad_2__OK_3,late_early_ratio,0.055199296875007575
+physics + LR,Bad_2__OK_3,peak_count,-0.16176648599438295
+physics + LR,Bad_2__OK_3,band_1,0.5496457280804927
+physics + LR,Bad_2__OK_3,band_2,0.21560937020082901
+physics + LR,Bad_2__OK_3,band_3,-0.08748465532991016
+physics + LR,Bad_2__OK_3,band_4,0.6163175600300169
+physics + LR,Bad_2__OK_3,band_5,-0.6032938272863965
+physics + LR,Bad_2__OK_3,band_6,0.1009301296317896
+physics + XGB,Bad_2__OK_3,peak_hz,0.0
+physics + XGB,Bad_2__OK_3,centroid_hz,0.0
+physics + XGB,Bad_2__OK_3,bandwidth_hz,0.0
+physics + XGB,Bad_2__OK_3,rolloff85_hz,0.0
+physics + XGB,Bad_2__OK_3,flatness,0.07123210281133652
+physics + XGB,Bad_2__OK_3,entropy,0.0
+physics + XGB,Bad_2__OK_3,decay10_s,0.054433323442935944
+physics + XGB,Bad_2__OK_3,late_early_ratio,0.031063377857208252
+physics + XGB,Bad_2__OK_3,peak_count,0.0
+physics + XGB,Bad_2__OK_3,band_1,0.29761815071105957
+physics + XGB,Bad_2__OK_3,band_2,0.22151243686676025
+physics + XGB,Bad_2__OK_3,band_3,0.0
+physics + XGB,Bad_2__OK_3,band_4,0.14228315651416779
+physics + XGB,Bad_2__OK_3,band_5,0.10843765735626221
+physics + XGB,Bad_2__OK_3,band_6,0.0734197124838829
+MFCC + LR,Bad_2__OK_3,mfcc_01_mean,0.023270343938882564
+MFCC + LR,Bad_2__OK_3,mfcc_01_std,-0.0321034629237339
+MFCC + LR,Bad_2__OK_3,mfcc_02_mean,0.5937319099363848
+MFCC + LR,Bad_2__OK_3,mfcc_02_std,-0.04990632252864959
+MFCC + LR,Bad_2__OK_3,mfcc_03_mean,-0.25462756515421875
+MFCC + LR,Bad_2__OK_3,mfcc_03_std,-0.26618400651468827
+MFCC + LR,Bad_2__OK_3,mfcc_04_mean,0.32920919788284814
+MFCC + LR,Bad_2__OK_3,mfcc_04_std,0.16835307568102623
+MFCC + LR,Bad_2__OK_3,mfcc_05_mean,-0.051136146854814414
+MFCC + LR,Bad_2__OK_3,mfcc_05_std,0.07263966279472157
+MFCC + LR,Bad_2__OK_3,mfcc_06_mean,-0.18580321523456736
+MFCC + LR,Bad_2__OK_3,mfcc_06_std,-0.2749095285315748
+MFCC + LR,Bad_2__OK_3,mfcc_07_mean,-0.007412813811232063
+MFCC + LR,Bad_2__OK_3,mfcc_07_std,-0.2481138199846723
+MFCC + LR,Bad_2__OK_3,mfcc_08_mean,0.5813055214861998
+MFCC + LR,Bad_2__OK_3,mfcc_08_std,-0.24282735908101005
+MFCC + LR,Bad_2__OK_3,mfcc_09_mean,0.4970236283460972
+MFCC + LR,Bad_2__OK_3,mfcc_09_std,-0.011999226351671827
+MFCC + LR,Bad_2__OK_3,mfcc_10_mean,0.3508486899016261
+MFCC + LR,Bad_2__OK_3,mfcc_10_std,-0.4035542397066236
+MFCC + LR,Bad_2__OK_3,mfcc_11_mean,0.4175889926033715
+MFCC + LR,Bad_2__OK_3,mfcc_11_std,-0.042374925637770254
+MFCC + LR,Bad_2__OK_3,mfcc_12_mean,-0.2190815909462368
+MFCC + LR,Bad_2__OK_3,mfcc_12_std,0.15619927219963298
+MFCC + LR,Bad_2__OK_3,mfcc_13_mean,-0.6347647803654488
+MFCC + LR,Bad_2__OK_3,mfcc_13_std,-0.16433184687275135
+MFCC + XGB,Bad_2__OK_3,mfcc_01_mean,0.015823844820261
+MFCC + XGB,Bad_2__OK_3,mfcc_01_std,0.0
+MFCC + XGB,Bad_2__OK_3,mfcc_02_mean,0.13451935350894928
+MFCC + XGB,Bad_2__OK_3,mfcc_02_std,0.0463087297976017
+MFCC + XGB,Bad_2__OK_3,mfcc_03_mean,0.04167814180254936
+MFCC + XGB,Bad_2__OK_3,mfcc_03_std,0.03514057397842407
+MFCC + XGB,Bad_2__OK_3,mfcc_04_mean,0.09261228889226913
+MFCC + XGB,Bad_2__OK_3,mfcc_04_std,0.03380682319402695
+MFCC + XGB,Bad_2__OK_3,mfcc_05_mean,0.007837305776774883
+MFCC + XGB,Bad_2__OK_3,mfcc_05_std,0.0
+MFCC + XGB,Bad_2__OK_3,mfcc_06_mean,0.0
+MFCC + XGB,Bad_2__OK_3,mfcc_06_std,0.08780822902917862
+MFCC + XGB,Bad_2__OK_3,mfcc_07_mean,0.0
+MFCC + XGB,Bad_2__OK_3,mfcc_07_std,0.0030476092360913754
+MFCC + XGB,Bad_2__OK_3,mfcc_08_mean,0.14073780179023743
+MFCC + XGB,Bad_2__OK_3,mfcc_08_std,0.0
+MFCC + XGB,Bad_2__OK_3,mfcc_09_mean,0.10152817517518997
+MFCC + XGB,Bad_2__OK_3,mfcc_09_std,0.0
+MFCC + XGB,Bad_2__OK_3,mfcc_10_mean,0.01651436649262905
+MFCC + XGB,Bad_2__OK_3,mfcc_10_std,0.08715041726827621
+MFCC + XGB,Bad_2__OK_3,mfcc_11_mean,0.043732136487960815
+MFCC + XGB,Bad_2__OK_3,mfcc_11_std,0.0
+MFCC + XGB,Bad_2__OK_3,mfcc_12_mean,0.03909270092844963
+MFCC + XGB,Bad_2__OK_3,mfcc_12_std,0.0
+MFCC + XGB,Bad_2__OK_3,mfcc_13_mean,0.07266150414943695
+MFCC + XGB,Bad_2__OK_3,mfcc_13_std,0.0
+MFCC + physics + LR,Bad_2__OK_3,peak_hz,-0.033425885201334625
+MFCC + physics + LR,Bad_2__OK_3,centroid_hz,-0.051496928807986904
+MFCC + physics + LR,Bad_2__OK_3,bandwidth_hz,0.11525268681609971
+MFCC + physics + LR,Bad_2__OK_3,rolloff85_hz,0.028960024911729155
+MFCC + physics + LR,Bad_2__OK_3,flatness,0.22633186199862712
+MFCC + physics + LR,Bad_2__OK_3,entropy,0.20149896192140282
+MFCC + physics + LR,Bad_2__OK_3,decay10_s,-0.3002033154892894
+MFCC + physics + LR,Bad_2__OK_3,late_early_ratio,-0.0726013047387075
+MFCC + physics + LR,Bad_2__OK_3,peak_count,0.08331279432723544
+MFCC + physics + LR,Bad_2__OK_3,band_1,0.18127479254532972
+MFCC + physics + LR,Bad_2__OK_3,band_2,0.14615696676795012
+MFCC + physics + LR,Bad_2__OK_3,band_3,-0.0314408033712028
+MFCC + physics + LR,Bad_2__OK_3,band_4,0.2509083612132847
+MFCC + physics + LR,Bad_2__OK_3,band_5,-0.262905673248172
+MFCC + physics + LR,Bad_2__OK_3,band_6,0.052084543811699545
+MFCC + physics + LR,Bad_2__OK_3,mfcc_01_mean,0.015198501757710092
+MFCC + physics + LR,Bad_2__OK_3,mfcc_01_std,0.02710536019981301
+MFCC + physics + LR,Bad_2__OK_3,mfcc_02_mean,0.41334673543694433
+MFCC + physics + LR,Bad_2__OK_3,mfcc_02_std,-0.020741554203545644
+MFCC + physics + LR,Bad_2__OK_3,mfcc_03_mean,-0.12953517153472546
+MFCC + physics + LR,Bad_2__OK_3,mfcc_03_std,-0.21481652653419342
+MFCC + physics + LR,Bad_2__OK_3,mfcc_04_mean,0.30220382885578834
+MFCC + physics + LR,Bad_2__OK_3,mfcc_04_std,0.15744540651884698
+MFCC + physics + LR,Bad_2__OK_3,mfcc_05_mean,-0.13029423029111337
+MFCC + physics + LR,Bad_2__OK_3,mfcc_05_std,0.05528848945634862
+MFCC + physics + LR,Bad_2__OK_3,mfcc_06_mean,-0.14991177842495781
+MFCC + physics + LR,Bad_2__OK_3,mfcc_06_std,-0.25600713860249175
+MFCC + physics + LR,Bad_2__OK_3,mfcc_07_mean,-0.004505170578043929
+MFCC + physics + LR,Bad_2__OK_3,mfcc_07_std,-0.2539646221972299
+MFCC + physics + LR,Bad_2__OK_3,mfcc_08_mean,0.4855948489721678
+MFCC + physics + LR,Bad_2__OK_3,mfcc_08_std,-0.24096247431349288
+MFCC + physics + LR,Bad_2__OK_3,mfcc_09_mean,0.40854680643378044
+MFCC + physics + LR,Bad_2__OK_3,mfcc_09_std,0.03057786353185863
+MFCC + physics + LR,Bad_2__OK_3,mfcc_10_mean,0.3190435167018466
+MFCC + physics + LR,Bad_2__OK_3,mfcc_10_std,-0.38200198728957524
+MFCC + physics + LR,Bad_2__OK_3,mfcc_11_mean,0.37813245151873426
+MFCC + physics + LR,Bad_2__OK_3,mfcc_11_std,-0.050545701981445174
+MFCC + physics + LR,Bad_2__OK_3,mfcc_12_mean,-0.2115058552362972
+MFCC + physics + LR,Bad_2__OK_3,mfcc_12_std,0.17232643081061294
+MFCC + physics + LR,Bad_2__OK_3,mfcc_13_mean,-0.5302658208724055
+MFCC + physics + LR,Bad_2__OK_3,mfcc_13_std,-0.15080933679894484
+MFCC + physics + XGB,Bad_2__OK_3,peak_hz,0.0
+MFCC + physics + XGB,Bad_2__OK_3,centroid_hz,0.009467334486544132
+MFCC + physics + XGB,Bad_2__OK_3,bandwidth_hz,0.02784150093793869
+MFCC + physics + XGB,Bad_2__OK_3,rolloff85_hz,0.0
+MFCC + physics + XGB,Bad_2__OK_3,flatness,0.0
+MFCC + physics + XGB,Bad_2__OK_3,entropy,0.0
+MFCC + physics + XGB,Bad_2__OK_3,decay10_s,0.0
+MFCC + physics + XGB,Bad_2__OK_3,late_early_ratio,0.0
+MFCC + physics + XGB,Bad_2__OK_3,peak_count,0.0
+MFCC + physics + XGB,Bad_2__OK_3,band_1,0.11074051260948181
+MFCC + physics + XGB,Bad_2__OK_3,band_2,0.025699717923998833
+MFCC + physics + XGB,Bad_2__OK_3,band_3,0.0
+MFCC + physics + XGB,Bad_2__OK_3,band_4,0.03020043484866619
+MFCC + physics + XGB,Bad_2__OK_3,band_5,0.04787704348564148
+MFCC + physics + XGB,Bad_2__OK_3,band_6,0.0
+MFCC + physics + XGB,Bad_2__OK_3,mfcc_01_mean,0.0
+MFCC + physics + XGB,Bad_2__OK_3,mfcc_01_std,0.0
+MFCC + physics + XGB,Bad_2__OK_3,mfcc_02_mean,0.10549809038639069
+MFCC + physics + XGB,Bad_2__OK_3,mfcc_02_std,0.037623293697834015
+MFCC + physics + XGB,Bad_2__OK_3,mfcc_03_mean,0.023852141574025154
+MFCC + physics + XGB,Bad_2__OK_3,mfcc_03_std,0.01594766043126583
+MFCC + physics + XGB,Bad_2__OK_3,mfcc_04_mean,0.06012486293911934
+MFCC + physics + XGB,Bad_2__OK_3,mfcc_04_std,0.0
+MFCC + physics + XGB,Bad_2__OK_3,mfcc_05_mean,0.0
+MFCC + physics + XGB,Bad_2__OK_3,mfcc_05_std,0.0
+MFCC + physics + XGB,Bad_2__OK_3,mfcc_06_mean,0.020870642736554146
+MFCC + physics + XGB,Bad_2__OK_3,mfcc_06_std,0.04598977044224739
+MFCC + physics + XGB,Bad_2__OK_3,mfcc_07_mean,0.0
+MFCC + physics + XGB,Bad_2__OK_3,mfcc_07_std,0.021703578531742096
+MFCC + physics + XGB,Bad_2__OK_3,mfcc_08_mean,0.10230648517608643
+MFCC + physics + XGB,Bad_2__OK_3,mfcc_08_std,0.05551508069038391
+MFCC + physics + XGB,Bad_2__OK_3,mfcc_09_mean,0.05125468596816063
+MFCC + physics + XGB,Bad_2__OK_3,mfcc_09_std,0.0
+MFCC + physics + XGB,Bad_2__OK_3,mfcc_10_mean,0.0033654936123639345
+MFCC + physics + XGB,Bad_2__OK_3,mfcc_10_std,0.03438452258706093
+MFCC + physics + XGB,Bad_2__OK_3,mfcc_11_mean,0.006169663742184639
+MFCC + physics + XGB,Bad_2__OK_3,mfcc_11_std,0.0
+MFCC + physics + XGB,Bad_2__OK_3,mfcc_12_mean,0.07314345240592957
+MFCC + physics + XGB,Bad_2__OK_3,mfcc_12_std,0.022787725552916527
+MFCC + physics + XGB,Bad_2__OK_3,mfcc_13_mean,0.04076221585273743
+MFCC + physics + XGB,Bad_2__OK_3,mfcc_13_std,0.026874147355556488

@@ -1,0 +1,19 @@
+model,batch,n,n_nok,accuracy,balanced_accuracy,recall_nok,false_reject_ok,auc,tp,fn,tn,fp
+AST + LR,3-batch-enhancements-off,2,0,0.0,,,1.0,,0,0,0,2
+AST + LR,4-batch-lab-test,13,7,0.7692307692307693,0.7738095238095238,0.7142857142857143,0.16666666666666666,0.7380952380952381,5,2,5,1
+AST + XGB,3-batch-enhancements-off,2,0,0.0,,,1.0,,0,0,0,2
+AST + XGB,4-batch-lab-test,13,7,0.6153846153846154,0.6190476190476191,0.5714285714285714,0.3333333333333333,0.6666666666666666,4,3,4,2
+MFCC + LR,3-batch-enhancements-off,2,0,0.0,,,1.0,,0,0,0,2
+MFCC + LR,4-batch-lab-test,13,7,0.9230769230769231,0.9166666666666667,1.0,0.16666666666666666,1.0,7,0,5,1
+MFCC + XGB,3-batch-enhancements-off,2,0,0.0,,,1.0,,0,0,0,2
+MFCC + XGB,4-batch-lab-test,13,7,0.8461538461538461,0.8333333333333333,1.0,0.3333333333333333,1.0,7,0,4,2
+MFCC + physics + LR,3-batch-enhancements-off,2,0,0.0,,,1.0,,0,0,0,2
+MFCC + physics + LR,4-batch-lab-test,13,7,0.6923076923076923,0.6666666666666666,1.0,0.6666666666666666,1.0,7,0,2,4
+MFCC + physics + XGB,3-batch-enhancements-off,2,0,0.0,,,1.0,,0,0,0,2
+MFCC + physics + XGB,4-batch-lab-test,13,7,0.6153846153846154,0.5833333333333334,1.0,0.8333333333333334,1.0,7,0,1,5
+QC no codec + LR,3-batch-enhancements-off,2,0,1.0,,,0.0,,0,0,2,0
+QC no codec + LR,4-batch-lab-test,13,7,0.46153846153846156,0.5,0.0,0.0,0.3095238095238095,0,7,6,0
+physics + LR,3-batch-enhancements-off,2,0,0.0,,,1.0,,0,0,0,2
+physics + LR,4-batch-lab-test,13,7,0.5384615384615384,0.5,1.0,1.0,0.09523809523809523,7,0,0,6
+physics + XGB,3-batch-enhancements-off,2,0,0.0,,,1.0,,0,0,0,2
+physics + XGB,4-batch-lab-test,13,7,0.5384615384615384,0.5,1.0,1.0,0.2380952380952381,7,0,0,6

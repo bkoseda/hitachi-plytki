@@ -84,7 +84,9 @@ def inventory(root=None):
 def prepare(root=None):
     root = old.find_root(root)
     out = root / OUT_REL
-    if not all((root / old.OUT_REL / name).exists() for name in ["manifest.csv", "features.csv"]):
+    if not all(
+        (root / old.OUT_REL / name).exists() for name in ["manifest.csv", "features.csv", "decoded/R16.wav"]
+    ):
         old.prepare(root)
     new, events, features = old.prepare(root, inventory_frame=inventory(root), out_rel=OUT_REL)
     previous = pd.read_csv(root / old.OUT_REL / "manifest.csv")

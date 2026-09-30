@@ -1,0 +1,13 @@
+level,model,n,n_nok,accuracy,balanced_accuracy,recall_nok,false_reject_ok,auc,tp,fn,tn,fp
+recording,AST + LR,10,2,1.0,1.0,1.0,0.0,1.0,2,0,8,0
+recording,MFCC + LR,10,2,1.0,1.0,1.0,0.0,1.0,2,0,8,0
+recording,QC no codec + LR,10,2,0.9,0.9375,1.0,0.125,1.0,2,0,7,1
+recording,QC only + LR,10,2,1.0,1.0,1.0,0.0,1.0,2,0,8,0
+recording,physics + LR,10,2,0.7,0.625,0.5,0.25,0.875,1,1,6,2
+recording,always OK,10,2,0.8,0.5,0.0,0.0,0.5,0,2,8,0
+assumed_plate,AST + LR,5,2,1.0,1.0,1.0,0.0,1.0,2,0,3,0
+assumed_plate,MFCC + LR,5,2,1.0,1.0,1.0,0.0,1.0,2,0,3,0
+assumed_plate,QC no codec + LR,5,2,1.0,1.0,1.0,0.0,1.0,2,0,3,0
+assumed_plate,QC only + LR,5,2,1.0,1.0,1.0,0.0,1.0,2,0,3,0
+assumed_plate,physics + LR,5,2,0.6,0.5833333333333333,0.5,0.3333333333333333,0.8333333333333334,1,1,2,1
+assumed_plate,always OK,5,2,0.6,0.5,0.0,0.0,0.5,0,2,3,0

@@ -1,0 +1,477 @@
+<!doctype html><html lang="pl"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Ping Lab · nowe paczki 30.09</title><style>body{font:17px/1.6 system-ui;color:#233b42;background:#f6f4ef;margin:0}main{max-width:1120px;padding:38px 26px;margin:auto}h1{font-size:38px;line-height:1.15}h2{margin-top:35px}a{color:#087c83}nav{display:flex;gap:24px}section{border-top:1px solid #ccd7d5;margin-top:35px}img{width:100%;background:white}table{border-collapse:collapse;font-size:13px;white-space:nowrap}td,th{padding:9px;border-bottom:1px solid #ddd;text-align:right}th{background:#e0e9e5}.scroll{overflow-x:auto}details{background:white;padding:15px;margin:12px 0}summary{cursor:pointer}audio{width:100%}footer{margin-top:40px;font-size:14px;color:#53696e}li{margin:12px 0}</style><main><h1>Nowe paczki · 30 września</h1><p>61 plików razem · 16 nowych · 42 nagrania w głównym porównaniu modeli</p>
+<nav><a href="#quality">Jakość</a><a href="#models">Modele</a><a href="#questions">Do klienta</a><a href="#audio">Odsłuch</a></nav>
+<p>Nowe dane są wyraźnie inne. Folder Mic Enhancements Off wygląda lepiej pod kątem zachowania tła: 0/3 plików ma ciąg dokładnych zer dłuższy niż 100 ms. W LAB TEST takie odcinki występują w 13/13 plików, trwają do około 2,4 s; mediana udziału zer w pliku to około 56%. Sam sygnał nie rozstrzyga, czy to bramka, odszumianie, edycja czy przerwy toru.</p><p>Uderzenia są teraz rzadsze: typowy odstęp wynosi około 2,1–2,2 s wobec około 0,28 s wcześniej. To daje miejsce na ogon dźwięku, ale cyfrowe wyciszanie nadal ogranicza badanie zaniku. Nie mamy jeszcze dowodu, że dłuższy ogon poprawi klasyfikację.</p><p>Najważniejszy wynik: model MFCC + regresja uczony tylko na wcześniejszych danych trafia 12/13 plików LAB, lecz odrzuca oba nowe OK z Enhancements Off. Potrzebujemy NOK nagranego w tych samych warunkach z wyłączonymi ulepszeniami. Nie należy cofać tej zmiany po to, żeby poprawić wynik starego modelu.</p><section id="quality"><h2>Co zmieniło się w pomiarach</h2><div class="scroll"><table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>batch</th>
+      <th>files</th>
+      <th>seconds</th>
+      <th>files_zero100ms</th>
+      <th>median_zero_fraction</th>
+      <th>median_floor_dbfs</th>
+      <th>median_peak_dbfs</th>
+      <th>max_clipping</th>
+      <th>accepted</th>
+      <th>median_gap_s</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1-batch-ping</td>
+      <td>24</td>
+      <td>744.562</td>
+      <td>7</td>
+      <td>0.000</td>
+      <td>-77.619</td>
+      <td>-10.443</td>
+      <td>0.000</td>
+      <td>2308</td>
+      <td>0.260</td>
+    </tr>
+    <tr>
+      <td>2-batch-ok</td>
+      <td>21</td>
+      <td>439.930</td>
+      <td>10</td>
+      <td>0.058</td>
+      <td>-77.876</td>
+      <td>-11.601</td>
+      <td>0.000</td>
+      <td>1305</td>
+      <td>0.293</td>
+    </tr>
+    <tr>
+      <td>3-batch-enhancements-off</td>
+      <td>3</td>
+      <td>89.650</td>
+      <td>0</td>
+      <td>0.001</td>
+      <td>-41.841</td>
+      <td>-7.909</td>
+      <td>0.000</td>
+      <td>22</td>
+      <td>2.245</td>
+    </tr>
+    <tr>
+      <td>4-batch-lab-test</td>
+      <td>13</td>
+      <td>526.350</td>
+      <td>13</td>
+      <td>0.555</td>
+      <td>-240.000</td>
+      <td>-6.973</td>
+      <td>0.000</td>
+      <td>236</td>
+      <td>2.110</td>
+    </tr>
+  </tbody>
+</table></div><p>files_zero100ms: liczba plików z ciągiem dokładnego zera &gt;100 ms. median_floor_dbfs: dolny poziom RMS; −240 oznacza cyfrowe zero w obliczeniach. Brak twardego przesterowania nie wyklucza limitera. Wszystkie nowe pliki: 48 kHz, PCM16, dwa identyczne kanały.</p><img src="figures/quality.png"><img src="figures/envelopes.png"><img src="figures/background.png"><p>Nie jest to kontrolowane porównanie tego samego uderzenia przed/po przełączniku. Mikrofon, ustawienie i tożsamość płytki nie są potwierdzone. Brak długich zer nie dowodzi braku wszelkiego przetwarzania.</p></section>
+<section id="models"><h2>Model z wcześniejszych danych → nowe nagrania</h2><div class="scroll"><table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>model</th>
+      <th>n</th>
+      <th>accuracy</th>
+      <th>balanced_accuracy</th>
+      <th>tp</th>
+      <th>fn</th>
+      <th>tn</th>
+      <th>fp</th>
+      <th>auc</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>physics + LR</td>
+      <td>15</td>
+      <td>0.467</td>
+      <td>0.500</td>
+      <td>7</td>
+      <td>0</td>
+      <td>0</td>
+      <td>8</td>
+      <td>0.071</td>
+    </tr>
+    <tr>
+      <td>physics + XGB</td>
+      <td>15</td>
+      <td>0.467</td>
+      <td>0.500</td>
+      <td>7</td>
+      <td>0</td>
+      <td>0</td>
+      <td>8</td>
+      <td>0.179</td>
+    </tr>
+    <tr>
+      <td>MFCC + LR</td>
+      <td>15</td>
+      <td>0.800</td>
+      <td>0.812</td>
+      <td>7</td>
+      <td>0</td>
+      <td>5</td>
+      <td>3</td>
+      <td>0.964</td>
+    </tr>
+    <tr>
+      <td>MFCC + XGB</td>
+      <td>15</td>
+      <td>0.733</td>
+      <td>0.750</td>
+      <td>7</td>
+      <td>0</td>
+      <td>4</td>
+      <td>4</td>
+      <td>0.964</td>
+    </tr>
+    <tr>
+      <td>MFCC + physics + LR</td>
+      <td>15</td>
+      <td>0.600</td>
+      <td>0.625</td>
+      <td>7</td>
+      <td>0</td>
+      <td>2</td>
+      <td>6</td>
+      <td>0.821</td>
+    </tr>
+    <tr>
+      <td>MFCC + physics + XGB</td>
+      <td>15</td>
+      <td>0.533</td>
+      <td>0.562</td>
+      <td>7</td>
+      <td>0</td>
+      <td>1</td>
+      <td>7</td>
+      <td>0.946</td>
+    </tr>
+    <tr>
+      <td>AST + LR</td>
+      <td>15</td>
+      <td>0.667</td>
+      <td>0.670</td>
+      <td>5</td>
+      <td>2</td>
+      <td>5</td>
+      <td>3</td>
+      <td>0.554</td>
+    </tr>
+    <tr>
+      <td>AST + XGB</td>
+      <td>15</td>
+      <td>0.533</td>
+      <td>0.536</td>
+      <td>4</td>
+      <td>3</td>
+      <td>4</td>
+      <td>4</td>
+      <td>0.500</td>
+    </tr>
+    <tr>
+      <td>QC no codec + LR</td>
+      <td>15</td>
+      <td>0.533</td>
+      <td>0.500</td>
+      <td>0</td>
+      <td>7</td>
+      <td>8</td>
+      <td>0</td>
+      <td>0.268</td>
+    </tr>
+  </tbody>
+</table></div><p>tp = wykryte NOK; fn = przeoczone NOK; tn = poprawnie przyjęte OK; fp = błędnie odrzucone OK. Balanced accuracy to średnia wykrywalności NOK i poprawnego przyjmowania OK. AUC mierzy kolejność wyników bez wyboru progu. To nowe nagrania, nie potwierdzony test nowych płytek.</p>
+<h3>Oddzielnie dla obu dostaw</h3><div class="scroll"><table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>model</th>
+      <th>batch</th>
+      <th>n</th>
+      <th>tp</th>
+      <th>fn</th>
+      <th>tn</th>
+      <th>fp</th>
+      <th>auc</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>AST + LR</td>
+      <td>3-batch-enhancements-off</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>2</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>AST + LR</td>
+      <td>4-batch-lab-test</td>
+      <td>13</td>
+      <td>5</td>
+      <td>2</td>
+      <td>5</td>
+      <td>1</td>
+      <td>0.738</td>
+    </tr>
+    <tr>
+      <td>AST + XGB</td>
+      <td>3-batch-enhancements-off</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>2</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>AST + XGB</td>
+      <td>4-batch-lab-test</td>
+      <td>13</td>
+      <td>4</td>
+      <td>3</td>
+      <td>4</td>
+      <td>2</td>
+      <td>0.667</td>
+    </tr>
+    <tr>
+      <td>MFCC + LR</td>
+      <td>3-batch-enhancements-off</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>2</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>MFCC + LR</td>
+      <td>4-batch-lab-test</td>
+      <td>13</td>
+      <td>7</td>
+      <td>0</td>
+      <td>5</td>
+      <td>1</td>
+      <td>1.000</td>
+    </tr>
+    <tr>
+      <td>MFCC + XGB</td>
+      <td>3-batch-enhancements-off</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>2</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>MFCC + XGB</td>
+      <td>4-batch-lab-test</td>
+      <td>13</td>
+      <td>7</td>
+      <td>0</td>
+      <td>4</td>
+      <td>2</td>
+      <td>1.000</td>
+    </tr>
+    <tr>
+      <td>MFCC + physics + LR</td>
+      <td>3-batch-enhancements-off</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>2</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>MFCC + physics + LR</td>
+      <td>4-batch-lab-test</td>
+      <td>13</td>
+      <td>7</td>
+      <td>0</td>
+      <td>2</td>
+      <td>4</td>
+      <td>1.000</td>
+    </tr>
+    <tr>
+      <td>MFCC + physics + XGB</td>
+      <td>3-batch-enhancements-off</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>2</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>MFCC + physics + XGB</td>
+      <td>4-batch-lab-test</td>
+      <td>13</td>
+      <td>7</td>
+      <td>0</td>
+      <td>1</td>
+      <td>5</td>
+      <td>1.000</td>
+    </tr>
+    <tr>
+      <td>QC no codec + LR</td>
+      <td>3-batch-enhancements-off</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>2</td>
+      <td>0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>QC no codec + LR</td>
+      <td>4-batch-lab-test</td>
+      <td>13</td>
+      <td>0</td>
+      <td>7</td>
+      <td>6</td>
+      <td>0</td>
+      <td>0.310</td>
+    </tr>
+    <tr>
+      <td>physics + LR</td>
+      <td>3-batch-enhancements-off</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>2</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>physics + LR</td>
+      <td>4-batch-lab-test</td>
+      <td>13</td>
+      <td>7</td>
+      <td>0</td>
+      <td>0</td>
+      <td>6</td>
+      <td>0.095</td>
+    </tr>
+    <tr>
+      <td>physics + XGB</td>
+      <td>3-batch-enhancements-off</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>2</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>physics + XGB</td>
+      <td>4-batch-lab-test</td>
+      <td>13</td>
+      <td>7</td>
+      <td>0</td>
+      <td>0</td>
+      <td>6</td>
+      <td>0.238</td>
+    </tr>
+  </tbody>
+</table></div><p>Enhancements Off zawiera tylko OK i tło: nie można obliczyć wykrywalności NOK. Wszystkie modele akustyczne mylą oba OK. W LAB wszystkie pliki mają ten sam format PCM, więc sam kodek nie wystarcza do ich rozdzielenia; nie wyklucza to różnic tła i sposobu pomiaru.</p>
+<h2>Łącznie ze starszymi danymi: wpływ ID</h2><ul><li><b>same_BAD2</b>: Nowe BAD2 = stare Bad_2; nowe OK = OK_1. Stare Bad_1 pozostaje osobną płytką.</li><li><b>new_BAD2_merge_old</b>: Nowe BAD2 jest nowe; stare Bad_1 i Bad_2 traktujemy jako jedną sztukę. Nowe OK = OK_1.</li><li><b>new_BAD2_only_old_Bad1</b>: Nowe BAD2 jest nowe; tylko stare Bad_1 jest pewną klasą NOK. Stare Bad_2 wyłączone. Nowe OK = OK_1.</li><li><b>new_BAD2_only_old_Bad2</b>: Nowe BAD2 jest nowe; tylko stare Bad_2 jest pewną klasą NOK. Stare Bad_1 wyłączone. Nowe OK = OK_1.</li></ul><div class="scroll"><table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>scenario</th>
+      <th>model</th>
+      <th>new_BAD2_merge_old</th>
+      <th>new_BAD2_only_old_Bad1</th>
+      <th>new_BAD2_only_old_Bad2</th>
+      <th>same_BAD2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th></th>
+      <td>AST + LR</td>
+      <td>0.385</td>
+      <td>0.385</td>
+      <td>0.346</td>
+      <td>0.654</td>
+    </tr>
+    <tr>
+      <th></th>
+      <td>AST + XGB</td>
+      <td>0.346</td>
+      <td>0.346</td>
+      <td>0.346</td>
+      <td>0.584</td>
+    </tr>
+    <tr>
+      <th></th>
+      <td>MFCC + LR</td>
+      <td>0.837</td>
+      <td>0.871</td>
+      <td>0.878</td>
+      <td>0.962</td>
+    </tr>
+    <tr>
+      <th></th>
+      <td>MFCC + XGB</td>
+      <td>0.748</td>
+      <td>0.748</td>
+      <td>0.782</td>
+      <td>0.834</td>
+    </tr>
+    <tr>
+      <th></th>
+      <td>MFCC + physics + LR</td>
+      <td>0.798</td>
+      <td>0.851</td>
+      <td>0.840</td>
+      <td>0.942</td>
+    </tr>
+    <tr>
+      <th></th>
+      <td>MFCC + physics + XGB</td>
+      <td>0.709</td>
+      <td>0.710</td>
+      <td>0.782</td>
+      <td>0.815</td>
+    </tr>
+    <tr>
+      <th></th>
+      <td>QC no codec + LR</td>
+      <td>0.531</td>
+      <td>0.545</td>
+      <td>0.500</td>
+      <td>0.688</td>
+    </tr>
+    <tr>
+      <th></th>
+      <td>always OK</td>
+      <td>0.500</td>
+      <td>0.500</td>
+      <td>0.500</td>
+      <td>0.500</td>
+    </tr>
+    <tr>
+      <th></th>
+      <td>physics + LR</td>
+      <td>0.594</td>
+      <td>0.614</td>
+      <td>0.545</td>
+      <td>0.656</td>
+    </tr>
+    <tr>
+      <th></th>
+      <td>physics + XGB</td>
+      <td>0.632</td>
+      <td>0.781</td>
+      <td>0.538</td>
+      <td>0.745</td>
+    </tr>
+  </tbody>
+</table></div><p>MFCC + LR daje balanced accuracy około 0,84–0,96 zależnie od scenariusza. To poszlaka użytecznego sygnału, ale zakres scenariuszy nie jest przedziałem ufności. AST nie jest tutaj lepszym wyborem. QC bez analizy widma osiąga około 0,50–0,69, więc nadal sprawdzamy ryzyko różnic warunków. Wyniku łączonego nie należy porównywać wprost z testem starego modelu na nowej dostawie.</p><p>Analizujemy wszystkie 61 plików w kontroli jakości. Model pęknięć obejmuje 42 nagrania z roboczymi etykietami OK/NOK; tło, OLD o nieznanej tożsamości i Bitten są poza głównym treningiem. To nie oznacza, że wyszczerbienie jest niewykrywalne — jest innym rodzajem defektu.</p><p>Detektor szuka nagłych wzrostów krótkookresowego RMS: ramka 10 ms, krok 5 ms, próg zależny od tła, minimalny odstęp 120 ms. Odrzuca zbyt słabe i niepełne okna. W nowych danych przyjął 258 uderzeń; nie traktujemy ich jako ręcznie potwierdzonych trafień. Model dostaje do 10 równomiernie wybranych uderzeń z nagrania: każde to 20 ms przed + 150 ms po początku, z normalizacją amplitudy. Decyzja o nagraniu to mediana wyników uderzeń, próg 0,5.</p><p>Porównujemy physics (15 cech), MFCC (26), ich połączenie (41), zamrożony AST (768). LR: C=0,1. XGBoost: 60 drzew, głębokość 2, bez strojenia na nowych danych. Skalowanie i model uczą się tylko na części treningowej. Kontrola QC używa jedynie poziomu, udziału ciszy i długości pliku, bez widma i kodeka.</p><p>W teście łączonym odkładamy całe grupy uznane w danym scenariuszu za płytki: jedną NOK i jedną OK. Dla powtarzających się odłożeń uśredniamy wynik nagrania. Są to wyniki eksploracyjne, zależne od niepotwierdzonych ID; wiele nagrań tej samej sztuki nie jest wieloma niezależnymi płytkami. Scenariusze nie wyczerpują wszystkich możliwych przypisań. Nowe OK roboczo łączymy z OK_1, ale klient może wskazać inne ID.</p></section>
+<section id="questions"><h2>Krótka lista do potwierdzenia z klientem</h2><ol><li>Czy nowe BAD/BAD2 to ta sama fizyczna płytka co wcześniejsze Bad_2, czy nowa pęknięta sztuka? Prosimy o krótkie przypisanie: folder → ID płytki → pęknięcie / wyszczerbienie / OK.</li><li>Czy pliki w LAB TEST powstały przed czy po wyłączeniu ulepszeń? Czy LAB oznacza inne pomieszczenie, aplikację lub mikrofon? W każdym z tych 13 plików nadal są długie odcinki dokładnego zera.</li><li>Czy OK z LAB i OK z Mic Enhancements Off to ta sama płytka? Która z poprzednich OK? Czy końcówki 2 i 3 oznaczają powtórzenie nagrania, a nie nową sztukę?</li><li>Co oznacza angle (kąt mikrofonu czy uderzenia) oraz single point / one point (miejsce uderzania czy podparcie)? W tych ZIP-ach nie znaleźliśmy nazw no freq ani no frequency.</li></ol><h3>Najbardziej wartościowe dogranie</h3><p>Po jednym krótkim nagraniu OK i każdej rzeczywiście pękniętej płytki przy tym samym mikrofonie, aplikacji, podparciu i wyłączonych ulepszeniach. Kilka uderzeń co około 2 s, kilka sekund tła przed i po, WAV bez dodatkowej obróbki. Nazwy wystarczą proste: ID płytki + OK/pęknięcie/uszczerbienie + ustawienia off. Nie potrzeba rozbudowanego formularza.</p></section>
+<section id="audio"><h2>Wszystkie nowe nagrania</h2><p>Zielone linie: zaakceptowane początki; złote: odrzucone kandydaty. Linie nie są pomiarem czasu zaniku.</p><details><summary>E01 · Mic Enhancements Off/OK no enhacements off.wav</summary><p>30.1 s · 11 przyjętych uderzeń · najdłuższe zero 0.000 s</p><audio controls preload="none" src="../../../assets/3-batch-enhancements-off/Mic%20Enhancements%20Off/OK%20no%20enhacements%20off.wav"></audio><img loading="lazy" src="figures/E01.png" alt="Przebieg i spektrogram E01"></details><details><summary>E02 · Mic Enhancements Off/Ok no enhacements off angle.wav</summary><p>25.1 s · 11 przyjętych uderzeń · najdłuższe zero 0.000 s</p><audio controls preload="none" src="../../../assets/3-batch-enhancements-off/Mic%20Enhancements%20Off/Ok%20no%20enhacements%20off%20angle.wav"></audio><img loading="lazy" src="figures/E02.png" alt="Przebieg i spektrogram E02"></details><details><summary>E03 · Mic Enhancements Off/factory noise- Enhancements off.wav</summary><p>34.4 s · 0 przyjętych uderzeń · najdłuższe zero 0.000 s</p><audio controls preload="none" src="../../../assets/3-batch-enhancements-off/Mic%20Enhancements%20Off/factory%20noise-%20Enhancements%20off.wav"></audio><img loading="lazy" src="figures/E03.png" alt="Przebieg i spektrogram E03"></details><details><summary>L01 · BAD/BAD2/BAD lab test angle single point.wav</summary><p>36.5 s · 15 przyjętych uderzeń · najdłuższe zero 1.360 s</p><audio controls preload="none" src="../../../assets/4-batch-lab-test/BAD/BAD2/BAD%20lab%20test%20angle%20single%20point.wav"></audio><img loading="lazy" src="figures/L01.png" alt="Przebieg i spektrogram L01"></details><details><summary>L02 · BAD/BAD2/NOK LAB TEST 2.wav</summary><p>58.9 s · 25 przyjętych uderzeń · najdłuższe zero 2.067 s</p><audio controls preload="none" src="../../../assets/4-batch-lab-test/BAD/BAD2/NOK%20LAB%20TEST%202.wav"></audio><img loading="lazy" src="figures/L02.png" alt="Przebieg i spektrogram L02"></details><details><summary>L03 · BAD/BAD2/NOK LAB TEST 3.wav</summary><p>56.6 s · 25 przyjętych uderzeń · najdłuższe zero 2.401 s</p><audio controls preload="none" src="../../../assets/4-batch-lab-test/BAD/BAD2/NOK%20LAB%20TEST%203.wav"></audio><img loading="lazy" src="figures/L03.png" alt="Przebieg i spektrogram L03"></details><details><summary>L04 · BAD/BAD2/NOK LAB TEST.wav</summary><p>29.8 s · 14 przyjętych uderzeń · najdłuższe zero 2.133 s</p><audio controls preload="none" src="../../../assets/4-batch-lab-test/BAD/BAD2/NOK%20LAB%20TEST.wav"></audio><img loading="lazy" src="figures/L04.png" alt="Przebieg i spektrogram L04"></details><details><summary>L05 · BAD/BAD2/NOK LAB Test angle.wav</summary><p>55.3 s · 25 przyjętych uderzeń · najdłuższe zero 2.244 s</p><audio controls preload="none" src="../../../assets/4-batch-lab-test/BAD/BAD2/NOK%20LAB%20Test%20angle.wav"></audio><img loading="lazy" src="figures/L05.png" alt="Przebieg i spektrogram L05"></details><details><summary>L06 · BAD/BAD2/NOK LAB test angle 2.wav</summary><p>28.3 s · 14 przyjętych uderzeń · najdłuższe zero 1.546 s</p><audio controls preload="none" src="../../../assets/4-batch-lab-test/BAD/BAD2/NOK%20LAB%20test%20angle%202.wav"></audio><img loading="lazy" src="figures/L06.png" alt="Przebieg i spektrogram L06"></details><details><summary>L07 · BAD/BAD2/NOK lab test angle 3.wav</summary><p>42.7 s · 22 przyjętych uderzeń · najdłuższe zero 1.157 s</p><audio controls preload="none" src="../../../assets/4-batch-lab-test/BAD/BAD2/NOK%20lab%20test%20angle%203.wav"></audio><img loading="lazy" src="figures/L07.png" alt="Przebieg i spektrogram L07"></details><details><summary>L08 · OK/OK LAB TEST 2.wav</summary><p>41.3 s · 22 przyjętych uderzeń · najdłuższe zero 1.369 s</p><audio controls preload="none" src="../../../assets/4-batch-lab-test/OK/OK%20LAB%20TEST%202.wav"></audio><img loading="lazy" src="figures/L08.png" alt="Przebieg i spektrogram L08"></details><details><summary>L09 · OK/OK LAB TEST 3.wav</summary><p>35.8 s · 17 przyjętych uderzeń · najdłuższe zero 1.475 s</p><audio controls preload="none" src="../../../assets/4-batch-lab-test/OK/OK%20LAB%20TEST%203.wav"></audio><img loading="lazy" src="figures/L09.png" alt="Przebieg i spektrogram L09"></details><details><summary>L10 · OK/OK LAB TEST ANGLE 2.wav</summary><p>35.0 s · 16 przyjętych uderzeń · najdłuższe zero 1.079 s</p><audio controls preload="none" src="../../../assets/4-batch-lab-test/OK/OK%20LAB%20TEST%20ANGLE%202.wav"></audio><img loading="lazy" src="figures/L10.png" alt="Przebieg i spektrogram L10"></details><details><summary>L11 · OK/OK LAB TEST ANGLE.wav</summary><p>24.4 s · 8 przyjętych uderzeń · najdłuższe zero 1.027 s</p><audio controls preload="none" src="../../../assets/4-batch-lab-test/OK/OK%20LAB%20TEST%20ANGLE.wav"></audio><img loading="lazy" src="figures/L11.png" alt="Przebieg i spektrogram L11"></details><details><summary>L12 · OK/OK LAB TEST angle 3 one point.wav</summary><p>38.0 s · 12 przyjętych uderzeń · najdłuższe zero 1.256 s</p><audio controls preload="none" src="../../../assets/4-batch-lab-test/OK/OK%20LAB%20TEST%20angle%203%20one%20point.wav"></audio><img loading="lazy" src="figures/L12.png" alt="Przebieg i spektrogram L12"></details><details><summary>L13 · OK/OK lab test.wav</summary><p>43.7 s · 21 przyjętych uderzeń · najdłuższe zero 1.646 s</p><audio controls preload="none" src="../../../assets/4-batch-lab-test/OK/OK%20lab%20test.wav"></audio><img loading="lazy" src="figures/L13.png" alt="Przebieg i spektrogram L13"></details></section>
+<footer>Notebook: notebooks/client/05_nowe_paczki_20260930.ipynb · Oryginały: assets/3-batch-enhancements-off i assets/4-batch-lab-test. Raport czyta audio z repo; nie jest samodzielną paczką. Bez wysyłania danych do usług zewnętrznych.</footer></main></html>

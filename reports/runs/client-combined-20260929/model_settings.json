@@ -1,0 +1,18 @@
+{
+  "positive_class": "NOK crack",
+  "threshold": 0.5,
+  "aggregation": "median taps, mean held-out fits, median recordings per group",
+  "lr_C": 0.1,
+  "xgb_trees": 60,
+  "xgb_depth": 2,
+  "xgb_lambda": 10,
+  "seed": 17,
+  "hyperparameter_search": false,
+  "primary": "MFCC + LR",
+  "ast": "frozen benchmark",
+  "group_status": "user-authorized assumption of 3 distinct OK plates; not client-confirmed",
+  "excluded": "OLD identities unknown; Bitten is a different defect; files under 2 seconds",
+  "weights": "equal class weight, equal group weight within each class",
+  "confidence_intervals": false,
+  "caveat": "2 NOK objects; repeated folds are not independent observations; codec and acquisition confounded"
+}

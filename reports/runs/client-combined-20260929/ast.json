@@ -1,0 +1,10 @@
+{
+  "revision": "f826b80d28226b62986cc218e5cec390b1096902",
+  "events": 410,
+  "sample_rate": 16000,
+  "dimensions": 768,
+  "frozen": true,
+  "normalized": true,
+  "per_recording": 10,
+  "comment": "170 ms clips padded by standard AST processor; no content above 8 kHz"
+}

@@ -1,0 +1,18 @@
+{
+  "finished_utc": "2026-09-29T15:37:01.208060+00:00",
+  "notebooks": [
+    {
+      "name": "03_modele_obu_paczek",
+      "code_cells": 9,
+      "errors": 0
+    },
+    {
+      "name": "04_cechy_i_tlo",
+      "code_cells": 7,
+      "errors": 0
+    }
+  ],
+  "pytest_passed": 27,
+  "vscode_04": "Run All completed, saved 7 executed cells",
+  "vscode_03": "fresh-kernel nbclient passed; native UI restart stalled, new stalled kernel stopped; current UI Run All not confirmed"
+}

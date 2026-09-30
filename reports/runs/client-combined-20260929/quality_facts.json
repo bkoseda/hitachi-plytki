@@ -1,0 +1,18 @@
+{
+  "audio_files": 45,
+  "duration_s": 1184.492,
+  "accepted_candidates": 3613,
+  "core_files": 27,
+  "core_candidates": 2621,
+  "n_files_zero_run_100ms": 17,
+  "n_ok_files_zero_run_100ms": 10,
+  "all_dual_mono": true,
+  "max_clip_fraction": 0.0,
+  "median_file_gap_s": 0.2799999999999993,
+  "background_seconds": 31.594666666666665,
+  "short_files": [
+    "G11",
+    "G12",
+    "G16"
+  ]
+}

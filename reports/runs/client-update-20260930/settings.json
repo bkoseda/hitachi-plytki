@@ -1,0 +1,10 @@
+{
+  "version": "client-v2-170ms-01",
+  "sr": 48000,
+  "pre_s": 0.02,
+  "tail_s": 0.15,
+  "min_gap_s": 0.12,
+  "contrast_db": 12,
+  "representative_taps": 10,
+  "group_ids": "unconfirmed folder hypothesis"
+}
