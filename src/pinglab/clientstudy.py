@@ -116,12 +116,12 @@ def inventory(root):
     return table
 
 
-def prepare(root=None, force=False):
+def prepare(root=None, force=False, *, inventory_frame=None, out_rel=OUT_REL):
     root = find_root(root)
-    out = root / OUT_REL
+    out = root / out_rel
     for name in ["cache", "decoded", "clips", "figures"]:
         (out / name).mkdir(parents=True, exist_ok=True)
-    inventory_frame = inventory(root)
+    inventory_frame = inventory(root) if inventory_frame is None else inventory_frame.copy()
     all_qc, all_events, all_features = [], [], []
     for row in inventory_frame.to_dict("records"):
         rid = row["recording_id"]
@@ -275,11 +275,11 @@ def representative_events(features, per_file=10):
     )
 
 
-def embeddings(root=None, force=False):
+def embeddings(root=None, force=False, *, out_rel=OUT_REL):
     from .embeddings import ASTEncoder
 
     root = find_root(root)
-    out = root / OUT_REL
+    out = root / out_rel
     ft = pd.read_csv(out / "features.csv")
     selected = representative_events(ft)
     cache = root / "data/cache/client-combined-ast"
@@ -324,8 +324,8 @@ def embeddings(root=None, force=False):
     return result
 
 
-def load(root=None):
-    out = find_root(root) / OUT_REL
+def load(root=None, *, out_rel=OUT_REL):
+    out = find_root(root) / out_rel
     return (
         pd.read_csv(out / "manifest.csv"),
         pd.read_csv(out / "candidate_audit.csv"),
@@ -333,13 +333,13 @@ def load(root=None):
     )
 
 
-def inspect_recording(recording_id="R02", start_s=0, duration_s=5, root=None):
+def inspect_recording(recording_id="R02", start_s=0, duration_s=5, root=None, *, out_rel=OUT_REL):
     """Notebook widget callback; fixed waveform scale, audio not normalized."""
     import matplotlib.pyplot as plt
     from IPython.display import Audio, display
 
     root = find_root(root)
-    records, events, _ = load(root)
+    records, events, _ = load(root, out_rel=out_rel)
     row = records.set_index("recording_id").loc[recording_id]
     x, sr = decode(root / row.path)
     y = x[:, int(row.selected_channel)]
@@ -380,15 +380,20 @@ def inspect_recording(recording_id="R02", start_s=0, duration_s=5, root=None):
     )
 
 
-def recording_widget(root=None):
+def recording_widget(root=None, *, out_rel=OUT_REL):
     import ipywidgets as w
     from IPython.display import display
     from IPython.utils.capture import capture_output
 
     root = find_root(root)
-    records, _, _ = load(root)
+    records, _, _ = load(root, out_rel=out_rel)
     options = [(f"{r.recording_id} · {r.filename}", r.recording_id) for r in records.itertuples()]
-    pick = w.Dropdown(options=options, value="R02", description="Nagranie", layout=w.Layout(width="90%"))
+    pick = w.Dropdown(
+        options=options,
+        value=records.recording_id.iloc[0],
+        description="Nagranie",
+        layout=w.Layout(width="90%"),
+    )
     start = w.FloatSlider(
         min=0, max=60, step=0.1, value=0, description="Początek [s]", continuous_update=False
     )
@@ -402,7 +407,7 @@ def recording_widget(root=None):
         # Assign rendered MIME bundles directly. Output's IOPub interception can
         # deadlock nbclient with current ipykernel, though it works interactively.
         with capture_output() as captured:
-            inspect_recording(pick.value, start.value, length.value, root)
+            inspect_recording(pick.value, start.value, length.value, root, out_rel=out_rel)
         output.outputs = tuple(
             {"output_type": "display_data", "data": item.data, "metadata": item.metadata}
             for item in captured.outputs

@@ -1,7 +1,17 @@
-# Dwie paczki klienta
+# Nagrania klienta
 
 Otwórz cały folder `ceramic-ping-lab` w VS Code. W notebooku wybierz kernel
 **Ping Lab (Python)** albo lokalny **.venv (Python 3.12)** i kliknij **Run All**.
+
+**Aktualna runda 30.09:** [05_nowe_paczki_20260930.ipynb](05_nowe_paczki_20260930.ipynb).
+W jednym notebooku: 61 plików (16 nowych), kontrola wyciszania, odsłuch,
+segmentacja, test starego modelu na nowej dostawie oraz połączone dane
+z jawnymi wariantami niepewnych ID płytek.
+[Nowy raport HTML](../../reports/runs/client-update-20260930/START.html).
+[Wnioski i pytania o nazwy](../../docs/CLIENT_UPDATE_20260930.md).
+[Spis czterech dostaw](../../assets/CLIENT_DATA.md).
+
+Poniższe notebooki 02–04 pozostają zapisem rundy z 29.09 (45 plików):
 
 1. [02_jakosc_obu_paczek.ipynb](02_jakosc_obu_paczek.ipynb) — zacznij tutaj:
    komplet danych, wyciszanie, odsłuch z wyborem pliku, segmentacja, spektrogramy,
@@ -40,4 +50,4 @@ skończone embeddingi i niezmienność wyniku po zmianie samego poziomu.
 [Sprawdzone także przez Run All w VS Code](../../docs/CLIENT_COMBINED_VALIDATION.md).
 
 `01_wstepna_analiza.ipynb` dotyczy wcześniejszej pierwszej paczki i pozostaje
-jako zapis poprzedniej rundy. Do aktualnego przeglądu używaj 02 i 03.
+jako zapis poprzedniej rundy. Do aktualnego przeglądu używaj 05.

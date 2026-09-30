@@ -1,9 +1,10 @@
 # Ping Lab — notebooki na pierwszy dzień
 
-**Aktualne nagrania klienta (29.09.2026):** zacznij od
-[notebooków obu paczek](notebooks/client/START.md). Są tam osobne notebooki
-jakości i modeli, raport oraz zalecenia do kolejnej sesji. Oba sprawdzono
-przez Run All w VS Code na lokalnej `.venv`.
+**Aktualne nagrania klienta (30.09.2026):** otwórz
+[05_nowe_paczki_20260930.ipynb](notebooks/client/05_nowe_paczki_20260930.ipynb).
+Łączy cztery dostawy: jakość, odsłuch, segmentacja, MFCC/physics/AST + LR/XGB
+oraz scenariusze niepewnych ID płytek. [Mapa notebooków](notebooks/client/START.md),
+[spis danych](assets/CLIENT_DATA.md), [wnioski](docs/CLIENT_UPDATE_20260930.md).
 
 Otwórz cały folder projektu w VS Code, wybierz lokalny kernel `.venv` / **Ping Lab (Python)** i uruchom **notebooks/00_eksploracja_do_przegladu.ipynb → Run All**.
 
